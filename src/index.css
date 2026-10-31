@@ -20,6 +20,7 @@
 
 * {
 	box-sizing: border-box;
+	background-color: var(--background-second);
 }
 
 html {
@@ -50,11 +51,11 @@ a {
 
 .section {
     padding: 60px 0;
-    background-color: var(--background-second);
+    background-color: var(--background-first);
 }
 
 .section--gray {
-    background: var(--gray);
+    background-color: var(--background-second);
 }
 
 .section-title {
@@ -76,16 +77,18 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     padding: 12px 18px;
     border: 0;
     border-radius: 5px;
     font-size: 12px;
+
     font-weight: 600;
     white-space: nowrap;
 }
 
 .button--orange {
-    background: var(--orange);
+    background: var(--accent-color);
     color: var(--dark);
 }
 

@@ -2,9 +2,11 @@ import { useState } from "react";
 import "./Home.css";
 
 import LogoVeteran from "../../public/Assets/Logo-Veteran.svg";
+import DownArrow from '../../public/Assets/Header-arrow-down.svg';
 
 const services = [
   {
+    id: "painting-service",
     title: "Покрасим ваши изделия",
     description: "От 1 штуки до партий в несколько м².",
     details:
@@ -13,6 +15,7 @@ const services = [
     link: "Рассчитать стоимость",
   },
   {
+    id: "equipment-solutions",
     title: "Поставим оборудование",
     description:
       "Камеры нанесения, печи полимеризации, транспортные системы, линии порошковой окраски под ключ.",
@@ -21,6 +24,7 @@ const services = [
     link: "Подобрать оборудование",
   },
   {
+    id: "product-solutions",
     title: "Отгрузим продукцию",
     description:
       "Лофт-мебель, металлокаркасы, бытовки (модульные здания).",
@@ -39,18 +43,22 @@ const statistics = [
 
 const paintingServices = [
   {
+    id: "powder-coating",
     title: "Порошковая окраска металлоконструкций",
     description: "Партии любого объёма, по договору",
   },
   {
+    id: "radiator-painting",
     title: "Покраска радиаторов",
     description: "Чугунных, стальных, алюминиевых",
   },
   {
+    id: "oversized-painting",
     title: "Крупногабаритная окраска",
     description: "Изделия до 7 × 1,4 × 2,5 м",
   },
   {
+    id: "sandblasting",
     title: "Пескоструйная обработка",
     description: "Очистка до степени Sa 2½",
   },
@@ -84,17 +92,52 @@ const questions = [
 
 
 function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  const navigation = [
-    ["Услуги", "#services"],
-    ["Оборудование", "#equipment"],
-    ["Продукция", "#products"],
-    ["Проекты", "#projects"],
-    ["Производство", "#production"],
-    ["О компании", "#about"],
-    ["Блог", "#blog"],
-    ["Контакты", "#contacts"],
+  const navigation: {
+    title: string;
+    href: string;
+    description?: string;
+    links?: { title: string; href: string }[];
+  }[] = [
+    {
+      title: "услуги",
+      href: "#services",
+      description: "Окраска и подготовка поверхности",
+      links: [
+        { title: "Порошковая окраска", href: "#" },
+        { title: "Покраска радиаторов", href: "#" },
+        { title: "Крупногабаритная окраска", href: "#" },
+        { title: "Пескоструйная обработка", href: "#" },
+      ],
+    },
+    {
+      title: "оборудование",
+      href: "#equipment-solutions",
+      description: "Комплектация линий под производство",
+      links: [
+        { title: "Камеры нанесения", href: "#" },
+        { title: "Печи полимеризации", href: "#" },
+        { title: "Транспортные системы", href: "#" },
+        { title: "Линии порошковой окраски", href: "#" },
+      ],
+    },
+    {
+      title: "продукция",
+      href: "#product-solutions",
+      description: "Изделия и конструкции под ваш проект",
+      links: [
+        { title: "Лофт-мебель", href: "#" },
+        { title: "Металлоконструкции", href: "#" },
+        { title: "Модульные здания", href: "#" },
+        { title: "Выполненные проекты", href: "#" },
+      ],
+    },
+    { title: "проекты", href: "#" },
+    { title: "производство", href: "#" },
+    { title: "о компании", href: "#" },
+    { title: "блог", href: "#" },
+    { title: "контакты", href: "#" },
   ];
 
   return (
@@ -104,15 +147,50 @@ function Header() {
           <img src={LogoVeteran} alt="В" />
         </a>
 
-        <nav className={`header-nav ${menuOpen ? "active" : ""}`}>
-          {
-            navigation.map(([title, href]) => 
-            (
-                <a key={title} href={href} onClick={() => setMenuOpen(false)}>
-                    {title}
+        <nav className="header-nav" id="main-navigation">
+          {navigation.map((item) => (
+            <div
+              className={`header-nav-item ${activeDropdown === item.title ? "is-open" : ""}`}
+              key={item.title}
+            >
+              {item.links ? (
+                <>
+                  <button
+                    className="header-nav-trigger"
+                    type="button"
+                    aria-expanded={activeDropdown === item.title}
+                    aria-controls={`menu-${item.title}`}
+                    onClick={() =>
+                      setActiveDropdown(
+                        activeDropdown === item.title ? null : item.title,
+                      )
+                    }
+                  >
+                    {item.title}
+                    <img src={DownArrow} alt="" />
+                  </button>
+                  <div className="header-dropdown" id={`menu-${item.title}`}>
+                    <p className="header-dropdown-description">
+                      {item.description}
+                    </p>
+                    {item.links.map((link) => (
+                      <a
+                        href={link.href}
+                        key={link.title}
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        {link.title}
+                      </a>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <a className="header-nav-link" href={item.href}>
+                  {item.title}
                 </a>
-            ))
-          }
+              )}
+            </div>
+          ))}
         </nav>
 
         <div className="header-contacts">
@@ -121,12 +199,8 @@ function Header() {
         </div>
 
         <a className="button button--orange" href="#contacts">
-          Заказать звонок
+          заказать звонок
         </a>
-
-        <button className="header-burger" type="button" aria-label="Открыть меню" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
-          ☰
-        </button>
       </div>
     </header>
   );
@@ -134,7 +208,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="section hero">
+    <section className="sectoion section--gray hero">
       <div className="container hero-inner">
         <div className="hero-content">
           <div className="hero-advantages">
@@ -169,7 +243,7 @@ function ServicesOverview() {
       <div className="container">
         <div className="services-grid">
           {services.map((service) => (
-            <article className="service-card" key={service.title}>
+            <article className="service-card" id={service.id} key={service.title}>
               <div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
@@ -285,7 +359,7 @@ function PaintingServices() {
 
         <div className="painting-grid">
           {paintingServices.map((service) => (
-            <article className="painting-card" key={service.title}>
+            <article className="painting-card" id={service.id} key={service.title}>
               <div className="painting-card-image image-placeholder">
                 Изображение
               </div>
