@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./Home.css";
 
+import LogoVeteran from "../../public/Assets/Logo-Veteran.svg";
+
 const services = [
   {
     title: "Покрасим ваши изделия",
@@ -99,7 +101,7 @@ function Header() {
     <header className="header">
       <div className="container header-inner">
         <a className="header-logo" href="#">
-          В
+          <img src={LogoVeteran} alt="В" />
         </a>
 
         <nav className={`header-nav ${menuOpen ? "active" : ""}`}>
