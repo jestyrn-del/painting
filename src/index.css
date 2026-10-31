@@ -5,11 +5,7 @@
   --background-second: #F6F6F6;
   --accent-color: #F6A71A;
 
-
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  font: 2vh Mazzrd;
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
