@@ -97,12 +97,12 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="container header__inner">
-        <a className="header__logo" href="#">
+      <div className="container header-inner">
+        <a className="header-logo" href="#">
           В
         </a>
 
-        <nav className={`header__nav ${menuOpen ? "active" : ""}`}>
+        <nav className={`header-nav ${menuOpen ? "active" : ""}`}>
           {navigation.map(([title, href]) => (
             <a
               key={title}
@@ -114,7 +114,7 @@ function Header() {
           ))}
         </nav>
 
-        <div className="header__contacts">
+        <div className="header-contacts">
           <a href="tel:+79282896222">8 928 289 62 22</a>
           <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
         </div>
@@ -124,7 +124,7 @@ function Header() {
         </a>
 
         <button
-          className="header__burger"
+          className="header-burger"
           type="button"
           aria-label="Открыть меню"
           aria-expanded={menuOpen}
@@ -140,9 +140,9 @@ function Header() {
 function Hero() {
   return (
     <section className="hero">
-      <div className="container hero__inner">
-        <div className="hero__content">
-          <div className="hero__advantages">
+      <div className="container hero-inner">
+        <div className="hero-content">
+          <div className="hero-advantages">
             <span>Собственное производство</span>
             <span>Камера 7 м</span>
             <span>Отгрузка от 24 часов</span>
@@ -160,7 +160,7 @@ function Hero() {
           </a>
         </div>
 
-        <div className="hero__visual image-placeholder">
+        <div className="hero-visual image-placeholder">
           <span>Главное изображение</span>
         </div>
       </div>
@@ -181,11 +181,11 @@ function ServicesOverview() {
                 <small>{service.details}</small>
               </div>
 
-              <div className="service-card__image image-placeholder">
+              <div className="service-card-image image-placeholder">
                 Изображение
               </div>
 
-              <div className="service-card__bottom">
+              <div className="service-card-bottom">
                 <strong>{service.price}</strong>
                 <a href="#contacts" className="text-link">
                   {service.link} →
@@ -203,16 +203,16 @@ function CompanyStats() {
   return (
     <section className="section" id="about">
       <div className="container stats">
-        <div className="stats__list">
+        <div className="stats-list">
           {statistics.map((item) => (
-            <div className="stats__item" key={item.value}>
+            <div className="stats-item" key={item.value}>
               <strong>{item.value}</strong>
               <span>{item.label}</span>
             </div>
           ))}
         </div>
 
-        <div className="stats__visual image-placeholder">
+        <div className="stats-visual image-placeholder">
           Видео о производстве
         </div>
       </div>
@@ -241,7 +241,7 @@ function CustomerSolutions() {
           {tabs.map((tab, index) => (
             <button
               key={tab}
-              className={`tabs__button ${
+              className={`tabs-button ${
                 activeTab === index ? "active" : ""
               }`}
               onClick={() => setActiveTab(index)}
@@ -252,11 +252,11 @@ function CustomerSolutions() {
         </div>
 
         <div className="solutions">
-          <div className="solutions__image image-placeholder">
+          <div className="solutions-image image-placeholder">
             Изображение направления
           </div>
 
-          <div className="solutions__content">
+          <div className="solutions-content">
             <h3>{tabs[activeTab]}</h3>
 
             <p>
@@ -291,7 +291,7 @@ function PaintingServices() {
         <div className="painting-grid">
           {paintingServices.map((service) => (
             <article className="painting-card" key={service.title}>
-              <div className="painting-card__image image-placeholder">
+              <div className="painting-card-image image-placeholder">
                 Изображение
               </div>
 
@@ -325,7 +325,7 @@ function Manufacturing() {
           </a>
         </div>
 
-        <div className="manufacturing__image image-placeholder">
+        <div className="manufacturing-image image-placeholder">
           Изображение металлоконструкций
         </div>
       </div>
@@ -416,9 +416,9 @@ function FAQ() {
 
         <div className="faq">
           {questions.map((item, index) => (
-            <div className="faq__item" key={item.question}>
+            <div className="faq-item" key={item.question}>
               <button
-                className="faq__question"
+                className="faq-question"
                 aria-expanded={openIndex === index}
                 onClick={() =>
                   setOpenIndex(openIndex === index ? null : index)
@@ -429,7 +429,7 @@ function FAQ() {
               </button>
 
               {openIndex === index && (
-                <div className="faq__answer">
+                <div className="faq-answer">
                   <p>{item.answer}</p>
                 </div>
               )}
@@ -456,7 +456,7 @@ function ContactForm() {
             Пришлите чертёж или фото, и мы подготовим расчёт.
           </p>
 
-          <div className="contact-layout__image image-placeholder">
+          <div className="contact-layout-image image-placeholder">
             Изображение
           </div>
         </div>
@@ -481,12 +481,12 @@ function ContactForm() {
             rows={5}
           />
 
-          <label className="contact-form__file">
+          <label className="contact-form-file">
             Прикрепить файлы
             <input type="file" multiple />
           </label>
 
-          <label className="contact-form__agreement">
+          <label className="contact-form-agreement">
             <input type="checkbox" required />
             <span>
               Согласен на обработку персональных данных
@@ -511,7 +511,7 @@ function ContactForm() {
 function Footer() {
   return (
     <footer className="footer" id="blog">
-      <div className="container footer__grid">
+      <div className="container footer-grid">
         <div>
           <h3>Ветеран</h3>
 
