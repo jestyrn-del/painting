@@ -1,8 +1,6 @@
 import { useState } from "react";
 import "./Home.css";
 
-import "../index.css"
-
 import LogoVeteran from "../../public/Assets/Logo-Veteran.svg";
 
 const services = [
@@ -107,15 +105,14 @@ function Header() {
         </a>
 
         <nav className={`header-nav ${menuOpen ? "active" : ""}`}>
-          {navigation.map(([title, href]) => (
-            <a
-              key={title}
-              href={href}
-              onClick={() => setMenuOpen(false)}
-            >
-              {title}
-            </a>
-          ))}
+          {
+            navigation.map(([title, href]) => 
+            (
+                <a key={title} href={href} onClick={() => setMenuOpen(false)}>
+                    {title}
+                </a>
+            ))
+          }
         </nav>
 
         <div className="header-contacts">
@@ -127,13 +124,7 @@ function Header() {
           Заказать звонок
         </a>
 
-        <button
-          className="header-burger"
-          type="button"
-          aria-label="Открыть меню"
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
+        <button className="header-burger" type="button" aria-label="Открыть меню" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
           ☰
         </button>
       </div>
@@ -143,7 +134,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="hero">
+    <section className="section hero">
       <div className="container hero-inner">
         <div className="hero-content">
           <div className="hero-advantages">

@@ -4,5 +4,5 @@ import './index.css'
 import '../public/Assets/Fonts/Mazzard/Mazzard-use.css'
 
 export default function App() {
-  return <Home />;
+  return <Home/>;
 }
