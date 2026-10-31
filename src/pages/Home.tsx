@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./Home.css";
 
+import "../index.css"
+
 import LogoVeteran from "../../public/Assets/Logo-Veteran.svg";
 
 const services = [
