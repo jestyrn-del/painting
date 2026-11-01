@@ -333,7 +333,6 @@
 
 
 /* STATISTICS */
-
 .stats {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -365,8 +364,8 @@
     min-height: 500px;
 }
 
-/* SOLUTIONS */
 
+/* SOLUTIONS */
 .tabs {
     display: flex;
     flex-wrap: wrap;
@@ -405,8 +404,8 @@
     min-height: 450px;
 }
 
-/* PAINTING */
 
+/* PAINTING */
 .painting-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -430,8 +429,8 @@
     font-size: 16px;
 }
 
-/* MANUFACTURING */
 
+/* MANUFACTURING */
 .manufacturing {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -443,8 +442,8 @@
     min-height: 400px;
 }
 
-/* PRODUCTION */
 
+/* PRODUCTION */
 .production-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -462,8 +461,8 @@
     margin-top: 40px;
 }
 
-/* PROJECTS */
 
+/* PROJECTS */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -478,8 +477,8 @@
     font-size: 24px;
 }
 
-/* FAQ */
 
+/* FAQ */
 .faq {
     border-top: 1px solid #ddd;
 }
@@ -511,8 +510,8 @@
     max-width: 800px;
 }
 
-/* CONTACT */
 
+/* CONTACT */
 .contact-section {
     background: var(--gray);
 }
@@ -562,8 +561,8 @@
     font-size: 12px;
 }
 
-/* FOOTER */
 
+/* FOOTER */
 .footer {
     padding: 60px 0;
     background: var(--dark);
