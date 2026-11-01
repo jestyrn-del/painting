@@ -313,7 +313,7 @@ function CompanyStats() {
 
         <div className="stats-visual">
             <span>порошковые краски</span>
-            <div className="stats-visual image-placeholder">
+            <div className="image-placeholder">
                 Видео о производстве
             </div>
         </div>
@@ -323,14 +323,41 @@ function CompanyStats() {
 }
 
 function CustomerSolutions() {
-  const tabs = [
-    "Частный заказ",
-    "Заводам и подрядчикам",
-    "Красим ваши изделия",
-    "Продукция",
-  ];
+    const tabs = [
+        {
+            title: "Частный заказ",
+            description: 
+            <>
+                <div>
+                    <span>Можно привезти одно изделие, без минимального объёма. Цвет подберём по<span> каталогу RAL </span>или образцу.</span>
+                    <span>Радиаторы — от 4 000 ₽ за комплект<br/>Снимем старую краску и ржавчину пескоструем.<br/>Выдача через 3–5 дней</span>
+                </div>
+            </>,
+            image: "Картинка 1",
+            button: "Действие 1"
+        },
+        {
+            title: "Заводам и подрядчикам",
+            description: "Опиание для вкладки Заводам и подрядчикам",
+            image: "Картинка 2",
+            button: "Действие 2"
+        },
+        {
+            title: "Красим ваши изделия",
+            description: "Опиание для вкладки Красим ваши изделия",
+            image: "Картинка 3",
+            button: "Действие 3"
+        },
+        {
+            title: "Продукция",
+            description: "Опиание для вкладки Продукция",
+            image: "Картинка 4",
+            button: "Действие 4"
+        },
+    ];
 
   const [activeTab, setActiveTab] = useState(0);
+    const selectedTab = tabs[activeTab];
 
   return (
     <section className="section section--gray">
@@ -342,32 +369,27 @@ function CustomerSolutions() {
         <div className="tabs">
           {tabs.map((tab, index) => (
             <button
-              key={tab}
-              className={`tabs-button ${
-                activeTab === index ? "active" : ""
-              }`}
+              key={tab.title}
+              className={`tabs-button ${activeTab === index ? "active" : ""}`}
+              aria-pressed={activeTab === index}
               onClick={() => setActiveTab(index)}
             >
-              {tab}
+              {tab.title}
             </button>
           ))}
         </div>
 
         <div className="solutions">
           <div className="solutions-image image-placeholder">
-            Изображение направления
+            {selectedTab.image}
           </div>
 
           <div className="solutions-content">
-            <h3>{tabs[activeTab]}</h3>
-
-            <p>
-              Подберём решение под ваш заказ, объём производства
-              и технические требования.
-            </p>
+            <h3>{selectedTab.title}</h3>
+            <p>{selectedTab.description}</p>
 
             <a href="#contacts" className="text-link">
-              Рассчитать стоимость →
+              {selectedTab.button} →
             </a>
           </div>
         </div>

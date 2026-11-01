@@ -427,6 +427,24 @@
     font-size: 28px;
 }
 
+.solutions-content p {
+    font-size: 16px;
+}
+
+.solutions-content p div {
+    display: flex;
+}
+
+.solutions-content p div span {
+    margin-right: 10px;
+    color: blue;
+}
+
+.solutions-content p div span span {
+    margin-right: 10px;
+    color: yellow;
+}
+
 .solutions-image {
     min-height: 450px;
 }
