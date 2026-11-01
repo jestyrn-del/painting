@@ -5,7 +5,8 @@
 	--background-second: #F6F6F6;
 	--accent-color: #F6A71A;
 
-	font-size: 1.5vh;
+	font-size: 1.5vh
+	;
 	font-family: "Mazzard M";
 
 	color: var(--font-color-first);
@@ -47,6 +48,7 @@ a {
 .container {
     width: min(1200px, calc(100% - 80px));
     margin: 0 auto;
+	background-color: transparent;
 }
 
 .section {

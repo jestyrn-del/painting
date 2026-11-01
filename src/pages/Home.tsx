@@ -5,6 +5,7 @@ import "./Home.css";
 import LogoVeteran from "../../public/Assets/Common-Logo-Veteran.svg";
 import DownArrow from '../../public/Assets/Header-arrow-down.svg';
 import RightArrow from '../../public/Assets/Common-Right-Arrow.svg';
+import CommonComponent from '../../public/Assets/Common-Icon.svg';
 
 // Hero imports
 import HeroBgr from '../../public/Assets/Hero-Backgrond.svg';
@@ -14,18 +15,37 @@ const services = [
     id: "painting-service",
     title: "Покрасим ваши изделия",
     description: "От 1 штуки до партий в несколько м².",
-    details:
-      "Камера 7,2 × 1,4 × 2,5 м, любой цвет RAL и фактура.",
-    price: "от 400 ₽/м²",
+    details: (
+        <>
+        Камера 7,2 × 1,4 × 2,5 м,<br/>
+        любой {" "}
+        <span className="service-detail-highlight">цвет RAL</span> и фактура.<br/>
+        Покраска в день обращения
+        </>
+    ),
+    price: (
+        <>
+            <div>
+                <span>от 400 ₽/м²</span><br/>
+                <span>от 2 дней</span>
+            </div>
+        </>
+    ),
     link: "Рассчитать стоимость",
   },
   {
     id: "equipment-solutions",
     title: "Поставим оборудование",
-    description:
-      "Камеры нанесения, печи полимеризации, транспортные системы, линии порошковой окраски под ключ.",
+    description: "Камеры нанесения, печи полимеризации, транспортные системы, линии порошковой окраски под ключ.",
     details: "Сами красим на этом оборудовании каждый день.",
-    price: "от 300 000 ₽",
+    price: (
+        <>
+            <div>
+                <span>от 300 000 ₽</span><br/>
+                <span>от 4 недель</span>
+            </div>
+        </>
+    ),
     link: "Подобрать оборудование",
   },
   {
@@ -34,7 +54,14 @@ const services = [
     description:
       "Лофт-мебель, металлокаркасы, бытовки (модульные здания).",
     details: "Можем производить под вашей маркой.",
-    price: "партии от 1 шт",
+    price: (
+        <>
+            <div>
+                <span>партии</span><br/>
+                <span>от 1 шт</span>
+            </div>
+        </>
+    ),
     link: "Посмотреть каталог",
   },
 ];
@@ -234,7 +261,7 @@ function Hero() {
 
 function ServicesOverview() {
   return (
-    <section className="section" id="services">
+    <section className="section" id="services" style={{ marginTop: 80 }}>
       <div className="container">
         <div className="services-grid">
           {services.map((service) => (
@@ -250,9 +277,14 @@ function ServicesOverview() {
               </div>
 
               <div className="service-card-bottom">
-                <strong>{service.price}</strong>
+                <strong>
+                    <img src={CommonComponent}/>
+                    {service.price}
+                </strong>
+
                 <a href="#contacts" className="text-link">
-                  {service.link} →
+                  {service.link}
+                  <img src={RightArrow}/>
                 </a>
               </div>
             </article>
