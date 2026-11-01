@@ -5,7 +5,7 @@
 	--background-second: #F6F6F6;
 	--accent-color: #F6A71A;
 
-	font-size: 2vh;
+	font-size: 1.5vh;
 	font-family: "Mazzard M";
 
 	color: var(--font-color-first);
@@ -50,7 +50,7 @@ a {
 }
 
 .section {
-    padding: 60px 0;
+    padding: 7.5vh 0;
     background-color: var(--background-first);
 }
 
@@ -93,9 +93,15 @@ a {
 }
 
 .text-link {
-    color: var(--orange);
-    font-size: 14px;
-    font-weight: 600;
+	display: flex;
+	gap: 2vh;
+    color: var(--accent-color);
+	background-color: transparent;
+    font-size: 2vh;
+    font-weight: 400;
+}
+.text-link * {
+	background-color: transparent;
 }
 
 .image-placeholder {

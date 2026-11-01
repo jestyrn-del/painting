@@ -2,8 +2,9 @@ import { useState } from "react";
 import "./Home.css";
 
 // Common elements
-import LogoVeteran from "../../public/Assets/Logo-Veteran.svg";
+import LogoVeteran from "../../public/Assets/Common-Logo-Veteran.svg";
 import DownArrow from '../../public/Assets/Header-arrow-down.svg';
+import RightArrow from '../../public/Assets/Common-Right-Arrow.svg';
 
 // Hero imports
 import HeroBgr from '../../public/Assets/Hero-Backgrond.svg';
@@ -201,7 +202,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="sectoion section--gray hero">
+    <section className="sectoion section--gray">
       <div className="container hero-inner">
         <div className="hero-content">
           <div className="hero-advantages">
@@ -215,10 +216,11 @@ function Hero() {
             и металлоизделия
           </h1>
 
-          <h2>Собственное производство в Ростове-на-Дону</h2>
+          <h2>Собственное производство<br/>в Ростове-на-Дону</h2>
 
           <a href="#about" className="text-link">
-            Узнать больше →
+            Узнать больше
+            <img src={RightArrow}/>
           </a>
         </div>
 
