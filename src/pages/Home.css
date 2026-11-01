@@ -377,9 +377,13 @@
     gap: 1vh;
 }
 
-.stats-visual span { 
-    text-align: right;
+.stats-visual span {
     background-color: transparent;
+
+    font-weight: 300;
+    font-size: 1.5vh;
+    letter-spacing: 0%;
+    text-align: right;
 }
 
 .stats-visual div {
