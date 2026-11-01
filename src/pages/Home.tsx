@@ -300,6 +300,9 @@ function CompanyStats() {
     <section className="section" id="about">
       <div className="container stats">
         <div className="stats-list">
+            <div className="stats-item" key="0">
+                <span>окрашиваем в месяц</span>
+            </div>
           {statistics.map((item) => (
             <div className="stats-item" key={item.value}>
               <strong>{item.value}</strong>
@@ -308,8 +311,11 @@ function CompanyStats() {
           ))}
         </div>
 
-        <div className="stats-visual image-placeholder">
-          Видео о производстве
+        <div className="stats-visual">
+            <span>порошковые краски</span>
+            <div className="stats-visual image-placeholder">
+                Видео о производстве
+            </div>
         </div>
       </div>
     </section>
