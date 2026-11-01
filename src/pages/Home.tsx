@@ -155,16 +155,10 @@ function Header() {
             >
               {item.links ? (
                 <>
-                  <button
-                    className="header-nav-trigger"
-                    type="button"
+                  <button className="header-nav-trigger" type="button"
                     aria-expanded={activeDropdown === item.title}
                     aria-controls={`menu-${item.title}`}
-                    onClick={() =>
-                      setActiveDropdown(
-                        activeDropdown === item.title ? null : item.title,
-                      )
-                    }
+                    onClick={() => setActiveDropdown(activeDropdown === item.title ? null : item.title,) }
                   >
                     {item.title}
                     <img src={DownArrow} alt="" />
@@ -174,9 +168,7 @@ function Header() {
                       {item.description}
                     </p>
                     {item.links.map((link) => (
-                      <a
-                        href={link.href}
-                        key={link.title}
+                      <a href={link.href} key={link.title}
                         onClick={() => setActiveDropdown(null)}
                       >
                         {link.title}
