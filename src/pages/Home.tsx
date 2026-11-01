@@ -1,8 +1,12 @@
 import { useState } from "react";
 import "./Home.css";
 
+// Common elements
 import LogoVeteran from "../../public/Assets/Logo-Veteran.svg";
 import DownArrow from '../../public/Assets/Header-arrow-down.svg';
+
+// Hero imports
+import HeroBgr from '../../public/Assets/Hero-Backgrond.svg';
 
 const services = [
   {
@@ -149,10 +153,7 @@ function Header() {
 
         <nav className="header-nav" id="main-navigation">
           {navigation.map((item) => (
-            <div
-              className={`header-nav-item ${activeDropdown === item.title ? "is-open" : ""}`}
-              key={item.title}
-            >
+            <div className={`header-nav-item ${activeDropdown === item.title ? "is-open" : ""}`} key={item.title}>
               {item.links ? (
                 <>
                   <button className="header-nav-trigger" type="button"
@@ -222,7 +223,7 @@ function Hero() {
         </div>
 
         <div className="hero-visual image-placeholder">
-          <span>Главное изображение</span>
+          <img src={HeroBgr} alt=""/>
         </div>
       </div>
     </section>

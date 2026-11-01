@@ -170,8 +170,8 @@
     white-space: nowrap;
 }
 
-/* HERO */
 
+/* HERO */
 .hero {
     position: relative;
     overflow: hidden;
@@ -180,7 +180,7 @@
 
 .hero-inner {
     position: relative;
-    min-height: 740px;
+    background-color: transparent;
 }
 
 .hero-content {
@@ -191,6 +191,7 @@
     align-items: flex-start;
     padding-top: 80px;
     max-width: 520px;
+    background-color: blue;
 }
 
 .hero-advantages {
@@ -199,6 +200,7 @@
     gap: 8px;
     margin-bottom: 60px;
     font-size: 12px;
+    background-color: transparent;
 }
 
 .hero-advantages span::before {
@@ -209,6 +211,7 @@
     margin-right: 10px;
     border-radius: 2px;
     background: var(--orange);
+    background-color: transparent;
 }
 
 .hero h1 {
@@ -216,6 +219,7 @@
     font-size: clamp(28px, 3vw, 38px);
     line-height: 1.14;
     text-transform: uppercase;
+    background-color: transparent;
 }
 
 .hero h2 {
@@ -223,18 +227,19 @@
     margin: 0 0 25px;
     font-size: 30px;
     text-transform: uppercase;
+    background-color: transparent;
 }
 
 .hero-visual {
     position: absolute;
-    top: 50px;
-    right: -40px;
-    width: 55%;
-    height: 600px;
+    top: 14vh;
+    left: -5vh;
+    height: 100%;
+    background-color: transparent;
 }
 
-/* SERVICES */
 
+/* SERVICES */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
