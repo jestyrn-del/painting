@@ -333,69 +333,69 @@ function CustomerSolutions() {
                     <span>Радиаторы — от 4 000 ₽ за комплект<br/>Снимем старую краску и ржавчину пескоструем.<br/>Выдача через 3–5 дней</span>
                 </div>
             </>,
-            image: "Картинка 1",
-            button: "Действие 1"
+            image: "Картинка частного заказа",
+            button: "рассчитать по фото"
         },
         {
             title: "Заводам и подрядчикам",
-            description: "Опиание для вкладки Заводам и подрядчикам",
-            image: "Картинка 2",
-            button: "Действие 2"
+            description: "описание для вкладки Заводам и подрядчикам, здесь можно посмотреть что-то интересное, например, что мы можем предложить заводам и подрядчикам ))))",
+            image: "Картинка для заводов и подрядчиков",
+            button: "заказать"
         },
         {
             title: "Красим ваши изделия",
-            description: "Опиание для вкладки Красим ваши изделия",
-            image: "Картинка 3",
-            button: "Действие 3"
+            description: "описание для вкладки Красим ваши изделия, здесь можно посмотреть что-то интересное, например, что мы можем предложить тарифы, цены, сроки и т.д",
+            image: "Картинка для кастома",
+            button: "консультация"
         },
         {
             title: "Продукция",
-            description: "Опиание для вкладки Продукция",
-            image: "Картинка 4",
-            button: "Действие 4"
+            description: "описание для вкладки Продукция, здесь можно посмотреть что-то интересное, например, что мы можем предложить по ассортименту продукции, которую мы производим )))))",
+            image: "Картинка для продукции",
+            button: "ассортимент"
         },
     ];
 
-  const [activeTab, setActiveTab] = useState(0);
+    const [activeTab, setActiveTab] = useState(0);
     const selectedTab = tabs[activeTab];
 
-  return (
-    <section className="section section--gray">
-      <div className="container">
-        <h2 className="section-title">
-          Чем мы можем быть полезны именно вам
-        </h2>
+    return (
+        <section className="section section--gray">
+            <div className="container">
+            <h2 className="section-title">
+                Чем мы можем быть полезны именно вам
+            </h2>
 
-        <div className="tabs">
-          {tabs.map((tab, index) => (
-            <button
-              key={tab.title}
-              className={`tabs-button ${activeTab === index ? "active" : ""}`}
-              aria-pressed={activeTab === index}
-              onClick={() => setActiveTab(index)}
-            >
-              {tab.title}
-            </button>
-          ))}
-        </div>
+            <div className="tabs">
+                {tabs.map((tab, index) => (
+                <button
+                    key={tab.title}
+                    className={`tabs-button ${activeTab === index ? "active" : ""}`}
+                    aria-pressed={activeTab === index}
+                    onClick={() => setActiveTab(index)}
+                >
+                    {tab.title}
+                </button>
+                ))}
+            </div>
 
-        <div className="solutions">
-          <div className="solutions-image image-placeholder">
-            {selectedTab.image}
-          </div>
+            <div className="solutions">
+                <div className="solutions-image image-placeholder">
+                    {selectedTab.image}
+                </div>
 
-          <div className="solutions-content">
-            <h3>{selectedTab.title}</h3>
-            <p>{selectedTab.description}</p>
+                <div className="solutions-content">
+                    <h3>{selectedTab.title}</h3>
+                    <p>{selectedTab.description}</p>
 
-            <a href="#contacts" className="text-link">
-              {selectedTab.button} →
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+                    <a href="#contacts" className="button button--orange">
+                        {selectedTab.button}
+                    </a>
+                </div>
+            </div>
+            </div>
+        </section>
+    );
 }
 
 function PaintingServices() {
