@@ -76,8 +76,7 @@ const statistics = [
 const serviceCategories = [
   {
     title: "Окраска и обработка металла",
-    description:
-      "Полный цикл в одном цехе: подготовка поверхности, окраска, полимеризация и упаковка. Металлоконструкции можем сделать с нуля по вашему чертежу.",
+    description: "Полный цикл в одном цехе: подготовка поверхности, окраска, полимеризация и упаковка. Металлоконструкции можем сделать с нуля по вашему чертежу.",
     cards: [
       {
         title: "Порошковая окраска металлоконструкций",
@@ -392,7 +391,8 @@ function CompanyStats() {
 function CustomerSolutions() {
     const tabs = [
         {
-            title: "Частный заказ",
+            tab: "Частный заказ",
+            title: "Покрасим радиаторы, ворота, мебельный каркас или садовую мебель",
             description: 
             <>
                 <div>
@@ -404,22 +404,25 @@ function CustomerSolutions() {
             button: "рассчитать по фото"
         },
         {
-            title: "Заводам и подрядчикам",
-            description: "описание для вкладки Заводам и подрядчикам, здесь можно посмотреть что-то интересное, например, что мы можем предложить заводам и подрядчикам ))))",
+            tab: "Заводам и подрядчикам",
+            title: "Красим металлоконструкции партиями до 300 м² в смену. Работаем по договору, с НДС, ЭДО и закрывающими документами. Можем встроиться в ваш производственный график",
+            description: <>Фиксированная цена за м² на весь объём<br/>Протокол контроля толщины и адгезии к каждой партии</>,
             image: "Картинка для заводов и подрядчиков",
-            button: "заказать"
+            button: "отправить ведомость на расчёт"
         },
         {
-            title: "Красим ваши изделия",
-            description: "описание для вкладки Красим ваши изделия, здесь можно посмотреть что-то интересное, например, что мы можем предложить тарифы, цены, сроки и т.д",
+            tab: "Красим ваши изделия",
+            title: "Принимаем ваши изделия на окраску по акту и фиксируем их состояние на фото до начала работ. Краска наша или ваша. Отвечаем за изделие с момента приёмки до отгрузки",
+            description: <>Акт приёмки с фотофиксацией<br/>Хранение на складе до 3 дней бесплатно<br/>Забираем и доставляем своим транспортом</>,
             image: "Картинка для кастома",
-            button: "консультация"
+            button: "как работает схема"
         },
         {
-            title: "Продукция",
-            description: "описание для вкладки Продукция, здесь можно посмотреть что-то интересное, например, что мы можем предложить по ассортименту продукции, которую мы производим )))))",
+            tab: "Продукция",
+            title: "Производим лофт-мебель, металлокаркасы и бытовки. Отгружаем партиями от 1 шт. Красим в своём цехе, поэтому цвет и сроки контролируем сами",
+            description: <>3 уровня оптовых цен<br/>Производство под вашей маркой<br/>Доставка по России транспортными компаниями,</>,
             image: "Картинка для продукции",
-            button: "ассортимент"
+            button: "получить оптовые условия"
         },
     ];
 
@@ -436,12 +439,12 @@ function CustomerSolutions() {
             <div className="tabs">
                 {tabs.map((tab, index) => (
                 <button
-                    key={tab.title}
+                  key={tab.tab}
                     className={`tabs-button ${activeTab === index ? "active" : ""}`}
                     aria-pressed={activeTab === index}
                     onClick={() => setActiveTab(index)}
                 >
-                    {tab.title}
+                  {tab.tab}
                 </button>
                 ))}
             </div>
@@ -529,30 +532,6 @@ function ServicesCatalog() {
   );
 }
 
-function Manufacturing() {
-  return (
-    <section className="section section--gray" id="products">
-      <div className="container manufacturing">
-        <div>
-          <h2 className="section-title">Изготовление под ключ</h2>
-
-          <p>
-            Металлоконструкция по чертежу, сразу окрашенная.
-          </p>
-
-          <a href="#contacts" className="text-link">
-            Рассчитать стоимость →
-          </a>
-        </div>
-
-        <div className="manufacturing-image image-placeholder">
-          Изображение металлоконструкций
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Production() {
   const productionFeatures = [
     {
@@ -594,6 +573,7 @@ function Production() {
             участок пескоструйной обработки, сварочное производство и цех сборки
             оборудования. Красим, варим и собираем сами.
           </p>
+
         </div>
 
         <div className="production-features">
@@ -644,7 +624,7 @@ function Projects() {
         <h2 className="section-title">Проекты в цифрах</h2>
 
         <div className="projects-grid">
-          <article className="project-card project-card--warehouse">
+          <article className="project-card">
             <div className="project-card-copy">
               <h3>Складской комплекс, Омск</h3>
               <p>
@@ -652,21 +632,21 @@ function Projects() {
                 подготовка до Sa 2½.
               </p>
               <strong>1 200 м²<br />6 дней<br />0 рекламаций</strong>
-              <a href="#contacts" className="project-card-link">
-                Подробнее <img src={RightArrow} alt="" />
-              </a>
             </div>
+            <a href="#contacts" className="project-card-link">
+              подробнее <img src={RightArrow} alt="" />
+            </a>
           </article>
 
-          <article className="project-card project-card--furniture">
+          <article className="project-card">
             <div className="project-card-copy">
               <h3>Мебельная фабрика «Люкс»</h3>
               <p>Поставляем окрашенные подстолья в трёх цветах.</p>
               <strong>10 шт. в месяц<br />5 месяцев сотрудничества<br />98% отгрузок в срок</strong>
-              <a href="#contacts" className="project-card-link">
-                Подробнее <img src={RightArrow} alt="" />
-              </a>
             </div>
+            <a href="#contacts" className="project-card-link">
+              подробнее <img src={RightArrow} alt="" />
+            </a>
           </article>
         </div>
       </div>
@@ -925,7 +905,6 @@ export default function Home() {
         <CompanyStats />
         <CustomerSolutions />
         <ServicesCatalog />
-        <Manufacturing />
         <Projects />
         <Production />
         <FAQ />
