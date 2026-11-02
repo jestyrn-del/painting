@@ -73,26 +73,93 @@ const statistics = [
   { value: "3 линии", label: "Окраски под запуском у клиентов" },
 ];
 
-const paintingServices = [
+const serviceCategories = [
   {
-    id: "powder-coating",
-    title: "Порошковая окраска металлоконструкций",
-    description: "Партии любого объёма, по договору",
+    title: "Окраска и обработка металла",
+    description:
+      "Полный цикл в одном цехе: подготовка поверхности, окраска, полимеризация и упаковка. Металлоконструкции можем сделать с нуля по вашему чертежу.",
+    cards: [
+      {
+        title: "Порошковая окраска металлоконструкций",
+        description: "Партии любого объёма, по договору",
+        price: "от 400 ₽/м²",
+        term: "от 2 дней",
+      },
+      {
+        title: "Покраска радиаторов",
+        description: "Чугунных, стальных, алюминиевых",
+        price: "от 4 000 ₽/компл.",
+        term: "от 2–3 дней",
+      },
+      {
+        title: "Крупногабаритная окраска",
+        description: "Изделия до 7 × 1,4 × 2,5 м",
+        price: "от 10 000 ₽/компл.",
+        term: "от 3 дней",
+      },
+      {
+        title: "Пескоструйная обработка",
+        description: "Очистка до степени Sa 2½",
+        price: "от 350 ₽/м²",
+        term: "от 1 дня",
+      },
+      {
+        title: "Изготовление под ключ",
+        description: "Металлоконструкция по чертежу, сразу окрашенная",
+        price: "по смете",
+        term: "от 10 дней",
+      },
+    ],
   },
   {
-    id: "radiator-painting",
-    title: "Покраска радиаторов",
-    description: "Чугунных, стальных, алюминиевых",
+    title: "Оборудование",
+    description:
+      "Подберём и изготовим оборудование для порошковой окраски под задачи вашего производства.",
+    cards: [
+      {
+        title: "Камеры нанесения",
+        description: "Для ручных и автоматических линий окраски",
+        price: "по комплектации",
+        term: "от 4 недель",
+      },
+      {
+        title: "Печи полимеризации",
+        description: "Под размеры изделий и параметры процесса",
+        price: "по комплектации",
+        term: "от 4 недель",
+      },
+      {
+        title: "Линии порошковой окраски",
+        description: "Комплексное оснащение под ключ",
+        price: "от 300 000 ₽",
+        term: "от 4 недель",
+      },
+    ],
   },
   {
-    id: "oversized-painting",
-    title: "Крупногабаритная окраска",
-    description: "Изделия до 7 × 1,4 × 2,5 м",
-  },
-  {
-    id: "sandblasting",
-    title: "Пескоструйная обработка",
-    description: "Очистка до степени Sa 2½",
+    title: "Продукция",
+    description:
+      "Изготавливаем изделия и металлоконструкции по вашим задачам и чертежам.",
+    cards: [
+      {
+        title: "Лофт-мебель",
+        description: "Мебель и металлокаркасы, в том числе под вашей маркой",
+        price: "партии от 1 шт.",
+        term: "по согласованию",
+      },
+      {
+        title: "Металлоконструкции",
+        description: "Изготовление и окраска по вашему чертежу",
+        price: "по смете",
+        term: "срок по проекту",
+      },
+      {
+        title: "Модульные здания",
+        description: "Бытовки и модульные здания под заказ",
+        price: "по запросу",
+        term: "срок по проекту",
+      },
+    ],
   },
 ];
 
@@ -134,13 +201,13 @@ function Header() {
   }[] = [
     {
       title: "услуги",
-      href: "#services",
+      href: "#service-catalog",
       description: "Окраска и подготовка поверхности",
       links: [
-        { title: "Порошковая окраска", href: "#" },
-        { title: "Покраска радиаторов", href: "#" },
-        { title: "Крупногабаритная окраска", href: "#" },
-        { title: "Пескоструйная обработка", href: "#" },
+        { title: "Порошковая окраска", href: "#service-catalog" },
+        { title: "Покраска радиаторов", href: "#service-catalog" },
+        { title: "Крупногабаритная окраска", href: "#service-catalog" },
+        { title: "Пескоструйная обработка", href: "#service-catalog" },
       ],
     },
     {
@@ -148,10 +215,10 @@ function Header() {
       href: "#equipment-solutions",
       description: "Комплектация линий под производство",
       links: [
-        { title: "Камеры нанесения", href: "#" },
-        { title: "Печи полимеризации", href: "#" },
-        { title: "Транспортные системы", href: "#" },
-        { title: "Линии порошковой окраски", href: "#" },
+        { title: "Камеры нанесения", href: "#equipment-solutions" },
+        { title: "Печи полимеризации", href: "#equipment-solutions" },
+        { title: "Транспортные системы", href: "#equipment-solutions" },
+        { title: "Линии порошковой окраски", href: "#equipment-solutions" },
       ],
     },
     {
@@ -159,23 +226,23 @@ function Header() {
       href: "#product-solutions",
       description: "Изделия и конструкции под ваш проект",
       links: [
-        { title: "Лофт-мебель", href: "#" },
-        { title: "Металлоконструкции", href: "#" },
-        { title: "Модульные здания", href: "#" },
-        { title: "Выполненные проекты", href: "#" },
+        { title: "Лофт-мебель", href: "#product-solutions" },
+        { title: "Металлоконструкции", href: "#products" },
+        { title: "Модульные здания", href: "#product-solutions" },
+        { title: "Выполненные проекты", href: "#projects" },
       ],
     },
-    { title: "проекты", href: "#" },
-    { title: "производство", href: "#" },
-    { title: "о компании", href: "#" },
-    { title: "блог", href: "#" },
-    { title: "контакты", href: "#" },
+    { title: "проекты", href: "#projects" },
+    { title: "производство", href: "#production" },
+    { title: "о компании", href: "#about" },
+    { title: "блог", href: "#blog" },
+    { title: "контакты", href: "#contacts" },
   ];
 
   return (
     <header className="header">
       <div className="container header-inner">
-        <a className="header-logo" href="#">
+        <a className="header-logo" href="#top">
           <img src={LogoVeteran} alt="В" />
         </a>
 
@@ -398,36 +465,65 @@ function CustomerSolutions() {
     );
 }
 
-function PaintingServices() {
+function ServicesCatalog() {
+  const [activeCategory, setActiveCategory] = useState(0);
+  const selectedCategory = serviceCategories[activeCategory];
+
   return (
-    <section className="section" id="equipment">
-      <div className="container">
-        <h2 className="section-title">
-          Окраска и обработка металла
-        </h2>
+    <section className="services-catalog" id="service-catalog">
+      <div className="container services-catalog-inner">
+        <div className="services-catalog-heading">
+          <h2>Услуги</h2>
+          <span aria-hidden="true" />
+        </div>
 
-        <p className="section-description">
-          Полный цикл в одном цехе: подготовка поверхности,
-          окраска, полимеризация и упаковка.
-          Металлоконструкции можем сделать с нуля по вашему чертежу.
-        </p>
+        <div className="services-catalog-intro">
+          <div className="services-catalog-tabs" aria-label="Категории услуг">
+            {serviceCategories.map((category, index) => (
+              <button
+                className={activeCategory === index ? "active" : ""}
+                type="button"
+                aria-pressed={activeCategory === index}
+                key={category.title}
+                onClick={() => setActiveCategory(index)}
+              >
+                {category.title}
+              </button>
+            ))}
+          </div>
+          <p>{selectedCategory.description}</p>
+        </div>
 
-        <div className="painting-grid">
-          {paintingServices.map((service) => (
-            <article className="painting-card" id={service.id} key={service.title}>
-              <div className="painting-card-image image-placeholder">
-                Изображение
+        <div className="services-catalog-grid">
+          {selectedCategory.cards.map((service) => (
+            <article className="services-catalog-card" key={service.title}>
+              <div className="services-catalog-card-copy">
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
               </div>
 
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-
-              <a href="#contacts" className="text-link">
-                Рассчитать стоимость →
-              </a>
+              <div className="services-catalog-card-bottom">
+                <p className="services-catalog-price">
+                  <span>{service.price}</span>
+                  <span>{service.term}</span>
+                </p>
+                <div className="services-catalog-card-links">
+                  <a href="#contacts" className="services-catalog-more">
+                    Подробнее
+                  </a>
+                  <a href="#contacts" className="services-catalog-quote">
+                    Рассчитать стоимость
+                    <img src={RightArrow} alt="" />
+                  </a>
+                </div>
+              </div>
             </article>
           ))}
         </div>
+
+        <a href="#contacts" className="services-catalog-all button">
+          все услуги и цены
+        </a>
       </div>
     </section>
   );
@@ -458,37 +554,82 @@ function Manufacturing() {
 }
 
 function Production() {
+  const productionFeatures = [
+    {
+      title: "Контроль каждой партии",
+      description: "Толщиномер, тест на адгезию, протокол к партии",
+    },
+    {
+      title: "Порошковая краска",
+      description: "Сертифицированные материалы",
+    },
+    {
+      title: "Опыт операторов",
+      description: "Средний стаж 5 лет",
+    },
+    {
+      title: "Склад",
+      description: "150 м² для хранения изделий до и после окраски",
+    },
+  ];
+
+  const productionPhotos = [
+    "Участок окраски",
+    "Подготовка изделий",
+    "Окрасочная линия",
+    "Порошковые краски",
+    "Печь полимеризации",
+    "Сварочный участок",
+    "Сборка оборудования",
+    "Готовые изделия",
+  ];
+
   return (
     <section className="section" id="production">
-      <div className="container">
-        <h2 className="section-title">Собственное производство</h2>
-
-        <p className="section-description">
-          На площадке 600 м² в Ростове-на-Дону у нас работают
-          2 окрасочные линии, участок пескоструйной обработки,
-          сварочное производство и цех сборки оборудования.
-        </p>
-
-        <div className="production-grid">
-          <div className="image-placeholder">Производство</div>
-          <div className="image-placeholder">Оборудование</div>
-          <div className="image-placeholder">Готовая продукция</div>
+      <div className="container production-content">
+        <div className="production-intro">
+          <h2 className="section-title">Все в одном цехе</h2>
+          <p>
+            На площадке 600 м² в Ростове-на-Дону работают 2 окрасочные линии,
+            участок пескоструйной обработки, сварочное производство и цех сборки
+            оборудования. Красим, варим и собираем сами.
+          </p>
         </div>
 
         <div className="production-features">
-          <div>
-            <h3>Контроль каждой партии</h3>
-            <p>Толщиномер, тест на адгезию, протокол к партии.</p>
-          </div>
+          {productionFeatures.map((feature) => (
+            <article className="production-feature" key={feature.title}>
+              <span className="production-feature-mark" aria-hidden="true" />
+              <div>
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
 
-          <div>
-            <h3>Сертифицированные материалы</h3>
-            <p>Используем материалы для промышленной окраски.</p>
-          </div>
+        <div className="production-gallery" id="production-gallery">
+          {productionPhotos.map((photo) => (
+            <div className="production-gallery-item image-placeholder" key={photo}>
+              {photo}
+            </div>
+          ))}
+        </div>
 
-          <div>
-            <h3>Собственное хранение</h3>
-            <p>150 м² для хранения изделий до и после окраски.</p>
+        <div className="production-actions">
+          <a className="button button--navy" href="#contacts">
+            Смотреть видеотур
+          </a>
+          <a className="button button--orange" href="#contacts">
+            Приехать на производство
+          </a>
+        </div>
+
+        <div className="production-trust">
+          <h2 className="section-title">Нам доверяют</h2>
+          <div className="production-trust-list">
+            <span>Складской комплекс, Омск</span>
+            <span>Мебельная фабрика «Люкс»</span>
           </div>
         </div>
       </div>
@@ -500,29 +641,32 @@ function Projects() {
   return (
     <section className="section section--gray" id="projects">
       <div className="container">
-        <h2 className="section-title">Наши проекты</h2>
+        <h2 className="section-title">Проекты в цифрах</h2>
 
         <div className="projects-grid">
-          <article className="project-card">
-            <div className="image-placeholder">Фото проекта</div>
-
-            <h3>Складской комплекс, Омск</h3>
-
-            <p>
-              Окрасили металлоконструкции каркаса склада:
-              1 200 м², RAL 7024, подготовка до Sa 2½.
-            </p>
+          <article className="project-card project-card--warehouse">
+            <div className="project-card-copy">
+              <h3>Складской комплекс, Омск</h3>
+              <p>
+                Окрасили металлоконструкции каркаса склада: RAL 7024,
+                подготовка до Sa 2½.
+              </p>
+              <strong>1 200 м²<br />6 дней<br />0 рекламаций</strong>
+              <a href="#contacts" className="project-card-link">
+                Подробнее <img src={RightArrow} alt="" />
+              </a>
+            </div>
           </article>
 
-          <article className="project-card">
-            <div className="image-placeholder">Фото проекта</div>
-
-            <h3>Мебельная фабрика «Люкс»</h3>
-
-            <p>
-              Ежемесячно поставляем окрашенные подстолья:
-              10 шт в месяц, 3 цвета.
-            </p>
+          <article className="project-card project-card--furniture">
+            <div className="project-card-copy">
+              <h3>Мебельная фабрика «Люкс»</h3>
+              <p>Поставляем окрашенные подстолья в трёх цветах.</p>
+              <strong>10 шт. в месяц<br />5 месяцев сотрудничества<br />98% отгрузок в срок</strong>
+              <a href="#contacts" className="project-card-link">
+                Подробнее <img src={RightArrow} alt="" />
+              </a>
+            </div>
           </article>
         </div>
       </div>
@@ -565,26 +709,62 @@ function FAQ() {
   );
 }
 
+function Blog() {
+  const articles = [
+    {
+      category: "Технологии",
+      title: "Как подготовить металл к порошковой окраске",
+      description: "Этапы очистки и подготовки поверхности перед нанесением покрытия.",
+    },
+    {
+      category: "Материалы",
+      title: "Как выбрать цвет и фактуру покрытия",
+      description: "Что учитывать при выборе оттенка RAL и типа поверхности.",
+    },
+    {
+      category: "Производство",
+      title: "От чего зависит срок окраски изделия",
+      description: "Размер партии, габариты изделия и подготовка влияют на сроки работ.",
+    },
+  ];
+
+  return (
+    <section className="section blog-section" id="blog">
+      <div className="container">
+        <h2 className="section-title">Блог</h2>
+        <div className="blog-grid">
+          {articles.map((article) => (
+            <article className="blog-card" key={article.title}>
+              <div className="blog-card-image image-placeholder">
+                {article.category}
+              </div>
+              <div className="blog-card-copy">
+                <span>{article.category}</span>
+                <h3>{article.title}</h3>
+                <p>{article.description}</p>
+                <a href="#contacts" className="blog-card-link">
+                  Читать <img src={RightArrow} alt="" />
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
     <section className="section contact-section" id="contacts">
-      <div className="container contact-layout">
-        <div>
-          <h2 className="section-title">
-            Рассчитаем стоимость за 2 часа
-          </h2>
+      <div className="container">
+        <h2 className="contact-title">
+          Пришлите чертёж или фото, и мы рассчитаем стоимость за 2 часа
+        </h2>
 
-          <p>
-            Пришлите чертёж или фото, и мы подготовим расчёт.
-          </p>
-
-          <div className="contact-layout-image image-placeholder">
-            Изображение
-          </div>
-        </div>
-
+        <div className="contact-layout">
         <form
           className="contact-form"
           onSubmit={(event) => {
@@ -592,34 +772,49 @@ function ContactForm() {
             setSubmitted(true);
           }}
         >
-          <input type="text" placeholder="Ваше имя" required />
+          <div className="contact-fields-grid">
+            <label>
+              Направление
+              <select defaultValue="Окраска">
+                <option>Окраска</option>
+                <option>Оборудование</option>
+                <option>Продукция</option>
+              </select>
+            </label>
+            <label>
+              Имя
+              <input type="text" placeholder="Ваше имя" required />
+            </label>
+            <label>
+              Телефон
+              <input type="tel" placeholder="+7 (999) 999 99 99" required />
+            </label>
+            <label>
+              E-mail
+              <input type="email" placeholder="Ваша почта" />
+            </label>
+          </div>
 
-          <input
-            type="tel"
-            placeholder="Номер телефона"
-            required
-          />
-
-          <textarea
-            placeholder="Напишите уточнения для расчёта"
-            rows={5}
-          />
+          <label className="contact-field-full">
+            Комментарий
+            <textarea placeholder="Напишите любые уточнения для расчёта" rows={3} />
+          </label>
 
           <label className="contact-form-file">
-            Прикрепить файлы
-            <input type="file" multiple />
+            Прикрепить файлы (чертёж / фото / ведомость)
+            <span>Добавить файлы: DWG, PDF, JPG до 20 МБ</span>
+            <input type="file" accept=".dwg,.pdf,.jpg,.jpeg,.png" multiple />
           </label>
 
-          <label className="contact-form-agreement">
-            <input type="checkbox" required />
-            <span>
-              Согласен на обработку персональных данных
-            </span>
-          </label>
-
-          <button className="button button--orange" type="submit">
-            Отправить заявку
-          </button>
+          <div className="contact-submit-row">
+            <label className="contact-form-agreement">
+              <input type="checkbox" required />
+              <span>Согласен на обработку персональных данных</span>
+            </label>
+            <button className="button button--orange" type="submit">
+              Получить расчёт
+            </button>
+          </div>
 
           {submitted && (
             <p role="status">
@@ -627,6 +822,19 @@ function ContactForm() {
             </p>
           )}
         </form>
+
+          <aside className="contact-manager">
+            <div className="contact-manager-photo image-placeholder">
+              Коммерческий директор
+            </div>
+            <div className="contact-manager-details">
+              <span>Коммерческий директор</span>
+              <strong>Варич Елена Сергеевна</strong>
+              <span>Телефон</span>
+              <a href="tel:+79282896222">8 928 289 62 22</a>
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
   );
@@ -634,31 +842,71 @@ function ContactForm() {
 
 function Footer() {
   return (
-    <footer className="footer" id="blog">
-      <div className="container footer-grid">
-        <div>
-          <h3>Ветеран</h3>
+    <footer className="footer">
+      <div className="container footer-content">
+        <div className="footer-main">
+          <nav className="footer-navigation" aria-label="Навигация в подвале">
+            <div>
+              <h3>Услуги</h3>
+              <a href="#service-catalog">Порошковая окраска</a>
+              <a href="#service-catalog">Крупногабаритная окраска</a>
+              <a href="#service-catalog">Изделия заказчика</a>
+              <a href="#service-catalog">Пескоструй</a>
+              <a href="#contacts">Цены и расчёт</a>
+            </div>
+            <div>
+              <h3>Оборудование</h3>
+              <a href="#equipment-solutions">Камеры</a>
+              <a href="#equipment-solutions">Печи</a>
+              <a href="#equipment-solutions">Линии под ключ</a>
+            </div>
+            <div>
+              <h3>Продукция</h3>
+              <a href="#product-solutions">Мебель</a>
+              <a href="#product-solutions">Бытовки</a>
+              <a href="#product-solutions">Производство под вашей маркой</a>
+              <a href="#products">Металлоконструкции</a>
+            </div>
+            <div>
+              <h3>Компания</h3>
+              <a href="#about">О компании</a>
+              <a href="#production">Производство</a>
+              <a href="#projects">Проекты</a>
+              <a href="#blog">Блог</a>
+            </div>
+          </nav>
 
-          <p>ООО «Ветеран. Системный инжиниринг»</p>
-
-          <p>ИНН/КПП 6166133197 / 616601001</p>
+          <div className="footer-location">
+            <a
+              className="footer-map"
+              href="https://yandex.ru/maps/?text=Ростов-на-Дону%2C%20Машиностроительный%20переулок%2C%207%2F110"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Карта производства
+            </a>
+            <div className="footer-contact-details">
+              <p>Адрес производства: Ростов-на-Дону, Машиностроительный пер., 7/110</p>
+              <p>Пн–Пт: 9:00–18:00</p>
+              <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
+              <a href="tel:+79282896222">8 928 289 62 22</a>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <h3>Контакты</h3>
-
-          <a href="tel:+79282896222">8 928 289 62 22</a>
-          <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
-        </div>
-
-        <div>
-          <h3>Производство</h3>
-
-          <p>
-            Ростов-на-Дону, Машиностроительный пер., 7/110
-          </p>
-
-          <p>Пн–Пт: 9:00–18:00</p>
+        <div className="footer-legal">
+          <a className="footer-brand" href="#top" aria-label="Ветеран, наверх">
+            <img src={LogoVeteran} alt="Ветеран" />
+            <span>Все права защищены</span>
+          </a>
+          <div>
+            <p>ООО «Ветеран. Системный инжиниринг»</p>
+            <p>ИНН/КПП 6166133197 / 616601001</p>
+          </div>
+          <div>
+            <a href="#contacts">Политика конфиденциальности</a>
+            <a href="#contacts">Согласие на обработку персональных данных</a>
+          </div>
         </div>
       </div>
     </footer>
@@ -668,6 +916,7 @@ function Footer() {
 export default function Home() {
   return (
     <>
+      <div id="top" />
       <Header />
 
       <main>
@@ -675,11 +924,12 @@ export default function Home() {
         <ServicesOverview />
         <CompanyStats />
         <CustomerSolutions />
-        <PaintingServices />
+        <ServicesCatalog />
         <Manufacturing />
-        <Production />
         <Projects />
+        <Production />
         <FAQ />
+        <Blog />
         <ContactForm />
       </main>
 
