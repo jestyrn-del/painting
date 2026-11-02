@@ -598,10 +598,10 @@ function Production() {
 
         <div className="production-actions">
           <a className="button button--navy" href="#contacts">
-            Смотреть видеотур
+            смотреть видеотур
           </a>
           <a className="button button--orange" href="#contacts">
-            Приехать на производство
+            приехать на производство
           </a>
         </div>
 
