@@ -194,6 +194,7 @@ const questions = [
 
 function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navigation: {
     title: string;
@@ -249,7 +250,7 @@ function Header() {
           <img src={LogoVeteran} alt="В" />
         </a>
 
-        <nav className="header-nav" id="main-navigation">
+        <nav className={`header-nav ${mobileMenuOpen ? "is-mobile-open" : ""}`} id="main-navigation">
           {navigation.map((item) => (
             <div className={`header-nav-item ${activeDropdown === item.title ? "is-open" : ""}`} key={item.title}>
               {item.links ? (
@@ -268,7 +269,10 @@ function Header() {
                     </p>
                     {item.links.map((link) => (
                       <a href={link.href} key={link.title}
-                        onClick={() => setActiveDropdown(null)}
+                        onClick={() => {
+                          setActiveDropdown(null);
+                          setMobileMenuOpen(false);
+                        }}
                       >
                         {link.title}
                       </a>
@@ -276,7 +280,7 @@ function Header() {
                   </div>
                 </>
               ) : (
-                <a className="header-nav-link" href={item.href}>
+                  <a className="header-nav-link" href={item.href} onClick={() => setMobileMenuOpen(false)}>
                   {item.title}
                 </a>
               )}
@@ -292,6 +296,16 @@ function Header() {
         <a className="button button--orange" href="#contacts">
           заказать звонок
         </a>
+        <button
+          className={`mobile-menu-toggle ${mobileMenuOpen ? "is-open" : ""}`}
+          type="button"
+          aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="main-navigation"
+          onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
+        >
+          <span aria-hidden="true" />
+        </button>
       </div>
     </header>
   );
@@ -315,9 +329,9 @@ function Hero() {
 
           <h2>Собственное производство<br/>в Ростове-на-Дону</h2>
 
-          <a href="#about" className="text-link">
-            Узнать больше
-            <img src={RightArrow}/>
+          <a href="#about" className="button button--orange hero-cta">
+            Подробнее
+            <img src={RightArrow} alt="" />
           </a>
         </div>
 
