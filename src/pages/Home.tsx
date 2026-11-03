@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Home.css";
 
 // Common elements
@@ -457,11 +457,11 @@ function CustomerSolutions() {
             </div>
 
             <div className="solutions">
-                <div className="solutions-image">
+                <div className="solutions-image" key={`solution-image-${activeTab}`}>
                   <img src={selectedTab.image} alt={selectedTab.title} />
                 </div>
 
-                <div className="solutions-content">
+                <div className="solutions-content" key={`solution-content-${activeTab}`}>
                     <h3>{selectedTab.title}</h3>
                     <p>{selectedTab.description}</p>
 
@@ -1009,8 +1009,52 @@ function Footer() {
 }
 
 export default function Home() {
+  const scrollProgressRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let frame = 0;
+    const updateScrollProgress = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+        if (scrollProgressRef.current) {
+          scrollProgressRef.current.style.transform = `scaleX(${progress})`;
+        }
+      });
+    };
+
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    window.addEventListener("resize", updateScrollProgress);
+    updateScrollProgress();
+
+    const sections = document.querySelectorAll("main > .section, main > .services-catalog");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.documentElement.classList.add("has-scroll-reveal");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateScrollProgress);
+      window.removeEventListener("resize", updateScrollProgress);
+      observer.disconnect();
+      document.documentElement.classList.remove("has-scroll-reveal");
+    };
+  }, []);
+
   return (
     <>
+      <div className="scroll-progress" aria-hidden="true">
+        <div className="scroll-progress-bar" ref={scrollProgressRef} />
+      </div>
       <div id="top" />
       <Header />
 
