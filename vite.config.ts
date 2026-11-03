@@ -3,5 +3,5 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/painting/',
+  base: process.env.GITHUB_ACTIONS === 'true' ? '/painting/' : '/',
 });

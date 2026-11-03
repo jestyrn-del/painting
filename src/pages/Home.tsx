@@ -406,25 +406,25 @@ function CustomerSolutions() {
                     <span>Радиаторы — от 4 000 ₽ за комплект<br/>Снимем старую краску и ржавчину пескоструем.<br/>Выдача через 3–5 дней</span>
                 </div>
             </>,
-            image: assetUrl("Assets/Solution-Backgrond-1.png"),
+            image: assetUrl("Assets/aio-image-1.png"),
             button: "рассчитать по фото"
         },
         {
             title: "Заводам и подрядчикам",
             description: "описание для вкладки Заводам и подрядчикам, здесь можно посмотреть что-то интересное, например, что мы можем предложить заводам и подрядчикам ))))",
-            image: assetUrl("Assets/Solution-Backgrond-2.png"),
+            image: assetUrl("Assets/aio-image-2.png"),
             button: "заказать"
         },
         {
             title: "Красим ваши изделия",
             description: "описание для вкладки Красим ваши изделия, здесь можно посмотреть что-то интересное, например, что мы можем предложить тарифы, цены, сроки и т.д",
-            image: assetUrl("Assets/Solution-Backgrond-3.png"),
+            image: assetUrl("Assets/aio-image-3.png"),
             button: "консультация"
         },
         {
             title: "Продукция",
             description: "описание для вкладки Продукция, здесь можно посмотреть что-то интересное, например, что мы можем предложить по ассортименту продукции, которую мы производим )))))",
-            image: assetUrl("Assets/Solution-Backgrond-4.png"),
+            image: assetUrl("Assets/aio-image-4.png"),
             button: "ассортимент"
         },
     ];
