@@ -1272,6 +1272,7 @@
     justify-content: center;
     gap: 10px;
     margin: 0 auto 20px;
+    background-color: transparent;
     width: 100%;
 }
 
@@ -1341,6 +1342,7 @@
 .contact-field-full span {
     display: block;
     text-transform: lowercase;
+    background: transparent;
 }
 
 .contact-fields-grid input,
@@ -1402,6 +1404,11 @@
     color: #000000;
     font-size: 12px;
     font-weight: 300;
+}
+
+.contact-form-file span:first-of-type {
+    text-transform: lowercase;
+    background: transparent;
 }
 
 .contact-form-file-picker {
@@ -1476,10 +1483,21 @@
     line-height: 1.2;
 }
 
+.contact-form-agreement span {
+    background: transparent;
+    text-transform: lowercase;
+}
+
+.contact-form-agreement span p {
+    background: transparent;
+    text-transform: lowercase;
+}
+
 .contact-form-agreement input {
     width: 16px;
     height: 16px;
     accent-color: #0e213b;
+    background: transparent;
 }
 
 .contact-submit-row .button {
@@ -1687,7 +1705,6 @@
     align-items: start;
     gap: 20px;
     padding-top: 20px;
-    border-top: 1px solid rgb(14 33 59 / 18%);
     background: transparent;
 }
 

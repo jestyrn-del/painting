@@ -884,16 +884,14 @@ function ContactForm() {
             <div className="contact-submit-row">
               <label className="contact-form-agreement">
                 <input type="checkbox" required />
-                <span>Согласен на обработку персональных данных</span>
+                <span>
+                    <p>Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности и обработкой персональных данных.</p>
+                </span>
               </label>
               <button className="button button--orange" type="submit">
                 получить расчёт
               </button>
             </div>
-            <p className="contact-legal-note">
-              Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности и
-              обработкой персональных данных.
-            </p>
 
             {submitted && (
               <p role="status">
@@ -926,89 +924,83 @@ function ContactForm() {
 function Footer() {
   return (
     <footer className="footer">
-      <div className="container footer-content">
-        <div className="footer-main">
-          <div className="footer-links-block">
-            <nav className="footer-navigation" aria-label="Навигация в подвале">
-              <div>
-                <h3>Услуги</h3>
-                <a href="#service-catalog">Порошковая окраска</a>
-                <a href="#service-catalog">Крупногабарит</a>
-                <a href="#service-catalog">Изделия заказчика</a>
-                <a href="#service-catalog">Декор</a>
-                <a href="#service-catalog">Пескоструй</a>
-                <a href="#service-catalog">Металлообработка</a>
-                <a href="#service-catalog">Калькулятор</a>
-                <a href="#contacts">Цены</a>
-              </div>
-              <div>
-                <h3>Оборудование</h3>
-                <a href="#equipment-solutions">Камеры</a>
-                <a href="#equipment-solutions">Печи</a>
-                <a href="#equipment-solutions">Линии под ключ</a>
-              </div>
-              <div>
-                <h3>Продукция</h3>
-                <a href="#product-solutions">Мебель</a>
-                <a href="#product-solutions">Бытовки</a>
-                <a href="#product-solutions">Производство под вашей маркой</a>
-                <a href="#contacts">Условия</a>
-                <a href="#contacts">Прайс</a>
-              </div>
-              <div>
-                <h3>Компания</h3>
-                <a href="#about">О компании</a>
-                <a href="#production">Производство</a>
-                <a href="#projects">Проекты</a>
-                <a href="#blog">Документы</a>
-                <a href="#contacts">Реквизиты</a>
-                <a href="#contacts">Вакансии</a>
-                <a href="#blog">Блог</a>
-              </div>
-            </nav>
-          </div>
+        <div className="container footer-content">
+            <div className="footer-main">
+                <div className="footer-links-block">
 
-          <div className="footer-side">
-            <div className="footer-map-card" aria-label="Карта производства">
-              <div className="footer-map-label">карта</div>
+                    <nav className="footer-navigation" aria-label="Навигация в подвале">
+                        <div>
+                        <h3>Услуги</h3>
+                        <a href="#service-catalog">Порошковая окраска</a>
+                        <a href="#service-catalog">Крупногабарит</a>
+                        <a href="#service-catalog">Изделия заказчика</a>
+                        <a href="#service-catalog">Декор</a>
+                        <a href="#service-catalog">Пескоструй</a>
+                        <a href="#service-catalog">Металлообработка</a>
+                        <a href="#service-catalog">Калькулятор</a>
+                        <a href="#contacts">Цены</a>
+                        </div>
+                        <div>
+                        <h3>Оборудование</h3>
+                        <a href="#equipment-solutions">Камеры</a>
+                        <a href="#equipment-solutions">Печи</a>
+                        <a href="#equipment-solutions">Линии под ключ</a>
+                        </div>
+                        <div>
+                        <h3>Продукция</h3>
+                        <a href="#product-solutions">Мебель</a>
+                        <a href="#product-solutions">Бытовки</a>
+                        <a href="#product-solutions">Производство под вашей маркой</a>
+                        <a href="#contacts">Условия</a>
+                        <a href="#contacts">Прайс</a>
+                        </div>
+                        <div>
+                        <h3>Компания</h3>
+                        <a href="#about">О компании</a>
+                        <a href="#production">Производство</a>
+                        <a href="#projects">Проекты</a>
+                        <a href="#blog">Документы</a>
+                        <a href="#contacts">Реквизиты</a>
+                        <a href="#contacts">Вакансии</a>
+                        <a href="#blog">Блог</a>
+                        </div>
+                    </nav>
+
+                    <div className="footer-brand">
+                        <a href="#top" aria-label="Ветеран, наверх">
+                            <img src={LogoVeteran} alt="Ветеран" />
+                        </a>
+                        <span>все права защищены</span>
+                    </div>
+
+                    <div className="footer-company-info">
+                        <p>ООО «Ветеран. Системный инжиниринг»</p>
+                        <p>ИНН/КПП 6166133197 / 616601001</p>
+                        <p>ОГРН 1256100017843</p>
+                        <p>Юр адрес 344045 г. Ростов-на-Дону, ул. Миронова, 2Д, кв. 51</p>
+                    </div>
+
+                    <div className="footer-legal-links">
+                        <a href="#contacts">Политика конфиденциальности</a>
+                        <a href="#contacts">Согласие на получение рассылки</a>
+                        <a href="#contacts">Согласие на обработку ПД</a>
+                    </div>
+                </div>
+
+                <div className="footer-side">
+                    <div className="footer-map-card" aria-label="Карта производства">
+                    <div className="footer-map-label">карта</div>
+                    </div>
+
+                    <div className="footer-contact-details">
+                    <p>Адрес производства: г. Ростов-на-Дону, Машиностроительный пер., 7/110</p>
+                    <p>Режим работы: понедельник-пятница с 9:00 до 18:00</p>
+                    <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
+                    <a href="tel:+79282896222">8 928 289 62 22</a>
+                    </div>
+                </div>
             </div>
-
-            <div className="footer-contact-details">
-              <p>Адрес производства: г. Ростов-на-Дону, Машиностроительный пер., 7/110</p>
-              <p>Режим работы: понедельник-пятница с 9:00 до 18:00</p>
-              <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
-              <a href="tel:+79282896222">8 928 289 62 22</a>
-            </div>
-          </div>
         </div>
-
-        <div className="footer-legal">
-          <div className="footer-brand">
-            <a href="#top" aria-label="Ветеран, наверх">
-              <img src={LogoVeteran} alt="Ветеран" />
-            </a>
-            <span>все права защищены</span>
-          </div>
-
-          <div className="footer-company-info">
-            <p>ООО «Ветеран. Системный инжиниринг»</p>
-            <p>ИНН/КПП 6166133197 / 616601001</p>
-            <p>ОГРН 1256100017843</p>
-            <p>Юр адрес 344045 г. Ростов-на-Дону, ул. Миронова, 2Д, кв. 51</p>
-          </div>
-
-          <div className="footer-legal-links">
-            <a href="#contacts">Политика конфиденциальности</a>
-            <a href="#contacts">Согласие на получение рассылки</a>
-            <a href="#contacts">Согласие на обработку ПД</a>
-          </div>
-
-          <div className="footer-socials" aria-label="Социальные сети">
-            <a href="#contacts" aria-label="ВКонтакте" className="footer-social social-vk" />
-            <a href="#contacts" aria-label="Telegram" className="footer-social social-tg" />
-          </div>
-        </div>
-      </div>
     </footer>
   );
 }
