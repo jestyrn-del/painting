@@ -10,6 +10,8 @@ import CommonComponent from '../../public/Assets/Common-Icon.svg';
 // Hero imports
 import HeroBgr from '../../public/Assets/Hero-Backgrond.svg';
 
+const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 const services = [
   {
     id: "painting-service",
@@ -342,7 +344,7 @@ function ServicesOverview() {
 
               <div className="service-card-image">
                 <img
-                  src={`/Assets/Service-card-${index + 1}.png`}
+                  src={assetUrl(`Assets/Service-card-${index + 1}.png`)}
                   alt={service.title}
                 />
               </div>
@@ -385,7 +387,7 @@ function CompanyStats() {
         <div className="stats-visual">
             <span>порошковые краски</span>
             <div className="stats-video-preview">
-              <img src="/Assets/Stats-Video-prewiev.png" alt="Окрасочная камера на производстве" />
+              <img src={assetUrl("Assets/Stats-Video-prewiev.png")} alt="Окрасочная камера на производстве" />
             </div>
         </div>
       </div>
@@ -404,25 +406,25 @@ function CustomerSolutions() {
                     <span>Радиаторы — от 4 000 ₽ за комплект<br/>Снимем старую краску и ржавчину пескоструем.<br/>Выдача через 3–5 дней</span>
                 </div>
             </>,
-            image: "/Assets/Solution-Backgrond-1.png",
+            image: assetUrl("Assets/Solution-Backgrond-1.png"),
             button: "рассчитать по фото"
         },
         {
             title: "Заводам и подрядчикам",
             description: "описание для вкладки Заводам и подрядчикам, здесь можно посмотреть что-то интересное, например, что мы можем предложить заводам и подрядчикам ))))",
-            image: "/Assets/Solution-Backgrond-2.png",
+            image: assetUrl("Assets/Solution-Backgrond-2.png"),
             button: "заказать"
         },
         {
             title: "Красим ваши изделия",
             description: "описание для вкладки Красим ваши изделия, здесь можно посмотреть что-то интересное, например, что мы можем предложить тарифы, цены, сроки и т.д",
-            image: "/Assets/Solution-Backgrond-3.png",
+            image: assetUrl("Assets/Solution-Backgrond-3.png"),
             button: "консультация"
         },
         {
             title: "Продукция",
             description: "описание для вкладки Продукция, здесь можно посмотреть что-то интересное, например, что мы можем предложить по ассортименту продукции, которую мы производим )))))",
-            image: "/Assets/Solution-Backgrond-4.png",
+            image: assetUrl("Assets/Solution-Backgrond-4.png"),
             button: "ассортимент"
         },
     ];
@@ -538,46 +540,46 @@ function Production() {
     {
       title: "Контроль каждой партии",
       description: "Толщиномер, тест на адгезию, протокол к партии",
-      icon: "/Assets/aio-icon-1.svg",
+      icon: assetUrl("Assets/aio-icon-1.svg"),
     },
     {
       title: "Порошковая краска",
       description: "Сертифицированные материалы",
-      icon: "/Assets/aio-icon-2.svg",
+      icon: assetUrl("Assets/aio-icon-2.svg"),
     },
     {
       title: "Опыт операторов",
       description: "Средний стаж 5 лет",
-      icon: "/Assets/aio-icon-3.svg",
+      icon: assetUrl("Assets/aio-icon-3.svg"),
     },
     {
       title: "Склад",
       description: "150 м² для хранения изделий до и после окраски",
-      icon: "/Assets/aio-icon-4.svg",
+      icon: assetUrl("Assets/aio-icon-4.svg"),
     },
   ];
 
   const productionPhotos = [
-    { src: "/Assets/aio-1.png", alt: "Окрасочное производство" },
-    { src: "/Assets/aio-2.png", alt: "Специалист готовит изделие к окраске" },
-    { src: "/Assets/aio-3.png", alt: "Камеры порошковой окраски" },
-    { src: "/Assets/aio-4.png", alt: "Окрасочная камера" },
-    { src: "/Assets/aio-5.png", alt: "Металлоконструкция перед окраской" },
-    { src: "/Assets/aio-6.png", alt: "Внутри камеры нанесения" },
-    { src: "/Assets/aio-7.png", alt: "Сборка окрасочного оборудования" },
-    { src: "/Assets/aio-8.png", alt: "Готовые окрашенные изделия" },
-    { src: "/Assets/aio-9.png", alt: "Окрашенные металлические детали" },
-    { src: "/Assets/aio-10.png", alt: "Окрашенные металлические детали" },
+    { src: assetUrl("Assets/aio-1.png"), alt: "Окрасочное производство" },
+    { src: assetUrl("Assets/aio-2.png"), alt: "Специалист готовит изделие к окраске" },
+    { src: assetUrl("Assets/aio-3.png"), alt: "Камеры порошковой окраски" },
+    { src: assetUrl("Assets/aio-4.png"), alt: "Окрасочная камера" },
+    { src: assetUrl("Assets/aio-5.png"), alt: "Металлоконструкция перед окраской" },
+    { src: assetUrl("Assets/aio-6.png"), alt: "Внутри камеры нанесения" },
+    { src: assetUrl("Assets/aio-7.png"), alt: "Сборка окрасочного оборудования" },
+    { src: assetUrl("Assets/aio-8.png"), alt: "Готовые окрашенные изделия" },
+    { src: assetUrl("Assets/aio-9.png"), alt: "Окрашенные металлические детали" },
+    { src: assetUrl("Assets/aio-10.png"), alt: "Окрашенные металлические детали" },
   ];
 
   const clientLogos = [
-    { name: "Аскона", src: "/Assets/Company-Ascona.png" },
-    { name: "Corax", src: "/Assets/Company-Corax.png" },
-    { name: "Электромеханика", src: "/Assets/Company-EctroMec.png" },
-    { name: "G-BUR", src: "/Assets/Company-GBur.png" },
-    { name: "Апрель", src: "/Assets/Company-aprel.png" },
-    { name: "РЖД", src: "/Assets/Company-rzd.png" },
-    { name: "Турбо Дон", src: "/Assets/Company-TurboDon.png" },
+    { name: "Аскона", src: assetUrl("Assets/Company-Ascona.png") },
+    { name: "Corax", src: assetUrl("Assets/Company-Corax.png") },
+    { name: "Электромеханика", src: assetUrl("Assets/Company-EctroMec.png") },
+    { name: "G-BUR", src: assetUrl("Assets/Company-GBur.png") },
+    { name: "Апрель", src: assetUrl("Assets/Company-aprel.png") },
+    { name: "РЖД", src: assetUrl("Assets/Company-rzd.png") },
+    { name: "Турбо Дон", src: assetUrl("Assets/Company-TurboDon.png") },
   ];
 
   return (
@@ -688,7 +690,7 @@ function FAQ() {
 
         <div className="faq-layout">
           <div className="faq-visual">
-            <img src="/Assets/Common-Questions.png" alt="Окрашенные металлические детали" />
+            <img src={assetUrl("Assets/Common-Questions.png")} alt="Окрашенные металлические детали" />
           </div>
           <div className="faq-panel">
             <div className="faq">
@@ -733,28 +735,28 @@ function Blog() {
     {
       date: "01.01.2026",
       category: "Технологии",
-      image: "/Assets/aio-4.png",
+      image: assetUrl("Assets/aio-4.png"),
       title: "Как подготовить металл к порошковой окраске",
       description: "Этапы очистки и подготовки поверхности перед нанесением покрытия.",
     },
     {
       date: "01.01.2026",
       category: "Материалы",
-      image: "/Assets/Blog-Palette.png",
+      image: assetUrl("Assets/Blog-Palette.png"),
       title: "Как выбрать цвет и фактуру покрытия",
       description: "Что учитывать при выборе оттенка RAL и типа поверхности.",
     },
     {
       date: "01.01.2026",
       category: "Производство",
-      image: "/Assets/aio-2.png",
+      image: assetUrl("Assets/aio-2.png"),
       title: "От чего зависит срок окраски изделия",
       description: "Размер партии, габариты изделия и подготовка влияют на сроки работ.",
     },
     {
       date: "01.01.2026",
       category: "Оборудование",
-      image: "/Assets/aio-1.png",
+      image: assetUrl("Assets/aio-1.png"),
       title: "Как подобрать линию порошковой окраски",
       description: "С чего начать выбор оборудования для производственной площадки.",
     },
@@ -898,7 +900,7 @@ function ContactForm() {
 
           <aside className="contact-manager">
             <div className="contact-manager-photo">
-              <img src="/Assets/Common-Comercial-director.png" alt="Коммерческий директор" />
+              <img src={assetUrl("Assets/Common-Comercial-director.png")} alt="Коммерческий директор" />
             </div>
             <div className="contact-manager-details">
               <div className="contact-manager-meta">
