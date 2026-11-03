@@ -1,9 +1,5 @@
 :root {
-    font-family: "Mazzard M", sans-serif;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: "Mazzard M";
 }
 
 * { box-sizing: border-box; }

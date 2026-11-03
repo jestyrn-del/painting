@@ -19,10 +19,8 @@ body {
     margin: 0;
     color: var(--ink);
     background: var(--paper);
-    font-family: "Mazzard M", sans-serif;
+    font-family: "Mazzard M";
     font-size: var(--text-xs);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 button, input, select, textarea { font: inherit; }
 button { cursor: pointer; }
@@ -268,7 +266,7 @@ img { max-width: 100%; }
 .production-intro > p { width: 78.9vw; margin: 0; font-size: 1.875vw; font-weight: 600; line-height: 1.14; }
 .production-features { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.56vw; background: transparent; }
 .production-feature { display: flex; min-width: 0; align-items: flex-start; gap: 0.63vw; background: transparent; }
-.production-feature-mark { display: grid; width: 2.5vw; height: 4.44vh; flex: 0 0 2.5vw; place-items: center; overflow: hidden; background: url("/Assets/aio-icon-backgrond.png") center / cover no-repeat; }
+.production-feature-mark { display: grid; width: 2.5vw; height: 4.44vh; flex: 0 0 2.5vw; place-items: center; overflow: hidden; background: var(--orange); }
 .production-feature-mark img { width: 1.875vw; height: 3.33vh; object-fit: contain; background: transparent; }
 .production-feature > div { min-width: 0; background: transparent; }
 .production-feature h3, .production-feature p { margin: 0; background: transparent; }
