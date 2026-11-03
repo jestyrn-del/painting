@@ -22,6 +22,8 @@
 * {
 	box-sizing: border-box;
 	background-color: var(--background-second);
+
+	transition: 0.3s ease;
 }
 
 html {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./Home.css";
 
 // Common elements
@@ -76,7 +76,8 @@ const statistics = [
 const serviceCategories = [
   {
     title: "Окраска и обработка металла",
-    description: "Полный цикл в одном цехе: подготовка поверхности, окраска, полимеризация и упаковка. Металлоконструкции можем сделать с нуля по вашему чертежу.",
+    description:
+      "Полный цикл в одном цехе: подготовка поверхности, окраска, полимеризация и упаковка. Металлоконструкции можем сделать с нуля по вашему чертежу.",
     cards: [
       {
         title: "Порошковая окраска металлоконструкций",
@@ -166,24 +167,24 @@ const questions = [
   {
     question: "Есть ли минимальный заказ на окраску?",
     answer:
-      "Нет. Красим и одно изделие, и партии. Стоимость зависит от объёма и характеристик заказа.",
+      "Нет. Красим и одно изделие, и партии. При объёме больше 500 м² цена за м² может быть снижена.",
   },
   {
     question: "Какое изделие поместится в камеру?",
-    answer:
-      "Максимальные габариты камеры: 7,2 × 1,4 × 2,5 м.",
+    answer: "В камеру поместится изделие размерами 7,2 × 1,4 × 2,5 м.",
   },
   {
     question: "Можно ли привезти свою краску?",
-    answer: "Условия использования материалов согласовываются индивидуально.",
+    answer: "Да. Вы можете привезти свою краску.",
   },
   {
     question: "Какая гарантия на покрытие?",
-    answer: "Гарантия на отслоение покрытия — 1 год.",
+    answer: "Гарантия на покрытие 12 месяцев.",
   },
   {
     question: "Как быстро вы делаете оборудование?",
-    answer: "Срок зависит от комплектации и объёма заказа.",
+    answer:
+      "Оборудование производится в течение 4-х недель с момента согласования технического задания и получения аванса.",
   },
 ];
 
@@ -330,7 +331,7 @@ function ServicesOverview() {
     <section className="section" id="services" style={{ marginTop: 80 }}>
       <div className="container">
         <div className="services-grid">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <article className="service-card" id={service.id} key={service.title}>
               <div>
                 <h3>{service.title}</h3>
@@ -338,8 +339,11 @@ function ServicesOverview() {
                 <small>{service.details}</small>
               </div>
 
-              <div className="service-card-image image-placeholder">
-                Изображение
+              <div className="service-card-image">
+                <img
+                  src={`/Assets/Service-card-${index + 1}.png`}
+                  alt={service.title}
+                />
               </div>
 
               <div className="service-card-bottom">
@@ -379,8 +383,8 @@ function CompanyStats() {
 
         <div className="stats-visual">
             <span>порошковые краски</span>
-            <div className="image-placeholder">
-                Видео о производстве
+            <div className="stats-video-preview">
+              <img src="/Assets/Stats-Video-prewiev.png" alt="Окрасочная камера на производстве" />
             </div>
         </div>
       </div>
@@ -391,8 +395,7 @@ function CompanyStats() {
 function CustomerSolutions() {
     const tabs = [
         {
-            tab: "Частный заказ",
-            title: "Покрасим радиаторы, ворота, мебельный каркас или садовую мебель",
+            title: "Частный заказ",
             description: 
             <>
                 <div>
@@ -400,29 +403,26 @@ function CustomerSolutions() {
                     <span>Радиаторы — от 4 000 ₽ за комплект<br/>Снимем старую краску и ржавчину пескоструем.<br/>Выдача через 3–5 дней</span>
                 </div>
             </>,
-            image: "Картинка частного заказа",
+            image: "/Assets/Solution-Backgrond-1.png",
             button: "рассчитать по фото"
         },
         {
-            tab: "Заводам и подрядчикам",
-            title: "Красим металлоконструкции партиями до 300 м² в смену. Работаем по договору, с НДС, ЭДО и закрывающими документами. Можем встроиться в ваш производственный график",
-            description: <>Фиксированная цена за м² на весь объём<br/>Протокол контроля толщины и адгезии к каждой партии</>,
-            image: "Картинка для заводов и подрядчиков",
-            button: "отправить ведомость на расчёт"
+            title: "Заводам и подрядчикам",
+            description: "описание для вкладки Заводам и подрядчикам, здесь можно посмотреть что-то интересное, например, что мы можем предложить заводам и подрядчикам ))))",
+            image: "/Assets/Solution-Backgrond-2.png",
+            button: "заказать"
         },
         {
-            tab: "Красим ваши изделия",
-            title: "Принимаем ваши изделия на окраску по акту и фиксируем их состояние на фото до начала работ. Краска наша или ваша. Отвечаем за изделие с момента приёмки до отгрузки",
-            description: <>Акт приёмки с фотофиксацией<br/>Хранение на складе до 3 дней бесплатно<br/>Забираем и доставляем своим транспортом</>,
-            image: "Картинка для кастома",
-            button: "как работает схема"
+            title: "Красим ваши изделия",
+            description: "описание для вкладки Красим ваши изделия, здесь можно посмотреть что-то интересное, например, что мы можем предложить тарифы, цены, сроки и т.д",
+            image: "/Assets/Solution-Backgrond-3.png",
+            button: "консультация"
         },
         {
-            tab: "Продукция",
-            title: "Производим лофт-мебель, металлокаркасы и бытовки. Отгружаем партиями от 1 шт. Красим в своём цехе, поэтому цвет и сроки контролируем сами",
-            description: <>3 уровня оптовых цен<br/>Производство под вашей маркой<br/>Доставка по России транспортными компаниями,</>,
-            image: "Картинка для продукции",
-            button: "получить оптовые условия"
+            title: "Продукция",
+            description: "описание для вкладки Продукция, здесь можно посмотреть что-то интересное, например, что мы можем предложить по ассортименту продукции, которую мы производим )))))",
+            image: "/Assets/Solution-Backgrond-4.png",
+            button: "ассортимент"
         },
     ];
 
@@ -439,19 +439,19 @@ function CustomerSolutions() {
             <div className="tabs">
                 {tabs.map((tab, index) => (
                 <button
-                  key={tab.tab}
+                    key={tab.title}
                     className={`tabs-button ${activeTab === index ? "active" : ""}`}
                     aria-pressed={activeTab === index}
                     onClick={() => setActiveTab(index)}
                 >
-                  {tab.tab}
+                    {tab.title}
                 </button>
                 ))}
             </div>
 
             <div className="solutions">
-                <div className="solutions-image image-placeholder">
-                    {selectedTab.image}
+                <div className="solutions-image">
+                  <img src={selectedTab.image} alt={selectedTab.title} />
                 </div>
 
                 <div className="solutions-content">
@@ -537,30 +537,46 @@ function Production() {
     {
       title: "Контроль каждой партии",
       description: "Толщиномер, тест на адгезию, протокол к партии",
+      icon: "/Assets/aio-icon-1.svg",
     },
     {
       title: "Порошковая краска",
       description: "Сертифицированные материалы",
+      icon: "/Assets/aio-icon-2.svg",
     },
     {
       title: "Опыт операторов",
       description: "Средний стаж 5 лет",
+      icon: "/Assets/aio-icon-3.svg",
     },
     {
       title: "Склад",
       description: "150 м² для хранения изделий до и после окраски",
+      icon: "/Assets/aio-icon-4.svg",
     },
   ];
 
   const productionPhotos = [
-    "Участок окраски",
-    "Подготовка изделий",
-    "Окрасочная линия",
-    "Порошковые краски",
-    "Печь полимеризации",
-    "Сварочный участок",
-    "Сборка оборудования",
-    "Готовые изделия",
+    { src: "/Assets/aio-1.png", alt: "Окрасочное производство" },
+    { src: "/Assets/aio-2.png", alt: "Специалист готовит изделие к окраске" },
+    { src: "/Assets/aio-3.png", alt: "Камеры порошковой окраски" },
+    { src: "/Assets/aio-4.png", alt: "Окрасочная камера" },
+    { src: "/Assets/aio-5.png", alt: "Металлоконструкция перед окраской" },
+    { src: "/Assets/aio-6.png", alt: "Внутри камеры нанесения" },
+    { src: "/Assets/aio-7.png", alt: "Сборка окрасочного оборудования" },
+    { src: "/Assets/aio-8.png", alt: "Готовые окрашенные изделия" },
+    { src: "/Assets/aio-9.png", alt: "Окрашенные металлические детали" },
+    { src: "/Assets/aio-10.png", alt: "Окрашенные металлические детали" },
+  ];
+
+  const clientLogos = [
+    { name: "Аскона", src: "/Assets/Company-Ascona.png" },
+    { name: "Corax", src: "/Assets/Company-Corax.png" },
+    { name: "Электромеханика", src: "/Assets/Company-EctroMec.png" },
+    { name: "G-BUR", src: "/Assets/Company-GBur.png" },
+    { name: "Апрель", src: "/Assets/Company-aprel.png" },
+    { name: "РЖД", src: "/Assets/Company-rzd.png" },
+    { name: "Турбо Дон", src: "/Assets/Company-TurboDon.png" },
   ];
 
   return (
@@ -573,13 +589,14 @@ function Production() {
             участок пескоструйной обработки, сварочное производство и цех сборки
             оборудования. Красим, варим и собираем сами.
           </p>
-
         </div>
 
         <div className="production-features">
           {productionFeatures.map((feature) => (
             <article className="production-feature" key={feature.title}>
-              <span className="production-feature-mark" aria-hidden="true" />
+              <span className="production-feature-mark" aria-hidden="true">
+                <img src={feature.icon} alt="" />
+              </span>
               <div>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
@@ -590,26 +607,32 @@ function Production() {
 
         <div className="production-gallery" id="production-gallery">
           {productionPhotos.map((photo) => (
-            <div className="production-gallery-item image-placeholder" key={photo}>
-              {photo}
+            <div className="production-gallery-item" key={photo.src}>
+              <img src={photo.src} alt={photo.alt} />
             </div>
           ))}
         </div>
 
         <div className="production-actions">
           <a className="button button--navy" href="#contacts">
-            смотреть видеотур
+            Смотреть видеотур
           </a>
           <a className="button button--orange" href="#contacts">
-            приехать на производство
+            Приехать на производство
           </a>
         </div>
 
         <div className="production-trust">
           <h2 className="section-title">Нам доверяют</h2>
-          <div className="production-trust-list">
-            <span>Складской комплекс, Омск</span>
-            <span>Мебельная фабрика «Люкс»</span>
+          <div className="production-trust-list" aria-label="Клиенты компании">
+            {clientLogos.map((client) => (
+              <div
+                className="production-client-logo"
+                key={client.name}
+              >
+                <img src={client.src} alt={client.name} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -632,10 +655,10 @@ function Projects() {
                 подготовка до Sa 2½.
               </p>
               <strong>1 200 м²<br />6 дней<br />0 рекламаций</strong>
+              <a href="#contacts" className="project-card-link">
+                подробнее <img src={RightArrow} alt="" />
+              </a>
             </div>
-            <a href="#contacts" className="project-card-link">
-              подробнее <img src={RightArrow} alt="" />
-            </a>
           </article>
 
           <article className="project-card">
@@ -643,10 +666,10 @@ function Projects() {
               <h3>Мебельная фабрика «Люкс»</h3>
               <p>Поставляем окрашенные подстолья в трёх цветах.</p>
               <strong>10 шт. в месяц<br />5 месяцев сотрудничества<br />98% отгрузок в срок</strong>
+              <a href="#contacts" className="project-card-link">
+                подробнее <img src={RightArrow} alt="" />
+              </a>
             </div>
-            <a href="#contacts" className="project-card-link">
-              подробнее <img src={RightArrow} alt="" />
-            </a>
           </article>
         </div>
       </div>
@@ -655,34 +678,47 @@ function Projects() {
 }
 
 function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openQuestion, setOpenQuestion] = useState<number | null>(null);
 
   return (
-    <section className="section">
+    <section className="section section--gray">
       <div className="container">
         <h2 className="section-title">Частые вопросы</h2>
 
-        <div className="faq">
-          {questions.map((item, index) => (
-            <div className="faq-item" key={item.question}>
-              <button
-                className="faq-question"
-                aria-expanded={openIndex === index}
-                onClick={() =>
-                  setOpenIndex(openIndex === index ? null : index)
-                }
-              >
-                {item.question}
-                <span>{openIndex === index ? "−" : "+"}</span>
-              </button>
+        <div className="faq-layout">
+          <div className="faq-visual">
+            <img src="/Assets/Common-Questions.png" alt="Окрашенные металлические детали" />
+          </div>
+          <div className="faq-panel">
+            <div className="faq">
+              {questions.map((item, index) => (
+                <div className="faq-item" key={item.question}>
+                  <button
+                    className="faq-question"
+                    aria-expanded={openQuestion === index}
+                    onClick={() =>
+                      setOpenQuestion((current) =>
+                        current === index ? null : index,
+                      )
+                    }
+                  >
+                    {item.question}
+                    <img
+                      className={openQuestion === index ? "is-open" : ""}
+                      src={RightArrow}
+                      alt=""
+                    />
+                  </button>
 
-              {openIndex === index && (
-                <div className="faq-answer">
-                  <p>{item.answer}</p>
+                  {openQuestion === index && (
+                    <div className="faq-answer">
+                      <p>{item.answer}</p>
+                    </div>
+                  )}
                 </div>
-              )}
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
@@ -690,44 +726,90 @@ function FAQ() {
 }
 
 function Blog() {
+  const blogTrackRef = useRef<HTMLDivElement>(null);
+
   const articles = [
     {
+      date: "01.01.2026",
       category: "Технологии",
+      image: "/Assets/aio-4.png",
       title: "Как подготовить металл к порошковой окраске",
       description: "Этапы очистки и подготовки поверхности перед нанесением покрытия.",
     },
     {
+      date: "01.01.2026",
       category: "Материалы",
+      image: "/Assets/Blog-Palette.png",
       title: "Как выбрать цвет и фактуру покрытия",
       description: "Что учитывать при выборе оттенка RAL и типа поверхности.",
     },
     {
+      date: "01.01.2026",
       category: "Производство",
+      image: "/Assets/aio-2.png",
       title: "От чего зависит срок окраски изделия",
       description: "Размер партии, габариты изделия и подготовка влияют на сроки работ.",
     },
+    {
+      date: "01.01.2026",
+      category: "Оборудование",
+      image: "/Assets/aio-1.png",
+      title: "Как подобрать линию порошковой окраски",
+      description: "С чего начать выбор оборудования для производственной площадки.",
+    },
   ];
+
+  const scrollBlog = (direction: -1 | 1) => {
+    const track = blogTrackRef.current;
+    if (track) {
+      track.scrollBy({
+        left: direction * track.clientWidth,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <section className="section blog-section" id="blog">
       <div className="container">
         <h2 className="section-title">Блог</h2>
-        <div className="blog-grid">
-          {articles.map((article) => (
-            <article className="blog-card" key={article.title}>
-              <div className="blog-card-image image-placeholder">
-                {article.category}
-              </div>
-              <div className="blog-card-copy">
-                <span>{article.category}</span>
-                <h3>{article.title}</h3>
-                <p>{article.description}</p>
-                <a href="#contacts" className="blog-card-link">
-                  Читать <img src={RightArrow} alt="" />
-                </a>
-              </div>
-            </article>
-          ))}
+        <div className="blog-carousel">
+          <button
+            className="blog-carousel-control blog-carousel-control--previous"
+            type="button"
+            aria-label="Предыдущие статьи"
+            onClick={() => scrollBlog(-1)}
+          >
+            <img src={RightArrow} alt="" />
+          </button>
+          <div className="blog-grid" ref={blogTrackRef}>
+            {articles.map((article) => (
+              <article className="blog-card" key={article.title}>
+                <div className="blog-card-image">
+                  <img src={article.image} alt={article.title} />
+                </div>
+                <div className="blog-card-copy">
+                  <div className="blog-card-meta">
+                    <span>{article.date}</span>
+                    <span>{article.category}</span>
+                  </div>
+                  <h3>{article.title}</h3>
+                  <p>{article.description}</p>
+                  <a href="#contacts" className="blog-card-link">
+                    Читать <img src={RightArrow} alt="" />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+          <button
+            className="blog-carousel-control blog-carousel-control--next"
+            type="button"
+            aria-label="Следующие статьи"
+            onClick={() => scrollBlog(1)}
+          >
+            <img src={RightArrow} alt="" />
+          </button>
         </div>
       </div>
     </section>
@@ -740,78 +822,99 @@ function ContactForm() {
   return (
     <section className="section contact-section" id="contacts">
       <div className="container">
-        <h2 className="contact-title">
-          Пришлите чертёж или фото, и мы рассчитаем стоимость за 2 часа
-        </h2>
+        <div className="contact-title-wrap">
+          <h2 className="contact-title">
+            Пришлите чертёж или фото, и мы рассчитаем стоимость за 2 часа
+          </h2>
+          <span className="contact-title-mark" aria-hidden="true">
+            <svg viewBox="0 0 28 27" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.95 0C18.18 0 21.72 1.53 23.57 4.59C25.44 7.68 25.86 12.08 24.7 16.08C23.55 20.08 21.08 23.17 17.32 25.4C13.61 27.58 9.34 27.8 5.46 26.02C1.71 24.34 -0.84 20.63 0.2 16.22C0.98 12.9 3.71 10.11 7.35 8.54C10.66 7.1 13.05 5.76 13.95 4.02C14.64 2.69 14.38 1.45 13.95 0ZM14.1 8.09C11.5 8.09 9.12 9.42 7.6 11.63C6.11 13.83 5.82 16.55 6.94 19.02C8.07 21.52 10.45 23.14 13.23 23.14C16.02 23.14 18.53 21.4 19.77 18.72C20.91 16.3 20.78 13.38 19.36 10.98C17.98 8.59 15.63 8.09 14.1 8.09Z" fill="#F6A71A"/>
+            </svg>
+          </span>
+        </div>
 
         <div className="contact-layout">
-        <form
-          className="contact-form"
-          onSubmit={(event) => {
-            event.preventDefault();
-            setSubmitted(true);
-          }}
-        >
-          <div className="contact-fields-grid">
-            <label>
-              Направление
-              <select defaultValue="Окраска">
-                <option>Окраска</option>
-                <option>Оборудование</option>
-                <option>Продукция</option>
-              </select>
-            </label>
-            <label>
-              Имя
-              <input type="text" placeholder="Ваше имя" required />
-            </label>
-            <label>
-              Телефон
-              <input type="tel" placeholder="+7 (999) 999 99 99" required />
-            </label>
-            <label>
-              E-mail
-              <input type="email" placeholder="Ваша почта" />
-            </label>
-          </div>
+          <form
+            className="contact-form"
+            onSubmit={(event) => {
+              event.preventDefault();
+              setSubmitted(true);
+            }}
+          >
+            <div className="contact-fields-grid">
+              <label className="contact-field">
+                <span>направление</span>
+                <select defaultValue="Окраска">
+                  <option>Окраска</option>
+                  <option>Оборудование</option>
+                  <option>Продукция</option>
+                </select>
+              </label>
+              <label className="contact-field">
+                <span>имя</span>
+                <input type="text" placeholder="Ваше имя" required />
+              </label>
+              <label className="contact-field">
+                <span>телефон</span>
+                <div className="phone-input-wrap">
+                  <span className="phone-flag" aria-hidden="true" />
+                  <input type="tel" placeholder="+7 (999) 999 99 99" required />
+                </div>
+              </label>
+              <label className="contact-field">
+                <span>e-mail</span>
+                <input type="email" placeholder="Ваша почта" />
+              </label>
+            </div>
 
-          <label className="contact-field-full">
-            Комментарий
-            <textarea placeholder="Напишите любые уточнения для расчёта" rows={3} />
-          </label>
-
-          <label className="contact-form-file">
-            Прикрепить файлы (чертёж / фото / ведомость)
-            <span>Добавить файлы: DWG, PDF, JPG до 20 МБ</span>
-            <input type="file" accept=".dwg,.pdf,.jpg,.jpeg,.png" multiple />
-          </label>
-
-          <div className="contact-submit-row">
-            <label className="contact-form-agreement">
-              <input type="checkbox" required />
-              <span>Согласен на обработку персональных данных</span>
+            <label className="contact-field-full">
+              <span>комментарий</span>
+              <textarea placeholder="Напишите любые уточнения для расчёта" rows={3} />
             </label>
-            <button className="button button--orange" type="submit">
-              Получить расчёт
-            </button>
-          </div>
 
-          {submitted && (
-            <p role="status">
-              Демонстрационная форма. Отправка на сервер пока не настроена.
+            <label className="contact-form-file">
+              <span>прикрепить файлы (чертеж/фото/ведомость)</span>
+              <span className="contact-form-file-picker">
+                <span className="contact-form-file-meta">добавить (DWG, PDF, JPG до 20 МБ)</span>
+                <span className="contact-form-file-arrow" aria-hidden="true">→</span>
+                <input type="file" accept=".dwg,.pdf,.jpg,.jpeg,.png" multiple />
+              </span>
+            </label>
+
+            <div className="contact-submit-row">
+              <label className="contact-form-agreement">
+                <input type="checkbox" required />
+                <span>Согласен на обработку персональных данных</span>
+              </label>
+              <button className="button button--orange" type="submit">
+                получить расчёт
+              </button>
+            </div>
+            <p className="contact-legal-note">
+              Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности и
+              обработкой персональных данных.
             </p>
-          )}
-        </form>
+
+            {submitted && (
+              <p role="status">
+                Демонстрационная форма. Отправка на сервер пока не настроена.
+              </p>
+            )}
+          </form>
 
           <aside className="contact-manager">
-            <div className="contact-manager-photo image-placeholder">
-              Коммерческий директор
+            <div className="contact-manager-photo">
+              <img src="/Assets/Common-Comercial-director.png" alt="Коммерческий директор" />
             </div>
             <div className="contact-manager-details">
-              <span>Коммерческий директор</span>
-              <strong>Варич Елена Сергеевна</strong>
-              <span>Телефон</span>
-              <a href="tel:+79282896222">8 928 289 62 22</a>
+              <div className="contact-manager-meta">
+                <span>коммерческий директор</span>
+                <strong>Варич Елена Сергеевна</strong>
+              </div>
+              <div className="contact-manager-meta">
+                <span>телефон</span>
+                <a href="tel:+79282896222">8 928 289 62 22</a>
+              </div>
             </div>
           </aside>
         </div>
@@ -825,49 +928,54 @@ function Footer() {
     <footer className="footer">
       <div className="container footer-content">
         <div className="footer-main">
-          <nav className="footer-navigation" aria-label="Навигация в подвале">
-            <div>
-              <h3>Услуги</h3>
-              <a href="#service-catalog">Порошковая окраска</a>
-              <a href="#service-catalog">Крупногабаритная окраска</a>
-              <a href="#service-catalog">Изделия заказчика</a>
-              <a href="#service-catalog">Пескоструй</a>
-              <a href="#contacts">Цены и расчёт</a>
-            </div>
-            <div>
-              <h3>Оборудование</h3>
-              <a href="#equipment-solutions">Камеры</a>
-              <a href="#equipment-solutions">Печи</a>
-              <a href="#equipment-solutions">Линии под ключ</a>
-            </div>
-            <div>
-              <h3>Продукция</h3>
-              <a href="#product-solutions">Мебель</a>
-              <a href="#product-solutions">Бытовки</a>
-              <a href="#product-solutions">Производство под вашей маркой</a>
-              <a href="#products">Металлоконструкции</a>
-            </div>
-            <div>
-              <h3>Компания</h3>
-              <a href="#about">О компании</a>
-              <a href="#production">Производство</a>
-              <a href="#projects">Проекты</a>
-              <a href="#blog">Блог</a>
-            </div>
-          </nav>
+          <div className="footer-links-block">
+            <nav className="footer-navigation" aria-label="Навигация в подвале">
+              <div>
+                <h3>Услуги</h3>
+                <a href="#service-catalog">Порошковая окраска</a>
+                <a href="#service-catalog">Крупногабарит</a>
+                <a href="#service-catalog">Изделия заказчика</a>
+                <a href="#service-catalog">Декор</a>
+                <a href="#service-catalog">Пескоструй</a>
+                <a href="#service-catalog">Металлообработка</a>
+                <a href="#service-catalog">Калькулятор</a>
+                <a href="#contacts">Цены</a>
+              </div>
+              <div>
+                <h3>Оборудование</h3>
+                <a href="#equipment-solutions">Камеры</a>
+                <a href="#equipment-solutions">Печи</a>
+                <a href="#equipment-solutions">Линии под ключ</a>
+              </div>
+              <div>
+                <h3>Продукция</h3>
+                <a href="#product-solutions">Мебель</a>
+                <a href="#product-solutions">Бытовки</a>
+                <a href="#product-solutions">Производство под вашей маркой</a>
+                <a href="#contacts">Условия</a>
+                <a href="#contacts">Прайс</a>
+              </div>
+              <div>
+                <h3>Компания</h3>
+                <a href="#about">О компании</a>
+                <a href="#production">Производство</a>
+                <a href="#projects">Проекты</a>
+                <a href="#blog">Документы</a>
+                <a href="#contacts">Реквизиты</a>
+                <a href="#contacts">Вакансии</a>
+                <a href="#blog">Блог</a>
+              </div>
+            </nav>
+          </div>
 
-          <div className="footer-location">
-            <a
-              className="footer-map"
-              href="https://yandex.ru/maps/?text=Ростов-на-Дону%2C%20Машиностроительный%20переулок%2C%207%2F110"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Карта производства
-            </a>
+          <div className="footer-side">
+            <div className="footer-map-card" aria-label="Карта производства">
+              <div className="footer-map-label">карта</div>
+            </div>
+
             <div className="footer-contact-details">
-              <p>Адрес производства: Ростов-на-Дону, Машиностроительный пер., 7/110</p>
-              <p>Пн–Пт: 9:00–18:00</p>
+              <p>Адрес производства: г. Ростов-на-Дону, Машиностроительный пер., 7/110</p>
+              <p>Режим работы: понедельник-пятница с 9:00 до 18:00</p>
               <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
               <a href="tel:+79282896222">8 928 289 62 22</a>
             </div>
@@ -875,17 +983,29 @@ function Footer() {
         </div>
 
         <div className="footer-legal">
-          <a className="footer-brand" href="#top" aria-label="Ветеран, наверх">
-            <img src={LogoVeteran} alt="Ветеран" />
-            <span>Все права защищены</span>
-          </a>
-          <div>
+          <div className="footer-brand">
+            <a href="#top" aria-label="Ветеран, наверх">
+              <img src={LogoVeteran} alt="Ветеран" />
+            </a>
+            <span>все права защищены</span>
+          </div>
+
+          <div className="footer-company-info">
             <p>ООО «Ветеран. Системный инжиниринг»</p>
             <p>ИНН/КПП 6166133197 / 616601001</p>
+            <p>ОГРН 1256100017843</p>
+            <p>Юр адрес 344045 г. Ростов-на-Дону, ул. Миронова, 2Д, кв. 51</p>
           </div>
-          <div>
+
+          <div className="footer-legal-links">
             <a href="#contacts">Политика конфиденциальности</a>
-            <a href="#contacts">Согласие на обработку персональных данных</a>
+            <a href="#contacts">Согласие на получение рассылки</a>
+            <a href="#contacts">Согласие на обработку ПД</a>
+          </div>
+
+          <div className="footer-socials" aria-label="Социальные сети">
+            <a href="#contacts" aria-label="ВКонтакте" className="footer-social social-vk" />
+            <a href="#contacts" aria-label="Telegram" className="footer-social social-tg" />
           </div>
         </div>
       </div>
