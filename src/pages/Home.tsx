@@ -237,6 +237,7 @@ function Header() {
     { title: "о компании", href: "#about" },
     { title: "блог", href: "#blog" },
     { title: "контакты", href: "#contacts" },
+    { title: "купить краску", href: "#service-catalog" },
   ];
 
   return (
@@ -296,12 +297,12 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="sectoion section--gray">
+    <section className="hero-section section--gray">
       <div className="container hero-inner">
         <div className="hero-content">
           <div className="hero-advantages">
             <span>Собственное производство</span>
-            <span>Камера 7 м</span>
+            <span>Камера 7,2 м</span>
             <span>Отгрузка от 24 часов</span>
           </div>
 
@@ -318,9 +319,9 @@ function Hero() {
           </a>
         </div>
 
-        <div className="hero-visual image-placeholder">
-          <img src={HeroBgr} alt=""/>
-        </div>
+      </div>
+      <div className="hero-visual">
+        <img src={HeroBgr} alt="" />
       </div>
     </section>
   );
@@ -328,7 +329,7 @@ function Hero() {
 
 function ServicesOverview() {
   return (
-    <section className="section" id="services" style={{ marginTop: 80 }}>
+    <section className="section" id="services">
       <div className="container">
         <div className="services-grid">
           {services.map((service, index) => (
@@ -826,11 +827,6 @@ function ContactForm() {
           <h2 className="contact-title">
             Пришлите чертёж или фото, и мы рассчитаем стоимость за 2 часа
           </h2>
-          <span className="contact-title-mark" aria-hidden="true">
-            <svg viewBox="0 0 28 27" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13.95 0C18.18 0 21.72 1.53 23.57 4.59C25.44 7.68 25.86 12.08 24.7 16.08C23.55 20.08 21.08 23.17 17.32 25.4C13.61 27.58 9.34 27.8 5.46 26.02C1.71 24.34 -0.84 20.63 0.2 16.22C0.98 12.9 3.71 10.11 7.35 8.54C10.66 7.1 13.05 5.76 13.95 4.02C14.64 2.69 14.38 1.45 13.95 0ZM14.1 8.09C11.5 8.09 9.12 9.42 7.6 11.63C6.11 13.83 5.82 16.55 6.94 19.02C8.07 21.52 10.45 23.14 13.23 23.14C16.02 23.14 18.53 21.4 19.77 18.72C20.91 16.3 20.78 13.38 19.36 10.98C17.98 8.59 15.63 8.09 14.1 8.09Z" fill="#F6A71A"/>
-            </svg>
-          </span>
         </div>
 
         <div className="contact-layout">
