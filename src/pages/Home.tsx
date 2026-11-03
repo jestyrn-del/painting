@@ -927,7 +927,6 @@ function Footer() {
         <div className="container footer-content">
             <div className="footer-main">
                 <div className="footer-links-block">
-
                     <nav className="footer-navigation" aria-label="Навигация в подвале">
                         <div>
                         <h3>Услуги</h3>
@@ -966,24 +965,26 @@ function Footer() {
                         </div>
                     </nav>
 
-                    <div className="footer-brand">
-                        <a href="#top" aria-label="Ветеран, наверх">
-                            <img src={LogoVeteran} alt="Ветеран" />
-                        </a>
-                        <span>все права защищены</span>
-                    </div>
+                    <div className="footer-right-down">
+                        <div className="footer-brand">
+                            <a href="#top" aria-label="Ветеран, наверх">
+                                <img src={LogoVeteran} alt="Ветеран" />
+                            </a>
+                            <span>все права защищены</span>
+                        </div>
 
-                    <div className="footer-company-info">
-                        <p>ООО «Ветеран. Системный инжиниринг»</p>
-                        <p>ИНН/КПП 6166133197 / 616601001</p>
-                        <p>ОГРН 1256100017843</p>
-                        <p>Юр адрес 344045 г. Ростов-на-Дону, ул. Миронова, 2Д, кв. 51</p>
-                    </div>
+                        <div className="footer-company-info">
+                            <p>ООО «Ветеран. Системный инжиниринг»</p>
+                            <p>ИНН/КПП 6166133197 / 616601001</p>
+                            <p>ОГРН 1256100017843</p>
+                            <p>Юр адрес 344045 г. Ростов-на-Дону, ул. Миронова, 2Д, кв. 51</p>
+                        </div>
 
-                    <div className="footer-legal-links">
-                        <a href="#contacts">Политика конфиденциальности</a>
-                        <a href="#contacts">Согласие на получение рассылки</a>
-                        <a href="#contacts">Согласие на обработку ПД</a>
+                        <div className="footer-legal-links">
+                            <a href="#contacts">Политика конфиденциальности</a>
+                            <a href="#contacts">Согласие на получение рассылки</a>
+                            <a href="#contacts">Согласие на обработку ПД</a>
+                        </div>
                     </div>
                 </div>
 
