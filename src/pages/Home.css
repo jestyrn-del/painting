@@ -302,6 +302,23 @@
     content: "";
 }
 
+.hero-somethings {
+    position: absolute;
+    top: 12svh;
+    right: 0;
+    display: grid;
+    gap: 3vh;
+    width: 30vh;
+    margin: 0;
+    font-size: var(--text-xs);
+    line-height: 1.55;
+    background: transparent;
+}
+
+.hero-somethings span {
+    background: transparent;
+}
+
 .hero-inner h1 {
     position: absolute;
     top: 28svh;
