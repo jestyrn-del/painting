@@ -26,12 +26,10 @@ const services = [
         </>
     ),
     price: (
-        <>
-            <div>
-                <span>от 400 ₽/м²</span><br/>
-                <span>от 2 дней</span>
-            </div>
-        </>
+      <div>
+        <span>от 400 ₽/м²</span><br/>
+        <span>от 2 дней</span>
+      </div>
     ),
     link: "Рассчитать стоимость",
   },
@@ -41,12 +39,10 @@ const services = [
     description: "Камеры нанесения, печи полимеризации, транспортные системы, линии порошковой окраски под ключ.",
     details: "Сами красим на этом оборудовании каждый день.",
     price: (
-        <>
-            <div>
-                <span>от 300 000 ₽</span><br/>
-                <span>от 4 недель</span>
-            </div>
-        </>
+      <div>
+        <span>от 300 000 ₽</span><br/>
+        <span>от 4 недель</span>
+      </div>
     ),
     link: "Подобрать оборудование",
   },
@@ -57,14 +53,195 @@ const services = [
       "Лофт-мебель, металлокаркасы, бытовки (модульные здания).",
     details: "Можем производить под вашей маркой.",
     price: (
-        <>
-            <div>
-                <span>партии</span><br/>
-                <span>от 1 шт</span>
-            </div>
-        </>
+      <div>
+        <span>партии</span><br/>
+        <span>от 1 шт</span>
+      </div>
     ),
     link: "Посмотреть каталог",
+  },
+];
+
+const navigation = [
+  {
+    id: "services",
+    title: "услуги",
+    href: "#service-catalog",
+    children: [
+      {
+        id: "powder-painting",
+        title: "Порошковая покраска",
+        children: [
+          {
+            id: "radiators",
+            title: "Радиаторы",
+            href: "#service-catalog",
+          },
+          {
+            id: "profile",
+            title: "Профиль и трубы",
+            href: "#service-catalog",
+          },
+          {
+            id: "metal",
+            title: "Металлоконструкции",
+            href: "#service-catalog",
+          },
+          {
+            id: "fences",
+            title: "Заборы и ограждения",
+            href: "#service-catalog",
+          },
+          {
+            id: "doors",
+            title: "Двери",
+            href: "#service-catalog",
+          },
+          {
+            id: "canopies",
+            title: "Настилы и навесы",
+            href: "#service-catalog",
+          },
+          {
+            id: "tanks",
+            title: "Емкости",
+            href: "#service-catalog",
+          },
+          {
+            id: "stairs",
+            title: "Лестницы",
+            href: "#service-catalog",
+          },
+          {
+            id: "ral",
+            title: "Каталог RAL",
+            href: "#service-catalog",
+          },
+        ],
+      },
+      {
+        id: "sandblasting",
+        title: "Пескоструйная подготовка",
+        href: "#service-catalog",
+      },
+      {
+        id: "metalworking",
+        title: "Металлообработка и изготовление конструкций",
+        children: [
+          {
+            id: "manufacturing",
+            title: "Изготовление конструкций",
+            href: "#service-catalog",
+          },
+          {
+            id: "processing",
+            title: "Обработка металла",
+            href: "#service-catalog",
+          },
+        ],
+      },
+      {
+        id: "prices",
+        title: "Цены",
+        href: "#service-catalog",
+      },
+      {
+        id: "requirements",
+        title: "Требования к изделиям",
+        href: "#service-catalog",
+      },
+      {
+        id: "ral-catalog",
+        title: "Каталог RAL",
+        href: "#service-catalog",
+      },
+    ],
+  },
+  {
+    id: "equipment",
+    title: "оборудование",
+    href: "#equipment-solutions",
+    description: "Комплектация линий под производство",
+    children: [
+      {
+        id: "booths",
+        title: "Камеры нанесения",
+        href: "#equipment-solutions",
+      },
+      {
+        id: "ovens",
+        title: "Печи полимеризации",
+        href: "#equipment-solutions",
+      },
+      {
+        id: "transport",
+        title: "Транспортные системы",
+        href: "#equipment-solutions",
+      },
+      {
+        id: "lines",
+        title: "Линии порошковой окраски",
+        href: "#equipment-solutions",
+      },
+    ],
+  },
+  {
+    id: "products",
+    title: "продукция",
+    href: "#product-solutions",
+    description: "Изделия и конструкции под ваш проект",
+    children: [
+      {
+        id: "loft",
+        title: "Лофт-мебель",
+        href: "#product-solutions",
+      },
+      {
+        id: "structures",
+        title: "Металлоконструкции",
+        href: "#products",
+      },
+      {
+        id: "buildings",
+        title: "Модульные здания",
+        href: "#product-solutions",
+      },
+      {
+        id: "completed-projects",
+        title: "Выполненные проекты",
+        href: "#projects",
+      },
+    ],
+  },
+  {
+    id: "projects",
+    title: "проекты",
+    href: "#projects",
+  },
+  {
+    id: "production",
+    title: "производство",
+    href: "#production",
+  },
+  {
+    id: "about",
+    title: "о компании",
+    href: "#about",
+  },
+  {
+    id: "blog",
+    title: "блог",
+    href: "#blog",
+  },
+  {
+    id: "contacts",
+    title: "контакты",
+    href: "#contacts",
+  },
+  {
+    id: "paint",
+    title: "купить краску",
+    href: "#service-catalog",
   },
 ];
 
@@ -192,56 +369,113 @@ const questions = [
 
 
 
+type NavigationItem = {
+  id: string;
+  title: string;
+  href?: string;
+  description?: string;
+  children?: NavigationItem[];
+};
+
+type DropdownItemsProps = {
+  items: NavigationItem[];
+  openPath: string[];
+  onToggle: (id: string, level: number) => void;
+  onNavigate: () => void;
+  level?: number;
+};
+
+const DropdownItems = ({
+  items,
+  openPath,
+  onToggle,
+  onNavigate,
+  level = 0,
+}: DropdownItemsProps) => {
+  return (
+    <ul className={`dropdown-list dropdown-list--level-${level}`}>
+      {items.map((item) => {
+        const hasChildren = Boolean(item.children?.length);
+        const isOpen = openPath[level] === item.id;
+
+        return (
+          <li
+            key={item.id}
+            className={`
+              dropdown-item
+              ${hasChildren ? "dropdown-item--has-children" : "dropdown-item--leaf"}
+              ${isOpen ? "is-open" : ""}
+            `}
+          >
+            {hasChildren ? (
+              <>
+                <button
+                  className="dropdown-trigger"
+                  type="button"
+                  aria-expanded={isOpen}
+                  onClick={() => onToggle(item.id, level)}
+                >
+                  <span>{item.title}</span>
+
+                  <img
+                    src={DownArrow}
+                    alt=""
+                    className="dropdown-arrow"
+                  />
+                </button>
+
+                {isOpen && (
+                  <DropdownItems
+                    items={item.children ?? []}
+                    openPath={openPath}
+                    onToggle={onToggle}
+                    onNavigate={onNavigate}
+                    level={level + 1}
+                  />
+                )}
+              </>
+            ) : (
+              <a
+                className="dropdown-link"
+                href={item.href ?? "#"}
+                onClick={onNavigate}
+              >
+                {item.title}
+              </a>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
+
+
+
+
 function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [openPath, setOpenPath] = useState<string[]>([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navigation: {
-    title: string;
-    href: string;
-    description?: string;
-    links?: { title: string; href: string }[];
-  }[] = [
-    {
-      title: "услуги",
-      href: "#service-catalog",
-      description: "Окраска и подготовка поверхности",
-      links: [
-        { title: "Порошковая окраска", href: "#service-catalog" },
-        { title: "Покраска радиаторов", href: "#service-catalog" },
-        { title: "Крупногабаритная окраска", href: "#service-catalog" },
-        { title: "Пескоструйная обработка", href: "#service-catalog" },
-      ],
-    },
-    {
-      title: "оборудование",
-      href: "#equipment-solutions",
-      description: "Комплектация линий под производство",
-      links: [
-        { title: "Камеры нанесения", href: "#equipment-solutions" },
-        { title: "Печи полимеризации", href: "#equipment-solutions" },
-        { title: "Транспортные системы", href: "#equipment-solutions" },
-        { title: "Линии порошковой окраски", href: "#equipment-solutions" },
-      ],
-    },
-    {
-      title: "продукция",
-      href: "#product-solutions",
-      description: "Изделия и конструкции под ваш проект",
-      links: [
-        { title: "Лофт-мебель", href: "#product-solutions" },
-        { title: "Металлоконструкции", href: "#products" },
-        { title: "Модульные здания", href: "#product-solutions" },
-        { title: "Выполненные проекты", href: "#projects" },
-      ],
-    },
-    { title: "проекты", href: "#projects" },
-    { title: "производство", href: "#production" },
-    { title: "о компании", href: "#about" },
-    { title: "блог", href: "#blog" },
-    { title: "контакты", href: "#contacts" },
-    { title: "купить краску", href: "#service-catalog" },
-  ];
+  const toggleNestedMenu = (id: string, level: number) => {
+    setOpenPath((prev) => {
+      const next = prev.slice(0, level);
+
+      if (prev[level] !== id) {
+        next[level] = id;
+      }
+
+      return next;
+    });
+  };
+
+  const closeMenu = () => {
+    setActiveDropdown(null);
+    setOpenPath([]);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header className="header">
@@ -250,42 +484,57 @@ function Header() {
           <img src={LogoVeteran} alt="В" />
         </a>
 
-        <nav className={`header-nav ${mobileMenuOpen ? "is-mobile-open" : ""}`} id="main-navigation">
-          {navigation.map((item) => (
-            <div className={`header-nav-item ${activeDropdown === item.title ? "is-open" : ""}`} key={item.title}>
-              {item.links ? (
-                <>
-                  <button className="header-nav-trigger" type="button"
-                    aria-expanded={activeDropdown === item.title}
-                    aria-controls={`menu-${item.title}`}
-                    onClick={() => setActiveDropdown(activeDropdown === item.title ? null : item.title,) }
+        <nav
+          className={`header-nav ${mobileMenuOpen ? "is-mobile-open" : ""}`}
+          id="main-navigation"
+        >
+          {navigation.map((item) => {
+            const hasChildren = Boolean(item.children?.length);
+            const isOpen = activeDropdown === item.id;
+
+            return (
+              <div
+                className={`header-nav-item ${isOpen ? "is-open" : ""}`}
+                key={item.id}
+              >
+                {hasChildren ? (
+                  <>
+                    <button
+                      className="header-nav-trigger"
+                      type="button"
+                      aria-expanded={isOpen}
+                      onClick={() => {
+                        setActiveDropdown(isOpen ? null : item.id);
+                        setOpenPath([]);
+                      }}
+                    >
+                      {item.title}
+                      <img src={DownArrow} alt="" />
+                    </button>
+
+                    {isOpen && (
+                      <div className="header-dropdown">
+                        <DropdownItems
+                          items={item.children!}
+                          openPath={openPath}
+                          onToggle={toggleNestedMenu}
+                          onNavigate={closeMenu}
+                        />
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <a
+                    className="header-nav-link"
+                    href={item.href}
+                    onClick={closeMenu}
                   >
                     {item.title}
-                    <img src={DownArrow} alt="" />
-                  </button>
-                  <div className="header-dropdown" id={`menu-${item.title}`}>
-                    <p className="header-dropdown-description">
-                      {item.description}
-                    </p>
-                    {item.links.map((link) => (
-                      <a href={link.href} key={link.title}
-                        onClick={() => {
-                          setActiveDropdown(null);
-                          setMobileMenuOpen(false);
-                        }}
-                      >
-                        {link.title}
-                      </a>
-                    ))}
-                  </div>
-                </>
-              ) : (
-                  <a className="header-nav-link" href={item.href} onClick={() => setMobileMenuOpen(false)}>
-                  {item.title}
-                </a>
-              )}
-            </div>
-          ))}
+                  </a>
+                )}
+              </div>
+            );
+          })}
         </nav>
 
         <div className="header-contacts">
@@ -296,6 +545,7 @@ function Header() {
         <a className="button button--orange-bgr" href="#contacts">
           заказать звонок
         </a>
+
         <button
           className={`mobile-menu-toggle ${mobileMenuOpen ? "is-open" : ""}`}
           type="button"
@@ -369,10 +619,10 @@ function ServicesOverview() {
               </div>
 
               <div className="service-card-bottom">
-                <strong>
-                    <img src={CommonComponent}/>
+                <div className="service-card-price">
+                    <img src={CommonComponent} alt="" />
                     {service.price}
-                </strong>
+                </div>
 
                 <a href="#contacts" className="text-link">
                   {service.link}
@@ -392,15 +642,19 @@ function CompanyStats() {
     <section className="section" id="about">
       <div className="container stats">
         <div className="stats-list">
-            <div className="stats-item" key="0">
-                <span>окрашиваем в месяц</span>
-            </div>
-          {statistics.map((item) => (
-            <div className="stats-item" key={item.value}>
-              <strong>{item.value}</strong>
-              <span>{item.label}</span>
-            </div>
-          ))}
+          <div className="stats-item">
+            <span>окрашиваем в месяц</span>
+          </div>
+
+          {
+            statistics.map((item) => (
+              <div className="stats-item" key={item.value}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </div>
+            ))
+          }
+
         </div>
 
         <div className="stats-visual">
@@ -482,8 +736,11 @@ function CustomerSolutions() {
 
                 <div className="solutions-content" key={`solution-content-${activeTab}`}>
                     <h3>{selectedTab.title}</h3>
-                    <p>{selectedTab.description}</p>
-
+                    
+                    <div className="solutions-description">
+                      {selectedTab.description}
+                    </div>
+                    
                     <a href="#contacts" className="button button--orange">
                         {selectedTab.button}
                     </a>
@@ -721,6 +978,7 @@ function FAQ() {
                 <div className="faq-item" key={item.question}>
                   <button
                     className="faq-question"
+                    type="button"
                     aria-expanded={openQuestion === index}
                     onClick={() =>
                       setOpenQuestion((current) =>
