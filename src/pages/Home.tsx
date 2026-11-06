@@ -293,7 +293,7 @@ function Header() {
           <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
         </div>
 
-        <a className="button button--orange" href="#contacts">
+        <a className="button button--orange-bgr" href="#contacts">
           заказать звонок
         </a>
         <button

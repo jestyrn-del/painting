@@ -43,6 +43,11 @@
     white-space: nowrap;
 }
 
+.button--orange-bgr {
+    color: var(--ink);
+    background: var(--orange);
+}
+
 .button--orange {
     color: var(--orange);
     background: transparent;
