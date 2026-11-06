@@ -1,11 +1,109 @@
 :root {
+    --ink: #000000;
+    --navy: #0e213b;
+    --white: #ffffff;
+    --paper: #f6f6f6;
+    --orange: #f6a71a;
+    --content-width: 93.75vw;
+    --text-xs: 0.94vw;
+    --text-sm: 1.1vw;
+    --text-md: 1.4vw;
+    --text-lg: 1.875vw;
+    --text-title: 3.125vw;
+    
     font-family: "Mazzard M";
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { min-width: 0; margin: 0; }
-button, input, select, textarea { font: inherit; }
-button { cursor: pointer; }
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; }
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html {
+    scrollbar-color: var(--orange) var(--paper);
+    scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--paper);
+}
+
+html::-webkit-scrollbar-thumb {
+    border: 3px solid var(--paper);
+    border-radius: 8px;
+    background: linear-gradient(180deg, var(--orange), #df8a00);
+}
+
+body {
+    min-width: 0;
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: "Mazzard M";
+    font-size: var(--text-xs);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 3px;
+    pointer-events: none;
+}
+
+.scroll-progress-bar {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange), #ffd269);
+    box-shadow: 0 0 10px rgb(246 167 26 / 55%);
+    transform: scaleX(0);
+    transform-origin: left center;
+    will-change: transform;
+}
+
+html.has-scroll-reveal main>.section:not(.is-in-view),
+html.has-scroll-reveal main>.services-catalog:not(.is-in-view) {
+    opacity: 0;
+    transform: translateY(26px);
+}
+
+main>.section,
+main>.services-catalog {
+    transition: opacity 680ms ease, transform 680ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+main>.section.is-in-view,
+main>.services-catalog.is-in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
