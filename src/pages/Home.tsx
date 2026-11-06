@@ -335,7 +335,7 @@ function Hero() {
           <h2>Собственное производство<br/>в Ростове-на-Дону</h2>
 
           <a href="#about" className="button button--orange hero-cta">
-            Подробнее
+            Узнать больше
             <img src={RightArrow} alt="" />
           </a>
         </div>

@@ -320,7 +320,7 @@
     margin: 0;
     color: #030308;
     background: transparent;
-    font-size: clamp(30px, 2.65vw, 48px);
+    font-size: 4.8vh;
     font-weight: 600;
     line-height: 1.14;
     text-transform: uppercase;
@@ -328,26 +328,26 @@
 
 .hero-inner h2 {
     position: absolute;
-    top: 65svh;
+    top: 73vh;
     left: 0.39vw;
     width: min(36vw, 540px);
     margin: 0;
     color: var(--white);
     background: transparent;
-    font-size: clamp(26px, 2.43vw, 44px);
+    font-size: 31px;
     font-weight: 600;
-    line-height: 1.19;
+    line-height: 100%;
+    letter-spacing: 0%;
     text-transform: uppercase;
 }
 
 .hero-content .hero-cta {
     position: absolute;
-    top: 84svh;
-    left: 0.78vw;
-    min-height: 48px;
-    gap: 8px;
-    padding: 0 20px;
-    font-size: 16px;
+    top: 86vh;
+    font-weight: 400;
+    gap: 2vh;
+    padding: 20px 0;
+    font-size: 14px;
 }
 
 .hero-content .hero-cta img {
