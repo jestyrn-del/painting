@@ -182,7 +182,7 @@ const navigation = [
           },
           {
             id: "varnished",
-            title: "лаковое",
+            title: "лак",
             href: "#",
           },
         ],

@@ -312,6 +312,10 @@
     transform: rotate(180deg);
 }
 
+.dropdown-item--has-children.is-open > .dropdown-trigger span {
+    color: var(--orange);
+}
+
 /* Список дочерних ссылок */
 .dropdown-item--has-children > .dropdown-list {
     display: flex;
@@ -367,7 +371,6 @@
     outline-offset: 4px;
     color: var(--orange);
 }
-
 
 
 
