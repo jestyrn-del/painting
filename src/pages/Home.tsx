@@ -1,4 +1,4 @@
-import { Children, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Home.css";
 
 // Common elements
@@ -9,6 +9,9 @@ import CommonComponent from '../../public/Assets/Common-Icon.svg';
 
 // Hero imports
 import HeroBgr from '../../public/Assets/Hero-Backgrond.svg';
+
+// Contacts imports
+import CommercialDirector from '../../public/Assets/Common-comercial-director.svg';
 
 const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
@@ -1247,16 +1250,19 @@ function Blog() {
 
 function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [direction, setDirection] = useState("Окраска");
 
   return (
     <section className="section contact-section" id="contacts">
       <div className="container">
         <div className="contact-title-wrap">
           <h2 className="contact-title">
-            Пришлите чертёж или фото, и мы рассчитаем стоимость за 2 часа
+            {direction === "Другое"
+              ? "Заполните данные и мы рассчитаем стоимость за 2 часа"
+              : "Пришлите чертёж или фото, и мы рассчитаем стоимость за 2 часа"}
           </h2>
         </div>
-
+ 
         <div className="contact-layout">
           <form
             className="contact-form"
@@ -1268,10 +1274,10 @@ function ContactForm() {
             <div className="contact-fields-grid">
               <label className="contact-field">
                 <span>направление</span>
-                <select defaultValue="Окраска">
-                  <option>Окраска</option>
-                  <option>Оборудование</option>
-                  <option>Продукция</option>
+                <select value={direction} onChange={(e) => setDirection(e.target.value)}>
+                  <option value="Окраска">Камеры порошковой окраски</option>
+                  <option value="Мебель">Мебель</option>
+                  <option value="Другое">Другое</option>
                 </select>
               </label>
               <label className="contact-field">
@@ -1326,7 +1332,7 @@ function ContactForm() {
 
           <aside className="contact-manager">
             <div className="contact-manager-photo">
-              <img src={assetUrl("Assets/Common-comercial-director.svg")} alt="Коммерческий директор" />
+              <img src={CommercialDirector} alt="Коммерческий директор" />
             </div>
             <div className="contact-manager-details">
               <div className="contact-manager-meta">
