@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Children, useEffect, useRef, useState } from "react";
 import "./Home.css";
 
 // Common elements
@@ -70,89 +70,157 @@ const navigation = [
     children: [
       {
         id: "powder-painting",
-        title: "Порошковая покраска",
+        title: "порошковая покраска",
         children: [
+          // По типу
           {
             id: "radiators",
-            title: "Радиаторы",
-            href: "#service-catalog",
+            title: "радиаторы",
+            href: "#",
           },
           {
             id: "profile",
-            title: "Профиль и трубы",
-            href: "#service-catalog",
+            title: "профиль",
+            href: "#",
+          },
+          {
+            id: "tube",
+            title: "трубы",
+            href: "#",
           },
           {
             id: "metal",
-            title: "Металлоконструкции",
-            href: "#service-catalog",
+            title: "металлоконструкции",
+            href: "#",
           },
           {
             id: "fences",
-            title: "Заборы и ограждения",
-            href: "#service-catalog",
+            title: "заборы и ограждения",
+            href: "#",
           },
           {
             id: "doors",
             title: "Двери",
-            href: "#service-catalog",
+            href: "#",
           },
           {
             id: "canopies",
-            title: "Настилы и навесы",
-            href: "#service-catalog",
+            title: "настилы/навесы",
+            href: "#",
           },
           {
             id: "tanks",
-            title: "Емкости",
-            href: "#service-catalog",
+            title: "емкости",
+            href: "#",
           },
           {
             id: "stairs",
-            title: "Лестницы",
-            href: "#service-catalog",
+            title: "лестницы",
+            href: "#",
           },
           {
-            id: "ral",
-            title: "Каталог RAL",
-            href: "#service-catalog",
+            id: "ads",
+            title: "рекламные конструкции",
+            href: "#",
+          },
+          {
+            id: "clips",
+            title: "крепеж/метизы",
+            href: "#",
+          },
+          {
+            id: "aluminium",
+            title: "алюминий",
+            href: "#",
+          },
+          {
+            id: "steanless",
+            title: "нержавейка",
+            href: "#",
+          },
+          {
+            id: "galvanizing",
+            title: "оцинковка",
+            href: "#",
+          },
+          {
+            id: "large",
+            title: "крупногабарит",
+            href: "#",
+          },
+
+          // По материалу
+          {
+            id: "shagreen",
+            title: "шагрень",
+            href: "#",
+          },
+          {
+            id: "moire",
+            title: "муар",
+            href: "#",
+          },
+          {
+            id: "antique",
+            title: "антик",
+            href: "#",
+          },
+          {
+            id: "leather",
+            title: "кожа",
+            href: "#",
+          },
+          {
+            id: "velvet",
+            title: "бархат",
+            href: "#",
+          },
+          {
+            id: "chrome",
+            title: "хром",
+            href: "#",
+          },
+          {
+            id: "varnished",
+            title: "лаковое",
+            href: "#",
           },
         ],
       },
       {
         id: "sandblasting",
-        title: "Пескоструйная подготовка",
+        title: "пескоструйная подготовка",
         href: "#service-catalog",
       },
       {
         id: "metalworking",
-        title: "Металлообработка и изготовление конструкций",
+        title: "металлообработка и изготовление конструкций",
         children: [
           {
             id: "manufacturing",
-            title: "Изготовление конструкций",
+            title: "Сварка, лазер, гибка, сборка",
             href: "#service-catalog",
           },
           {
             id: "processing",
-            title: "Обработка металла",
+            title: "Изготовление под ключ (по чертежу)",
             href: "#service-catalog",
           },
         ],
       },
       {
         id: "prices",
-        title: "Цены",
+        title: "цены",
         href: "#service-catalog",
       },
       {
         id: "requirements",
-        title: "Требования к изделиям",
+        title: "требования к изделиям",
         href: "#service-catalog",
       },
       {
         id: "ral-catalog",
-        title: "Каталог RAL",
+        title: "каталог RAL",
         href: "#service-catalog",
       },
     ],
@@ -161,26 +229,67 @@ const navigation = [
     id: "equipment",
     title: "оборудование",
     href: "#equipment-solutions",
-    description: "Комплектация линий под производство",
     children: [
       {
-        id: "booths",
-        title: "Камеры нанесения",
+        id: "scroll",
+        title: "перечень",
         href: "#equipment-solutions",
-      },
-      {
-        id: "ovens",
-        title: "Печи полимеризации",
-        href: "#equipment-solutions",
-      },
-      {
-        id: "transport",
-        title: "Транспортные системы",
-        href: "#equipment-solutions",
+        children: [
+          {
+            id: "booths",
+            title: "камеры порошковой окраски",
+            href: "#",
+          },
+          {
+            id: "ovens",
+            title: "печи полимеризации",
+            href: "#",
+          },
+          {
+            id: "boxes",
+            title: "камеры нанесения/окрасочные боксы",
+            href: "#",
+          },
+          {
+            id: "lines",
+            title: "транспортные эстакады и конвейеры",
+            href: "#",
+          },
+          {
+            id: "aspiration",
+            title: "аспирация и системы очистки",
+            href: "#",
+          },
+          {
+            id: "spray",
+            title: "пистолеты, распылители, комплектующие",
+            href: "#",
+          },
+        ],
       },
       {
         id: "lines",
-        title: "Линии порошковой окраски",
+        title: "линии «под ключ»",
+        href: "#equipment-solutions",
+      },
+      {
+        id: "selection",
+        title: "подбор по задаче",
+        href: "#equipment-solutions",
+      },
+      {
+        id: "configuration",
+        title: "комплектации и цены",
+        href: "#equipment-solutions",
+      },
+      {
+        id: "assambly",
+        title: "монтаж и пусконаладка",
+        href: "#equipment-solutions",
+      },
+      {
+        id: "cases",
+        title: "кейсы поставок",
         href: "#equipment-solutions",
       },
     ],
@@ -189,27 +298,48 @@ const navigation = [
     id: "products",
     title: "продукция",
     href: "#product-solutions",
-    description: "Изделия и конструкции под ваш проект",
     children: [
       {
-        id: "loft",
-        title: "Лофт-мебель",
-        href: "#product-solutions",
+        id: "furniture",
+        title: "мебель",
+        href: "#",
+        children: [
+          {
+            id: "furniture",
+            title: "лофт",
+            href: "#",
+          },
+          {
+            id: "metals",
+            title: "металлокаркасы",
+            href: "#",
+          },
+          {
+            id: "tables",
+            title: "подстолья",
+            href: "#",
+          },
+          {
+            id: "ctm",
+            title: "ОЕМ / Производство под СТМ",
+            href: "#",
+          },
+        ],
       },
       {
-        id: "structures",
-        title: "Металлоконструкции",
-        href: "#products",
+        id: "modules",
+        title: "бытовки и модульные конструкции",
+        href: "#",
       },
       {
-        id: "buildings",
-        title: "Модульные здания",
-        href: "#product-solutions",
+        id: "works",
+        title: "как мы работаем",
+        href: "#",
       },
       {
-        id: "completed-projects",
-        title: "Выполненные проекты",
-        href: "#projects",
+        id: "logistics",
+        title: "логистика и отгрузка",
+        href: "#",
       },
     ],
   },
