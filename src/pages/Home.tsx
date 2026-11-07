@@ -626,6 +626,14 @@ function Header() {
               <div
                 className={`header-nav-item ${isOpen ? "is-open" : ""}`}
                 key={item.id}
+                onMouseEnter={() => {
+                  setActiveDropdown(item.id);
+                  setOpenPath([]);
+                }}
+                onMouseLeave={() => {
+                  setActiveDropdown(null);
+                  setOpenPath([]);
+                }}
               >
                 {hasChildren ? (
                   <>
@@ -634,6 +642,13 @@ function Header() {
                       type="button"
                       aria-expanded={isOpen}
                       onClick={() => {
+                        // На устройствах с мышью открытием управляет hover
+                        const isHoverDevice = window.matchMedia(
+                          "(hover: hover) and (pointer: fine)"
+                        ).matches;
+
+                        if (isHoverDevice) return;
+
                         setActiveDropdown(isOpen ? null : item.id);
                         setOpenPath([]);
                       }}

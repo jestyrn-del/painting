@@ -110,6 +110,9 @@
     background: transparent;
 }
 
+
+
+
 .header-nav {
     display: flex;
     min-width: 0;
@@ -179,7 +182,7 @@
 
 .header-dropdown a:hover,
 .header-dropdown a:focus-visible {
-    color: var(--navy);
+    color: var(--orange);
     background: var(--paper);
 }
 
@@ -228,11 +231,11 @@
 /* Основное выпадающее меню */
 .header-dropdown {
     position: absolute;
-    top: calc(100% + 1vh);
+    top: 100%;
     left: -0.8vw;
     z-index: 30;
 
-    width: 307px;
+    width: 55vh;
     max-height: 70vh;
     overflow-y: auto;
 
@@ -248,7 +251,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 0.5vh;
 
     width: 100%;
     margin: 0;
@@ -274,19 +277,19 @@
 .dropdown-trigger {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 1vh;
 
-    min-height: 17px;
+    min-height: 1vh;
     padding: 0 0 0 10px;
 
     border: 0;
     background: transparent;
 
-    color: #F6A71A;
+    color: var(--ink);
     font-family: 'Mazzard', sans-serif;
-    font-size: 14px;
+    font-size: 1.5vh;
     font-weight: 600;
-    line-height: 17px;
+    line-height: 1;
 
     cursor: pointer;
     text-align: left;
@@ -314,11 +317,11 @@
     align-content: center;
 
     width: 100%;
-    padding: 0 0 0 20px;
+    padding: 0 0 0 1.5vh;
     margin: 0;
 
-    column-gap: 20px;
-    row-gap: 10px;
+    column-gap: 0.5vh;
+    row-gap: 0.5vh;
 }
 
 /* Дочерняя группа занимает целую строку */
@@ -341,10 +344,9 @@
     color: #000;
     background: transparent;
 
-    font-family: 'Mazzard', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 14px;
+    font-size: 1.5vh;
+    font-weight: 600;
+    line-height: 1;
 
     text-decoration: none;
 }
@@ -359,7 +361,11 @@
 .dropdown-link:focus-visible {
     outline: 2px solid var(--orange);
     outline-offset: 4px;
+    color: var(--orange);
 }
+
+
+
 
 
 
