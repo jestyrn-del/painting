@@ -1052,7 +1052,7 @@ function Production() {
           <a className="button button--navy" href="#contacts">
             Смотреть видеотур
           </a>
-          <a className="button button--orange" href="#contacts">
+          <a className="button button--orange-bgr" href="#contacts">
             Приехать на производство
           </a>
         </div>
