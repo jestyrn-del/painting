@@ -749,7 +749,7 @@
     animation: solution-image-enter 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-.solutions-image img {
+.solutions-image img:first-of-type {
     display: block;
     width: 100%;
     height: 100%;
@@ -757,9 +757,20 @@
     transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.solutions-image:hover img {
+.solutions-image:hover img:first-of-type {
     transform: scale(1.035);
 }
+
+.solutions-image img:last-of-type {
+    position: absolute;
+    inset: 4.5vh;
+    display: block;
+    width: 7vh;
+    height: 7vh;
+    object-fit: cover;
+    transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
 
 .solutions-content {
     display: flex;

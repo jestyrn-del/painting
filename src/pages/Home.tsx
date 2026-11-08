@@ -887,6 +887,7 @@ function CustomerSolutions() {
             <div className="solutions">
                 <div className="solutions-image" key={`solution-image-${activeTab}`}>
                   <img src={selectedTab.image} alt={selectedTab.title} />
+                  <img src={CommonComponent} alt='' />
                 </div>
 
                 <div className="solutions-content" key={`solution-content-${activeTab}`}>
