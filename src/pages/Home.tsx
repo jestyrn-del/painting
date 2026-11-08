@@ -962,10 +962,6 @@ function ServicesCatalog() {
             </article>
           ))}
         </div>
-
-        <a href="#contacts" className="services-catalog-all button">
-          все услуги и цены
-        </a>
       </div>
     </section>
   );

@@ -1010,20 +1010,8 @@
     background: transparent;
 }
 
-.services-catalog-all.button {
-    align-self: center;
-    min-height: 4.72vh;
-    padding: 1.4vh 0.78vw;
-    border-radius: 0.4vw;
-    color: var(--white);
-    background: var(--navy);
-    font-size: var(--text-xs);
-    text-transform: lowercase;
-}
-
 .services-catalog-tabs button:focus-visible,
-.services-catalog-card a:focus-visible,
-.services-catalog-all:focus-visible {
+.services-catalog-card a:focus-visible {
     outline: 0.16vw solid var(--orange);
     outline-offset: 0.55vh;
 }
