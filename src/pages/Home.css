@@ -1747,6 +1747,7 @@
 .contact-form-agreement span,
 .contact-form-agreement span p {
     margin: 0;
+    width: 45vh;
     background: transparent;
     text-transform: lowercase;
 }
@@ -1760,7 +1761,7 @@
 }
 
 .contact-submit-row .button {
-    min-width: 31.25vw;
+    min-width: 45vh;
     min-height: 4.72vh;
     padding: 1.4vh 1.56vw;
     border-radius: 0.4vw;
