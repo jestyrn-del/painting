@@ -139,7 +139,7 @@
 .header-nav-link {
     display: flex;
     align-items: center;
-    gap: 0.47vw;
+    gap: 1vh;
     padding: 0;
     border: 0;
     color: var(--ink);
@@ -165,18 +165,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.8vw;
+    padding: 0.8vh 1.5vh;
     border-radius: 0.4vw;
     color: var(--ink);
     background: transparent;
-    font-size: var(--text-xs);
+    font-size: 2vh;
     line-height: 1;
 }
 
 .header-dropdown a::after {
     margin-left: 0.8vw;
     color: var(--orange);
-    content: "↗";
     opacity: 0;
 }
 
@@ -255,7 +254,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5vh;
+    gap: 1vh;
 
     width: 100%;
     margin: 0;
@@ -284,14 +283,13 @@
     gap: 1vh;
 
     min-height: 1vh;
-    padding: 0 0 0 10px;
+    padding: 1vh 1.5vh 1vh;
 
     border: 0;
     background: transparent;
 
     color: var(--ink);
-    font-family: 'Mazzard', sans-serif;
-    font-size: 1.5vh;
+    font-size: 2vh;
     font-weight: 600;
     line-height: 1;
 
@@ -316,6 +314,10 @@
     color: var(--orange);
 }
 
+.dropdown-trigger span:hover {
+    text-decoration: underline;
+}
+
 /* Список дочерних ссылок */
 .dropdown-item--has-children > .dropdown-list {
     display: flex;
@@ -325,11 +327,11 @@
     align-content: center;
 
     width: 100%;
-    padding: 0 0 0 1.5vh;
+    padding: 0;
     margin: 0;
 
-    column-gap: 0.5vh;
-    row-gap: 0.5vh;
+    column-gap: 1vh;
+    row-gap: 1vh;
 }
 
 /* Дочерняя группа занимает целую строку */

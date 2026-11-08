@@ -1275,7 +1275,8 @@ function ContactForm() {
               <label className="contact-field">
                 <span>направление</span>
                 <select value={direction} onChange={(e) => setDirection(e.target.value)}>
-                  <option value="Окраска">Камеры порошковой окраски</option>
+                  <option value="Покраска">Покраска</option>
+                  <option value="Оборудование">Оборудование</option>
                   <option value="Мебель">Мебель</option>
                   <option value="Другое">Другое</option>
                 </select>
