@@ -1330,7 +1330,7 @@ function ContactForm() {
                     <p>Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности и обработкой персональных данных.</p>
                 </span>
               </label>
-              <button className="button button--orange" type="submit">
+              <button className="button button--orange-bgr" type="submit">
                 получить расчёт
               </button>
             </div>
