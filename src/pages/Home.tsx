@@ -5,6 +5,7 @@ import "./Home.css";
 import LogoVeteran from "../../public/Assets/Common-Logo-Veteran.svg";
 import DownArrow from '../../public/Assets/Header-arrow-down.svg';
 import RightArrow from '../../public/Assets/Common-Right-Arrow.svg';
+import RightArrowDark from '../../public/Assets/Common-Right-Arrow-Dark.svg';
 import CommonComponent from '../../public/Assets/Common-Icon.svg';
 
 // Hero imports
@@ -1222,7 +1223,7 @@ function Blog() {
             aria-label="Предыдущие статьи"
             onClick={() => scrollBlog(-1)}
           >
-            <img src={RightArrow} alt="" />
+            <img src={RightArrowDark} alt="" />
           </button>
           <div className="blog-grid" ref={blogTrackRef}>
             {articles.map((article) => (
@@ -1250,7 +1251,7 @@ function Blog() {
             aria-label="Следующие статьи"
             onClick={() => scrollBlog(1)}
           >
-            <img src={RightArrow} alt="" />
+            <img src={RightArrowDark} alt="" />
           </button>
         </div>
       </div>
