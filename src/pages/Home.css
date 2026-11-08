@@ -791,11 +791,13 @@
 .solutions-description div {
     display: flex;
     gap: 0.78vw;
+    font-weight: 500;
     background: transparent;
 }
 
 .solutions-description div span {
     flex: 1 1 0;
+    font-weight: 500;
     background: transparent;
 }
 
