@@ -1124,6 +1124,7 @@ function FAQ() {
           <div className="faq-visual">
             <img src={assetUrl("Assets/FAQ-Image.svg")} alt="Окрашенные металлические детали" />
           </div>
+          
           <div className="faq-panel">
             <div className="faq">
               {questions.map((item, index) => (
@@ -1156,6 +1157,11 @@ function FAQ() {
             </div>
           </div>
         </div>
+
+        <div className="faq-visual-step"/>
+
+        <span className="dark-rectangle" />
+
       </div>
     </section>
   );
