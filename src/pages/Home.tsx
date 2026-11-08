@@ -13,6 +13,9 @@ import HeroBgr from '../../public/Assets/Hero-Backgrond.svg';
 // Contacts imports
 import CommercialDirector from '../../public/Assets/Common-comercial-director.svg';
 
+// Stats rectangle
+import StatsRectangle from '../../public/Assets/Stats-rectangle.svg'
+
 const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
 const services = [
@@ -772,7 +775,7 @@ function ServicesOverview() {
                     {service.price}
                 </div>
 
-                <a href="#contacts" className="text-link">
+                <a href="#contacts" className="service-card-more text-link">
                   {service.link}
                   <img src={RightArrow}/>
                 </a>
@@ -806,10 +809,14 @@ function CompanyStats() {
         </div>
 
         <div className="stats-visual">
-            <span>порошковые краски</span>
-            <div className="stats-video-preview">
-              <img src={assetUrl("Assets/Stats-preview-video.svg")} alt="Окрасочная камера на производстве" />
-            </div>
+          <img src={StatsRectangle} className="stats-visual-rectangle"/>
+
+          <div className="stats-visual-image">
+              <span>порошковые краски</span>
+              <div className="stats-video-preview">
+                <img src={assetUrl("Assets/Stats-preview-video.svg")} alt="Окрасочная камера на производстве" />
+              </div>
+          </div>
         </div>
       </div>
     </section>
@@ -854,7 +861,7 @@ function CustomerSolutions() {
         },
     ];
 
-    const [activeTab, setActiveTab] = useState(1);
+    const [activeTab, setActiveTab] = useState(0);
     const selectedTab = tabs[activeTab];
 
     return (
@@ -889,7 +896,7 @@ function CustomerSolutions() {
                       {selectedTab.description}
                     </div>
                     
-                    <a href="#contacts" className="button button--orange">
+                    <a href="#contacts" className="button button--orange-bgr">
                         {selectedTab.button}
                     </a>
                 </div>
