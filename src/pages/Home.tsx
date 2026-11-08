@@ -1259,9 +1259,82 @@ function Blog() {
   );
 }
 
+function formatPhone(value: string) {
+  let digits = value.replace(/\D/g, "");
+
+  if (digits.startsWith("7") || digits.startsWith("8")) {
+    digits = digits.slice(1);
+  }
+
+  digits = digits.slice(0, 10);
+
+  if (!digits.length) return "";
+
+  let result = "+7";
+
+  if (digits.length > 0) result += " (" + digits.slice(0, 3);
+  if (digits.length >= 3) result += ") " + digits.slice(3, 6);
+  if (digits.length >= 7) result += " " + digits.slice(6, 8);
+  if (digits.length >= 9) result += " " + digits.slice(8, 10);
+
+  return result;
+}
+
+function getPhoneCaretPosition(value: string, digitsBefore: number) {
+  if (digitsBefore === 0) return 2;
+
+  let digits = 0;
+
+  for (let i = 0; i < value.length; i++) {
+    if (/\d/.test(value[i])) {
+      digits++;
+
+      if (digits === digitsBefore + 1) {
+        return i + 1;
+      }
+    }
+  }
+
+  return value.length;
+}
+
 function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [direction, setDirection] = useState("Окраска");
+  const [phone, setPhone] = useState("");
+
+  const phoneRef = useRef<HTMLInputElement>(null);
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target;
+    const cursor = input.selectionStart ?? input.value.length;
+
+    const digitsBefore = input.value
+      .slice(0, cursor)
+      .replace(/\D/g, "").length;
+
+    const hasCountryCode = /^[78]/.test(input.value.replace(/\D/g, ""));
+
+    const localDigitsBefore = Math.max(
+      0,
+      digitsBefore - (hasCountryCode && digitsBefore > 0 ? 1 : 0)
+    );
+
+    const formatted = formatPhone(input.value);
+
+    setPhone(formatted);
+
+    requestAnimationFrame(() => {
+      if (phoneRef.current) {
+        const position = getPhoneCaretPosition(
+          formatted,
+          localDigitsBefore
+        );
+
+        phoneRef.current.setSelectionRange(position, position);
+      }
+    });
+  };
 
   return (
     <section className="section contact-section" id="contacts">
@@ -1300,7 +1373,17 @@ function ContactForm() {
                 <span>телефон</span>
                 <div className="phone-input-wrap">
                   <span className="phone-flag" aria-hidden="true" />
-                  <input type="tel" placeholder="+7 (999) 999 99 99" required />
+
+                  <input
+                    ref={phoneRef}
+                    type="tel"
+                    inputMode="numeric"
+                    autoComplete="tel"
+                    placeholder="+7 (999) 999 99 99"
+                    value={phone}
+                    onChange={handlePhoneChange}
+                    required
+                  />
                 </div>
               </label>
               <label className="contact-field">
