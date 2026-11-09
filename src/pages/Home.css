@@ -1075,8 +1075,8 @@
 
 .production-feature-mark {
     display: grid;
-    width: 2.5vw;
-    height: 4.44vh;
+    width: 4.5vh;
+    height: 4.5vh;
     flex: 0 0 2.5vw;
     place-items: center;
     overflow: hidden;
@@ -1111,7 +1111,7 @@
 .production-feature p {
     font-size: var(--text-xs);
     font-weight: 300;
-    width: 24vh;
+    width: 13vw;
     line-height: 1.14;
 }
 
