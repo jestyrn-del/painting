@@ -632,6 +632,7 @@
 }
 
 .stats {
+    position: relative;
     display: grid;
     height: 71.25vh;
     grid-template-columns: 27.8% 1fr;
@@ -677,17 +678,24 @@
 .stats-visual-image {
     display: flex;
     min-width: 0;
+    flex: 0 0 110vh;
     flex-direction: column;
     gap: 1.4vh;
+
     background: transparent;
-    width: 110vh;
 }
 
 .stats-visual {
+    position: absolute;
+    top: 0;
+    right: 0;
+
     display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 
     width: 100%;
-    gap: 10px;
+    gap: 2vw;
 }
 
 .stats-visual-rectangle {
