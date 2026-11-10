@@ -1113,7 +1113,6 @@
 .production-feature p {
     font-size: var(--text-xs);
     font-weight: 300;
-    width: 13vw;
     line-height: 1.14;
 }
 
