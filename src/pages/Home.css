@@ -1903,6 +1903,12 @@
     background: transparent;
 }
 
+.footer-veteran {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
+
 .footer-navigation h3,
 .footer-navigation a,
 .footer-contact-details p,
@@ -1951,7 +1957,7 @@
 .footer-brand {
     display: flex;
     flex-direction: column;
-    gap: 1.4vh;
+    gap: 4.5vh;
     background: transparent;
 }
 

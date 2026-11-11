@@ -1602,61 +1602,77 @@ function Footer() {
                           <a href="#blog">Блог</a>
                         </div>
                     </nav>
-
-                    <div className="footer-right-down">
-                        <div className="footer-brand">
-                            <a href="#top" aria-label="Ветеран, наверх">
-                                <img src={LogoVeteran} alt="Ветеран" />
-                            </a>
-                            <span>все права защищены</span>
-                        </div>
-
-                        <div className="footer-company-info">
-                            <p>ООО «Ветеран. Системный инжиниринг»</p>
-                            <p>ИНН/КПП 6166133197 / 616601001</p>
-                            <p>ОГРН 1256100017843</p>
-                            <p>Юр адрес 344045 г. Ростов-на-Дону, ул. Миронова, 2Д, кв. 51</p>
-                        </div>
-
-                        <div className="footer-legal-links">
-                            <a href="#contacts">Политика конфиденциальности</a>
-                            <a href="#contacts">Согласие на получение рассылки</a>
-                            <a href="#contacts">Согласие на обработку ПД</a>
-                        </div>
-                    </div>
                 </div>
 
                 <div className="footer-side">
-                    <div className="footer-map-card" aria-label="Карта производства">
+                  <div className="footer-map-card" aria-label="Карта производства">
                     <div className="footer-map-label">карта</div>
-                    </div>
+                  </div>
+                </div>
 
-                    <div className="footer-contact-details">
-                      <div className="footer-column-info">
-                        <p>
-                          Адрес производства:<br/>
-                          г. Ростов-на-Дону,<br/>
-                          Машиностроительный пер.,<br/>
-                          7/110
-                        </p>
+                <div className="footer-veteran">
+                  <div className="footer-brand">
+                      <a href="#top" aria-label="Ветеран, наверх">
+                          <img src={LogoVeteran} alt="Ветеран" />
+                      </a>
+                      <span>все права защищены</span>
+                  </div>
 
-                        <p>
-                          Режим работы:<br/>
-                          понедельник-пятница<br/>
-                          с 9:00 до 18:00
-                        </p>
-                      </div>
+                  <div className="footer-company-info">
+                      <p>
+                        ООО «Ветеран.<br/>
+                        Системный инжиниринг»
+                      </p>
+                      
+                      <p>
+                        ИНН/КПП<br/>
+                        6166133197 / 616601001
+                      </p>
+                      
+                      <p>
+                        ОГРН<br/>
+                        1256100017843
+                      </p>
 
-                      <div className="footer-column-contacts">
-                        <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
-                        <a href="tel:+79282896222">8 928 289 62 22</a>
-                      </div>
+                      <p>
+                        Юр адрес<br/>
+                        344045 г. Ростов-на-Дону,<br/>
+                        ул. Миронова, 2Д, кв. 51
+                      </p>
+                  </div>
 
-                      <div className="messangers-logo">
-                        <img src={TelegramMessanger}/>
-                        <img src={MaxMessanger}/>
-                      </div>
-                    </div>
+                  <div className="footer-legal-links">
+                      <a href="#contacts">Политика конфиденциальности</a>
+                      <a href="#contacts">Согласие на получение рассылки</a>
+                      <a href="#contacts">Согласие на обработку ПД</a>
+                  </div>
+                </div>
+                
+                <div className="footer-address">
+                  <div className="footer-column-info">
+                    <p>
+                      Адрес производства:<br/>
+                      г. Ростов-на-Дону,<br/>
+                      Машиностроительный пер.,<br/>
+                      7/110
+                    </p>
+
+                    <p>
+                      Режим работы:<br/>
+                      понедельник-пятница<br/>
+                      с 9:00 до 18:00
+                    </p>
+                  </div>
+
+                  <div className="footer-column-contacts">
+                    <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
+                    <a href="tel:+79282896222">8 928 289 62 22</a>
+                  </div>
+
+                  <div className="messangers-logo">
+                    <img src={TelegramMessanger}/>
+                    <img src={MaxMessanger}/>
+                  </div>
                 </div>
             </div>
         </div>
