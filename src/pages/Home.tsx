@@ -1613,7 +1613,7 @@ function Footer() {
                 <div className="footer-veteran">
                   <div className="footer-veteran-logo">
                       <a href="#top" aria-label="Ветеран, наверх">
-                          <img src={LogoVeteran} alt="Ветеран" />
+                        <img src={LogoVeteran} alt="Ветеран" />
                       </a>
                       <span>все права защищены</span>
                   </div>
