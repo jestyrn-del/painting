@@ -1567,39 +1567,39 @@ function Footer() {
                 <div className="footer-links-block">
                     <nav className="footer-navigation" aria-label="Навигация в подвале">
                         <div>
-                        <h3>Услуги</h3>
-                        <a href="#service-catalog">Порошковая окраска</a>
-                        <a href="#service-catalog">Крупногабарит</a>
-                        <a href="#service-catalog">Изделия заказчика</a>
-                        <a href="#service-catalog">Декор</a>
-                        <a href="#service-catalog">Пескоструй</a>
-                        <a href="#service-catalog">Металлообработка</a>
-                        <a href="#service-catalog">Калькулятор</a>
-                        <a href="#contacts">Цены</a>
+                          <h3>Услуги</h3>
+                          <a href="#service-catalog">Порошковая окраска</a>
+                          <a href="#service-catalog">Крупногабарит</a>
+                          <a href="#service-catalog">Изделия заказчика</a>
+                          <a href="#service-catalog">Декор</a>
+                          <a href="#service-catalog">Пескоструй</a>
+                          <a href="#service-catalog">Металлообработка</a>
+                          <a href="#service-catalog">Калькулятор</a>
+                          <a href="#contacts">Цены</a>
                         </div>
                         <div>
-                        <h3>Оборудование</h3>
-                        <a href="#equipment-solutions">Камеры</a>
-                        <a href="#equipment-solutions">Печи</a>
-                        <a href="#equipment-solutions">Линии под ключ</a>
+                          <h3>Оборудование</h3>
+                          <a href="#equipment-solutions">Камеры</a>
+                          <a href="#equipment-solutions">Печи</a>
+                          <a href="#equipment-solutions">Линии под ключ</a>
                         </div>
                         <div>
-                        <h3>Продукция</h3>
-                        <a href="#product-solutions">Мебель</a>
-                        <a href="#product-solutions">Бытовки</a>
-                        <a href="#product-solutions">Производство под вашей маркой</a>
-                        <a href="#contacts">Условия</a>
-                        <a href="#contacts">Прайс</a>
+                          <h3>Продукция</h3>
+                          <a href="#product-solutions">Мебель</a>
+                          <a href="#product-solutions">Бытовки</a>
+                          <a href="#product-solutions">Производство под вашей маркой</a>
+                          <a href="#contacts">Условия</a>
+                          <a href="#contacts">Прайс</a>
                         </div>
                         <div>
-                        <h3>Компания</h3>
-                        <a href="#about">О компании</a>
-                        <a href="#production">Производство</a>
-                        <a href="#projects">Проекты</a>
-                        <a href="#blog">Документы</a>
-                        <a href="#contacts">Реквизиты</a>
-                        <a href="#contacts">Вакансии</a>
-                        <a href="#blog">Блог</a>
+                          <h3>Компания</h3>
+                          <a href="#about">О компании</a>
+                          <a href="#production">Производство</a>
+                          <a href="#projects">Проекты</a>
+                          <a href="#blog">Документы</a>
+                          <a href="#contacts">Реквизиты</a>
+                          <a href="#contacts">Вакансии</a>
+                          <a href="#blog">Блог</a>
                         </div>
                     </nav>
 
