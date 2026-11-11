@@ -962,7 +962,7 @@ function CustomerSolutions() {
 
             <div className="solutions">
                 <div className="solutions-image" key={`solution-image-${activeTab}`}>
-                  <img src={selectedTab.image} alt={selectedTab.title} />
+                  <img src={selectedTab.image} alt={selectedTab.tab} />
                   <img src={CommonComponent} alt='' />
                 </div>
 
@@ -1339,10 +1339,10 @@ function Blog() {
             <img src={RightArrowDark} alt="" />
           </button>
           <div className="blog-grid" ref={blogTrackRef}>
-            {articles.map((article) => (
-              <article className="blog-card" key={article.title}>
-                <div className="blog-card-image">
-                  <img src={article.image} alt={article.title} />
+            {articles.map((article, index) => (
+              <article className="blog-card" key={index}>
+                  <div className="blog-card-image">
+                  <img src={article.image} alt={article.category} />
                 </div>
                 <div className="blog-card-copy">
                   <div className="blog-card-meta">
