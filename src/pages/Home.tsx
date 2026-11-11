@@ -1415,6 +1415,9 @@ function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [direction, setDirection] = useState("Окраска");
   const [phone, setPhone] = useState("");
+  const [equipmentType, setEquipmentType] = useState("");
+
+  const showTypeSelector = direction === "Оборудование" || direction === "Продукция";
 
   const phoneRef = useRef<HTMLInputElement>(null);
 
@@ -1468,25 +1471,54 @@ function ContactForm() {
               setSubmitted(true);
             }}
           >
-            <div className="contact-fields-grid">
-              <label className="contact-field">
+
+            <div className={`contact-fields-grid ${showTypeSelector ? "has-type-selector" : ""}`}>
+              <label className="contact-field direction-field">
                 <span>направление</span>
-                <select value={direction} onChange={(e) => setDirection(e.target.value)}>
+                <select
+                  value={direction}
+                  onChange={(e) => {
+                    setDirection(e.target.value);
+                    setEquipmentType("");
+                  }}
+                >
                   <option value="Покраска">Покраска</option>
                   <option value="Оборудование">Оборудование</option>
-                  <option value="Мебель">Мебель</option>
+                  <option value="Продукция">Продукция</option>
                   <option value="Другое">Другое</option>
                 </select>
               </label>
-              <label className="contact-field">
-                <span>имя</span>
-                <input type="text" placeholder="Ваше имя" required />
-              </label>
-              <label className="contact-field">
+
+              {showTypeSelector && (
+                <label className="contact-field type-field">
+                  <span>
+                    {direction === "Оборудование" ? "тип оборудования" : "тип"}
+                  </span>
+
+                  <select
+                    value={equipmentType}
+                    onChange={(e) => setEquipmentType(e.target.value)}
+                    required
+                  >
+                    <option value="" disabled>Выберите тип</option>
+
+                    {direction === "Оборудование" ? (
+                      <>
+                        {/* Добавь сюда типы оборудования */}
+                      </>
+                    ) : (
+                      <>
+                        {/* Добавь сюда типы продукции */}
+                      </>
+                    )}
+                  </select>
+                </label>
+              )}
+
+              <label className="contact-field phone-field">
                 <span>телефон</span>
                 <div className="phone-input-wrap">
                   <span className="phone-flag" aria-hidden="true" />
-
                   <input
                     ref={phoneRef}
                     type="tel"
@@ -1499,9 +1531,15 @@ function ContactForm() {
                   />
                 </div>
               </label>
-              <label className="contact-field">
+
+              <label className="contact-field email-field">
                 <span>e-mail</span>
                 <input type="email" placeholder="Ваша почта" />
+              </label>
+
+              <label className="contact-field name-field">
+                <span>имя</span>
+                <input type="text" placeholder="Ваше имя" required />
               </label>
             </div>
 
