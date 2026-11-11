@@ -1500,15 +1500,17 @@ function ContactForm() {
                     onChange={(e) => setEquipmentType(e.target.value)}
                     required
                   >
-                    <option value="" disabled>Выберите тип</option>
-
                     {direction === "Оборудование" ? (
                       <>
-                        {/* Добавь сюда типы оборудования */}
+                        <option>камеры нанесения</option>
+                        <option>печи полимеризации</option>
+                        <option>линии порошковой окраски</option>
                       </>
                     ) : (
                       <>
-                        {/* Добавь сюда типы продукции */}
+                        <option>мебель</option>
+                        <option>металлоконструкции</option>
+                        <option>модульные здания</option>
                       </>
                     )}
                   </select>
