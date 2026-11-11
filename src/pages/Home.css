@@ -1935,8 +1935,9 @@
 .footer-main {
     display: grid;
     grid-template-columns: 4fr 3fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 3fr 2fr;
     gap: 8vh 1.56vw;
+    margin-bottom: 4.5vh;
 }
 
 .footer-navigation {
