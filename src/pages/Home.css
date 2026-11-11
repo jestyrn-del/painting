@@ -1864,7 +1864,7 @@
 
 /* Footer */
 .footer {
-    padding: 5vh 0 8.33vh;
+    padding: 5vh 0 2vh;
     color: var(--ink);
     background: var(--paper);
 }
@@ -1885,7 +1885,7 @@
     display: grid;
     grid-template-columns: 4fr 3fr;
     grid-template-rows: 1fr 1fr;
-    gap: 1.56vw;
+    gap: 8vh 1.56vw;
 }
 
 .footer-navigation {
