@@ -1909,6 +1909,23 @@
     gap: 2vw;
 }
 
+.footer-brand {
+    display: flex;
+    flex-direction: row;
+    gap: 8vw;
+    justify-content: center;
+}
+
+.footer-veteran-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.footer-veteran-logo img {
+    width: 10vw;
+}
+
 .footer-navigation h3,
 .footer-navigation a,
 .footer-contact-details p,
@@ -1954,22 +1971,8 @@
     background: transparent;
 }
 
-.footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 4.5vh;
-    background: transparent;
-}
-
-.footer-brand a,
-.footer-brand img {
-    display: inline-flex;
-    width: 8.36vw;
-    height: 14.86vh;
-    align-items: center;
-    justify-content: center;
-    object-fit: contain;
-    background: transparent;
+.footer-brand p {
+    margin: 0;
 }
 
 .footer-brand span {
@@ -1984,7 +1987,7 @@
 .footer-socials {
     display: flex;
     flex-direction: column;
-    gap: 1.4vh;
+    gap: 2.6vh;
     background: transparent;
 }
 
@@ -2042,10 +2045,6 @@
     flex-direction: column;
 
     gap: 2vh;
-}
-
-.footer-column-contacts {
-    align-items: center;
 }
 
 .footer-legal {

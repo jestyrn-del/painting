@@ -1611,7 +1611,7 @@ function Footer() {
                 </div>
 
                 <div className="footer-veteran">
-                  <div className="footer-brand">
+                  <div className="footer-veteran-logo">
                       <a href="#top" aria-label="Ветеран, наверх">
                           <img src={LogoVeteran} alt="Ветеран" />
                       </a>
@@ -1648,7 +1648,7 @@ function Footer() {
                   </div>
                 </div>
                 
-                <div className="footer-address">
+                <div className="footer-brand">
                   <div className="footer-column-info">
                     <p>
                       Адрес производства:<br/>
