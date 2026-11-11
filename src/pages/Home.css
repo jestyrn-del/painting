@@ -2018,8 +2018,8 @@
 
 .footer-map-label {
     position: absolute;
-    top: 19vh;
-    left: 16.33vw;
+    top: 17vh;
+    left: 19vw;
     color: var(--ink);
     font-size: var(--text-xs);
     font-weight: 500;
