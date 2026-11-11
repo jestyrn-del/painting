@@ -8,6 +8,9 @@ import RightArrow from '../../public/Assets/Common-Right-Arrow.svg';
 import RightArrowDark from '../../public/Assets/Common-Right-Arrow-Dark.svg';
 import CommonComponent from '../../public/Assets/Common-Icon.svg';
 
+import MaxMessanger from '../../public/Assets/Common-max.svg';
+import TelegramMessanger from '../../public/Assets/Common-telegram.svg';
+
 // Hero imports
 import HeroBgr from '../../public/Assets/Hero-Backgrond.svg';
 
@@ -738,6 +741,10 @@ function Hero() {
           <div className="hero-somethings">
             <span>Производим и запускаем линии<br/>окраски, лофт-мебель и бытовки<br/>под заказ. Работаем по договору,<br/>с НДС.</span>
             <span>Красим изделия<br/>длиной до 7 м за 2–3<br/>рабочих дня</span>
+            <div className="messangers-logo">
+              <img src={TelegramMessanger}/>
+              <img src={MaxMessanger}/>
+            </div>
           </div>
 
           <h1>
@@ -1625,21 +1632,30 @@ function Footer() {
                     </div>
 
                     <div className="footer-contact-details">
-                      <p>
-                        Адрес производства:<br/>
-                        г. Ростов-на-Дону,<br/>
-                        Машиностроительный пер.,<br/>
-                        7/110
-                      </p>
-                      
-                      <p>
-                        Режим работы:<br/>
-                        понедельник-пятница<br/>
-                        с 9:00 до 18:00
-                      </p>
-                      
-                      <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
-                      <a href="tel:+79282896222">8 928 289 62 22</a>
+                      <div className="footer-column-info">
+                        <p>
+                          Адрес производства:<br/>
+                          г. Ростов-на-Дону,<br/>
+                          Машиностроительный пер.,<br/>
+                          7/110
+                        </p>
+
+                        <p>
+                          Режим работы:<br/>
+                          понедельник-пятница<br/>
+                          с 9:00 до 18:00
+                        </p>
+                      </div>
+
+                      <div className="footer-column-contacts">
+                        <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
+                        <a href="tel:+79282896222">8 928 289 62 22</a>
+                      </div>
+
+                      <div className="messangers-logo">
+                        <img src={TelegramMessanger}/>
+                        <img src={MaxMessanger}/>
+                      </div>
                     </div>
                 </div>
             </div>

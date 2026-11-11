@@ -450,6 +450,16 @@
     line-height: 1;
 }
 
+.messangers-logo  {
+    display: flex;
+    gap: 0.5vw;
+    height: 4vh;
+}
+
+.messangers-logo img {
+    cursor: pointer;
+}
+
 .hero-inner h1 {
     position: absolute;
     top: 28svh;
@@ -2009,14 +2019,26 @@
 .footer-contact-details {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.4vh 1.56vw;
+    grid-template-columns: 3fr 3fr 1fr;
+    gap: 2vh 2vw;
     background: transparent;
 }
 
 .footer-contact-details p,
 .footer-contact-details a {
     max-width: 14.06vw;
+}
+
+.footer-column-info,
+.footer-column-contacts {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2vh;
+}
+
+.footer-column-contacts {
+    align-items: center;
 }
 
 .footer-legal {
