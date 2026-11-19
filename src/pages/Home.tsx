@@ -1530,15 +1530,15 @@ function ContactForm() {
                   >
                     {direction === "Оборудование" ? (
                       <>
-                        <option>камеры нанесения</option>
-                        <option>печи полимеризации</option>
-                        <option>линии порошковой окраски</option>
+                        <option>Камеры нанесения</option>
+                        <option>Печи полимеризации</option>
+                        <option>Линии порошковой окраски</option>
                       </>
                     ) : (
                       <>
-                        <option>мебель</option>
-                        <option>металлоконструкции</option>
-                        <option>модульные здания</option>
+                        <option>Мебель</option>
+                        <option>Металлоконструкции</option>
+                        <option>Модульные здания</option>
                       </>
                     )}
                   </select>
