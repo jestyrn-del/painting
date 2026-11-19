@@ -121,7 +121,7 @@ const navigation = [
           },
           {
             id: "doors",
-            title: "Двери",
+            title: "двери",
             href: "#",
           },
           {
@@ -219,12 +219,12 @@ const navigation = [
         children: [
           {
             id: "manufacturing",
-            title: "Сварка, лазер, гибка, сборка",
+            title: "сварка, лазер, гибка, сборка",
             href: "#service-catalog",
           },
           {
             id: "processing",
-            title: "Изготовление под ключ (по чертежу)",
+            title: "изготовление под ключ (по чертежу)",
             href: "#service-catalog",
           },
         ],
