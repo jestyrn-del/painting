@@ -1674,7 +1674,15 @@ function Footer() {
 
                 <div className="footer-side">
                   <div className="footer-map-card" aria-label="Карта производства">
-                    <div className="footer-map-label">карта</div>
+                    <iframe
+                      src="https://yandex.com/map-widget/v1/?ll=39.603370%2C47.208037&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNDg4MTc3MjQ3EmbQoNC-0YHRgdC40Y8sINCg0L7RgdGC0L7Qsi3QvdCwLdCU0L7QvdGDLCDQnNCw0YjQuNC90L7RgdGC0YDQvtC40YLQtdC70YzQvdGL0Lkg0L_QtdGA0LXRg9C70L7QuiwgNy8xMTAiCg3aaR5CFQjVPEI%2C&z=17.23"
+                      width="560"
+                      height="400"
+                      frameBorder="1"
+                      allowFullScreen
+                      style={{ position: "relative", borderRadius : "0.4vw"}}
+                      title="Карта - Машиностроительный переулок, 7/110"
+                    />
                   </div>
                 </div>
 
