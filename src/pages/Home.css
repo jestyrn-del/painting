@@ -147,25 +147,44 @@
     display: flex;
     align-items: center;
     gap: 1vh;
+
     padding: 0;
-    border: 0;
+    border: none;
+
     color: var(--ink);
     background: transparent;
+
     font-size: var(--text-xs);
     line-height: 1;
     white-space: nowrap;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: color 180ms ease;
 }
 
 .header-nav-trigger img {
     width: 0.7vw;
     background: transparent;
+
     transition: transform 180ms ease;
 }
 
-.header-nav-item:hover .header-nav-trigger img,
-.header-nav-item:focus-within .header-nav-trigger img,
+.header-nav-trigger:hover,
+.header-nav-link:hover {
+    color: var(--orange);
+}
+
 .header-nav-item.is-open .header-nav-trigger img {
     transform: rotate(180deg);
+}
+
+.header-nav-trigger:focus-visible,
+.header-nav-link:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 5px;
+    border-radius: 2px;
 }
 
 .header-dropdown a {
@@ -290,7 +309,7 @@
     gap: 1vh;
 
     min-height: 1vh;
-    padding: 1vh 1.5vh 1vh;
+    padding: 1vh 1.5vh;
 
     border: 0;
     background: transparent;
@@ -303,7 +322,11 @@
     cursor: pointer;
     text-align: left;
 
-    transition: 1.2s ease;
+    transition: color 180ms ease;
+}
+
+.dropdown-trigger:hover {
+    color: var(--orange);
 }
 
 /* Стрелка */
@@ -313,6 +336,10 @@
     flex: 0 0 auto;
 
     transition: transform 220ms ease;
+}
+
+.dropdown-item--has-children.is-open > .dropdown-trigger {
+    color: var(--orange);
 }
 
 .dropdown-item--has-children.is-open > .dropdown-trigger .dropdown-arrow {
@@ -344,6 +371,11 @@
     row-gap: 1vh;
 }
 
+.dropdown-trigger:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 3px;
+}
+
 /* Дочерняя группа занимает целую строку */
 .dropdown-list > .dropdown-item--has-children {
     flex: 0 0 100%;
@@ -361,7 +393,10 @@
     display: block;
     width: fit-content;
 
-    color: #000;
+    padding: 0.8vh 1.5vh;
+    border-radius: 0.4vw;
+
+    color: var(--ink);
     background: transparent;
 
     font-size: 1.5vh;
@@ -369,16 +404,26 @@
     line-height: 1;
 
     text-decoration: none;
+
+    transition:
+        color 180ms ease,
+        background-color 180ms ease;
 }
 
-.dropdown-link:hover,
-.dropdown-link:focus-visible {
+.dropdown-link:hover {
     color: var(--orange);
+    background: var(--paper);
+}
+
+.dropdown-link:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 3px;
+    color: var(--orange);
+    background: var(--paper);
 }
 
 /* Доступность */
-.dropdown-trigger:focus-visible,
-.dropdown-link:focus-visible {
+.dropdown-trigger:focus-visible {
     outline: 2px solid var(--orange);
     outline-offset: 4px;
     color: var(--orange);
