@@ -32,7 +32,7 @@ const services = [
         <>
         Камера 7,2 × 1,4 × 2,5 м,<br/>
         любой {" "}
-        <span className="service-detail-highlight">цвет RAL</span>
+        <span className="service-detail-highlight"> цвет RAL </span>
         и фактура.<br/>
         Покраска в день обращения
         </>
