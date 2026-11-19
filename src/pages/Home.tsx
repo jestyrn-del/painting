@@ -398,7 +398,7 @@ const navigation = [
 ];
 
 const statistics = [
-  { value: "7 м", label: "Максимальная длина изделия" },
+  { value: "7,2 м", label: "Максимальная длина изделия" },
   { value: "2–3 дня", label: "Стандартный срок окраски" },
   { value: "1 год", label: "Гарантия на отслоение покрытия" },
   { value: "3 линии", label: "Окраски под запуском у клиентов" },
@@ -768,7 +768,7 @@ function Hero() {
 
           <div className="hero-somethings">
             <span>Производим и запускаем линии<br/>окраски, лофт-мебель и бытовки<br/>под заказ. Работаем по договору,<br/>с НДС.</span>
-            <span>Красим изделия<br/>длиной до 7 м за 2–3<br/>рабочих дня</span>
+            <span>Красим изделия<br/>длиной до 7,2 м за 2–3<br/>рабочих дня</span>
             <div className="messangers-logo">
               <img src={TelegramMessanger}/>
               <img src={MaxMessanger}/>
