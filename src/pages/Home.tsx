@@ -424,7 +424,7 @@ const serviceCategories = [
       },
       {
         title: "Крупногабаритная окраска",
-        description: "Изделия до 7 × 1,4 × 2,5 м",
+        description: "Изделия до 7,2 м × 1,4 × 2,5 м",
         price: "от 10 000 ₽/компл.",
         term: "от 3 дней",
       },
