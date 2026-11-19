@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+
 import "./Home.css";
 
 // Common elements
@@ -342,7 +343,7 @@ const navigation = [
           },
           {
             id: "ctm",
-            title: "ОЕМ / Производство под СТМ",
+            title: "ОЕМ / производство под СТМ",
             href: "#",
           },
         ],
@@ -610,23 +611,51 @@ function Header() {
   const [openPath, setOpenPath] = useState<string[]>([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const toggleNestedMenu = (id: string, level: number) => {
-    setOpenPath((prev) => {
-      const next = prev.slice(0, level);
+  const navigationRef = useRef<HTMLDivElement>(null);
 
-      if (prev[level] !== id) {
-        next[level] = id;
-      }
-
-      return next;
-    });
-  };
-
+  // Полностью закрыть меню
   const closeMenu = () => {
     setActiveDropdown(null);
     setOpenPath([]);
     setMobileMenuOpen(false);
   };
+
+  // Открыть или закрыть вложенный пункт
+  const toggleNestedMenu = (id: string, level: number) => {
+    setOpenPath((prev) => {
+      const next = [...prev];
+
+      if (next[level] === id) {
+        return next.slice(0, level);
+      }
+
+      next[level] = id;
+      return next.slice(0, level + 1);
+    });
+  };
+
+  // Закрытие при клике за пределами навигации
+  useEffect(() => {
+    const handleClickOutside = (event: PointerEvent) => {
+      const target = event.target as HTMLElement;
+
+      // Кнопка мобильного меню обрабатывается отдельно
+      if (target.closest(".mobile-menu-toggle")) return;
+
+      if (
+        navigationRef.current &&
+        !navigationRef.current.contains(target)
+      ) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener("pointerdown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("pointerdown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="header">
@@ -635,73 +664,63 @@ function Header() {
           <img src={LogoVeteran} alt="В" />
         </a>
 
-        <nav
-          className={`header-nav ${mobileMenuOpen ? "is-mobile-open" : ""}`}
-          id="main-navigation"
+        <div
+          className="header-navigation-wrap"
+          ref={navigationRef}
         >
-          {navigation.map((item) => {
-            const hasChildren = Boolean(item.children?.length);
-            const isOpen = activeDropdown === item.id;
+          <nav
+            className={`header-nav ${mobileMenuOpen ? "is-mobile-open" : ""}`}
+            id="main-navigation"
+          >
+            {navigation.map((item) => {
+              const hasChildren = Boolean(item.children?.length);
+              const isOpen = activeDropdown === item.id;
 
-            return (
-              <div
-                className={`header-nav-item ${isOpen ? "is-open" : ""}`}
-                key={item.id}
-                onMouseEnter={() => {
-                  setActiveDropdown(item.id);
-                  setOpenPath([]);
-                }}
-                onMouseLeave={() => {
-                  setActiveDropdown(null);
-                  setOpenPath([]);
-                }}
-              >
-                {hasChildren ? (
-                  <>
-                    <button
-                      className="header-nav-trigger"
-                      type="button"
-                      aria-expanded={isOpen}
-                      onClick={() => {
-                        // На устройствах с мышью открытием управляет hover
-                        const isHoverDevice = window.matchMedia(
-                          "(hover: hover) and (pointer: fine)"
-                        ).matches;
+              return (
+                <div
+                  className={`header-nav-item ${isOpen ? "is-open" : ""}`}
+                  key={item.id}
+                >
+                  {hasChildren ? (
+                    <>
+                      <button
+                        className="header-nav-trigger"
+                        type="button"
+                        aria-expanded={isOpen}
+                        onClick={() => {
+                          setActiveDropdown(isOpen ? null : item.id);
+                          setOpenPath([]);
+                        }}
+                      >
+                        {item.title}
+                        <img src={DownArrow} alt="" />
+                      </button>
 
-                        if (isHoverDevice) return;
-
-                        setActiveDropdown(isOpen ? null : item.id);
-                        setOpenPath([]);
-                      }}
+                      {isOpen && (
+                        <div className="header-dropdown">
+                          <DropdownItems
+                            items={item.children!}
+                            openPath={openPath}
+                            onToggle={toggleNestedMenu}
+                            onNavigate={closeMenu}
+                          />
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <a
+                      className="header-nav-link"
+                      href={item.href}
+                      onClick={closeMenu}
                     >
                       {item.title}
-                      <img src={DownArrow} alt="" />
-                    </button>
-
-                    {isOpen && (
-                      <div className="header-dropdown">
-                        <DropdownItems
-                          items={item.children!}
-                          openPath={openPath}
-                          onToggle={toggleNestedMenu}
-                          onNavigate={closeMenu}
-                        />
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <a
-                    className="header-nav-link"
-                    href={item.href}
-                    onClick={closeMenu}
-                  >
-                    {item.title}
-                  </a>
-                )}
-              </div>
-            );
-          })}
-        </nav>
+                    </a>
+                  )}
+                </div>
+              );
+            })}
+          </nav>
+        </div>
 
         <div className="header-contacts">
           <a href="tel:+79282896222">8 928 289 62 22</a>
@@ -718,7 +737,16 @@ function Header() {
           aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
           aria-expanded={mobileMenuOpen}
           aria-controls="main-navigation"
-          onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
+          onClick={() => {
+            setMobileMenuOpen((prev) => {
+              if (prev) {
+                setActiveDropdown(null);
+                setOpenPath([]);
+              }
+
+              return !prev;
+            });
+          }}
         >
           <span aria-hidden="true" />
         </button>
