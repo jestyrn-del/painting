@@ -460,7 +460,7 @@ export function Header() {
   return (
     <header className="header">
       <div className="container header-inner">
-        <Link className="header-logo" to="/development">
+        <Link className="header-logo" to="/">
           <img src={LogoVeteran} alt="В" />
         </Link>
 
