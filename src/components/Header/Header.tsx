@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 import './Header.css';
 
@@ -75,13 +76,9 @@ const DropdownItems = ({
                 )}
               </>
             ) : (
-              <a
-                className="dropdown-link"
-                href={item.href ?? "/development"}
-                onClick={onNavigate}
-              >
+              <Link className="dropdown-link" to={item.href ?? "/development"}>
                 {item.title}
-              </a>
+              </Link>
             )}
           </li>
         );
@@ -463,9 +460,9 @@ export function Header() {
   return (
     <header className="header">
       <div className="container header-inner">
-        <a className="header-logo" href="/painting">
+        <Link className="header-logo" to="/development">
           <img src={LogoVeteran} alt="В" />
-        </a>
+        </Link>
 
         <div
           className="header-navigation-wrap"
@@ -511,13 +508,9 @@ export function Header() {
                       )}
                     </>
                   ) : (
-                    <a
-                      className="header-nav-link"
-                      href={item.href}
-                      onClick={closeMenu}
-                    >
+                    <Link className="header-nav-link" to={item.href} onClick={closeMenu}>
                       {item.title}
-                    </a>
+                    </Link>
                   )}
                 </div>
               );
