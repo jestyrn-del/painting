@@ -463,7 +463,7 @@ export function Header() {
   return (
     <header className="header">
       <div className="container header-inner">
-        <a className="header-logo" href="/">
+        <a className="header-logo" href="/painting">
           <img src={LogoVeteran} alt="В" />
         </a>
 

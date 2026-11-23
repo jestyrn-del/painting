@@ -35,7 +35,7 @@ function DevelopmentPage() {
             </p>
           </div>
 
-          <a className="dev-back-link" href="/">
+          <a className="dev-back-link" href="/painting">
             <img className="dev-back-arrow" src={Arrow}/>
             <span>Назад</span>
           </a>
