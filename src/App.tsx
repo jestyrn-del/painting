@@ -17,6 +17,7 @@ export default function App() {
         <Route path="*" element={<Navigate to="/painting/development" replace />} />
       </Routes>
 
+
       <CookieBanner />
     </>
   );
