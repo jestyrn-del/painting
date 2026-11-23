@@ -386,12 +386,12 @@ const navigation = [
   {
     id: "blog",
     title: "блог",
-    href: "/#blog",
+    href: "#blog",
   },
   {
     id: "contacts",
     title: "контакты",
-    href: "/#contacts",
+    href: "#contacts",
   },
   {
     id: "paint",
