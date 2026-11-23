@@ -259,7 +259,7 @@ function Hero() {
             в Ростове-на-Дону
           </h2>
 
-          <Link to="/painting/about" className="button button--orange hero-cta">
+          <Link to="/development" className="button button--orange hero-cta">
             Узнать больше
             <img src={RightArrow} alt="" />
           </Link>
