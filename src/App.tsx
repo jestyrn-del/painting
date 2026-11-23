@@ -11,10 +11,10 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/development" element={<NotFoundPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="*" element={<Navigate to="/development" replace />} />
+        <Route path="/painting" element={<Home />} />
+        <Route path="/painting/development" element={<NotFoundPage />} />
+        <Route path="/painting/about" element={<AboutPage />} />
+        <Route path="*" element={<Navigate to="/painting/development" replace />} />
       </Routes>
 
       <CookieBanner />
