@@ -1,0 +1,289 @@
+.cookie-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2vw;
+
+    background: rgba(14, 33, 59, 0.55);
+}
+
+/* Основное окно */
+.cookie-modal {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1vw;
+
+    width: 62vw;
+    height: 75vh;
+    flex: 0 0 auto;
+
+    padding: 4vw;
+
+    background: var(--white);
+    border-radius: 0.6vw;
+
+    transform: translateY(2vw);
+    color: var(--navy);
+}
+
+/* Заголовок и описание */
+.cookie-modal-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6vw;
+
+    width: 100%;
+    height: 4vw;
+    flex: 0 0 4vw;
+}
+
+.cookie-modal-header h2 {
+    margin: 0;
+
+    font-size: 2vw;
+    font-weight: 600;
+    line-height: 1.14;
+    text-align: center;
+
+    color: var(--navy);
+}
+
+.cookie-modal-header p {
+    max-width: 50vw;
+    margin: 0;
+
+    font-size: 1.2vw;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+
+    color: var(--navy);
+}
+
+/* Общий блок категорий */
+.cookie-modal-content {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1vw;
+
+    width: 100%;
+    min-height: 45vh;
+    flex: 0 0 32vh;
+
+    padding: 4vw 0;
+
+    background: var(--white);
+}
+
+/* Категория */
+.cookie-category {
+    display: grid;
+
+    grid-template-columns: 2vw 1fr;
+    column-gap: 1.5vw;
+    row-gap: 2vh;
+
+    width: 100%;
+    align-items: start;
+}
+
+.cookie-category-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2vw;
+    height: 2vw;
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: var(--orange);
+
+    transform: rotate(-90deg);
+    cursor: pointer;
+
+    transition: transform 0.25s ease;
+}
+
+.cookie-category-arrow--open {
+    transform: rotate(90deg);
+}
+
+.cookie-category-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10vw;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 1.5vw;
+}
+
+.cookie-category-info h3 {
+    margin: 0;
+
+    font-size: 2vw;
+    font-weight: 600;
+    line-height: 1.14;
+
+    color: var(--navy);
+}
+
+.cookie-category-description {
+    grid-column: 2;
+    margin: 0;
+
+    font-size: 1.2vw;
+    font-weight: 500;
+
+    color: #0E213B;
+}
+
+.cookie-category--marketing .cookie-category-info {
+    grid-column: 2;
+}
+
+.cookie-category--marketing .cookie-category-description {
+    grid-column: 2;
+}
+
+/* Статус */
+.cookie-category-control {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    flex: 0 0 auto;
+}
+
+.cookie-status {
+    font-size: 1.2vw;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.cookie-status--default,
+.cookie-status--enabled {
+    color: var(--orange);
+}
+
+.cookie-status--disabled {
+    color: var(--paper-secondary);
+}
+
+/* Переключатель */
+.cookie-switch {
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 4vw;
+    height: 2vw;
+    flex: 0 0 4vw;
+
+    border: none;
+    border-radius: 2vw;
+
+    background: var(--paper);
+
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.cookie-switch--on {
+    justify-content: flex-end;
+}
+
+.cookie-switch:disabled {
+    cursor: not-allowed;
+}
+
+.cookie-switch-thumb {
+    width: 3vw;
+    height: 3vw;
+    flex: 0 0 3vw;
+
+    border-radius: 50%;
+    background: var(--paper-secondary);
+
+    box-shadow: 0 0.0521vw 0.1042vw rgba(0, 0, 0, 0.25);
+
+    transition: background-color 0.25s ease;
+}
+
+.cookie-switch--on .cookie-switch-thumb {
+    background: #F6A71A;
+}
+
+
+
+.cookie-category--marketing {
+    display: grid;
+    grid-template-columns: 1.4583vw minmax(0, 1fr);
+    column-gap: 0.8333vw;
+    row-gap: 1.0417vw;
+}
+
+
+.cookie-category--marketing .cookie-category-info {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.cookie-category-description {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    margin: 0;
+}
+
+
+/* Кнопка сохранения */
+
+.cookie-modal-save {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+
+    width: 6.25vw;
+    height: 1.8229vw;
+    flex: 0 0 1.8229vw;
+
+    padding: 0.5208vw;
+
+    border: none;
+    border-radius: 0.2604vw;
+
+    background: #0E213B;
+    color: #FFFFFF;
+
+    font-family: "Onest", sans-serif;
+    font-size: 0.625vw;
+    font-weight: 600;
+    line-height: 0.7813vw;
+
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.cookie-modal-save:hover {
+    background: #1B3657;
+}

@@ -1,0 +1,157 @@
+.cookie-banner {
+    position: fixed;
+    right: 3vh;
+    bottom: 3vh;
+    z-index: 10000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5vh;
+
+    width: 29vw;
+    padding: 2vw 3vh;
+
+    background: #F6F6F6;
+    border-radius: 1vw;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(3vh);
+
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+.cookie-banner--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.cookie-banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1vw;
+
+    width: 100%;
+}
+
+.cookie-banner-content h3 {
+    width: 100%;
+    margin: 0;
+
+    color: var(--navy);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    line-height: 1.14;
+}
+
+.cookie-settings-link {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: var(--navy);
+    font-size: var(--text-md);
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: color 0.25s ease;
+}
+
+.cookie-settings-link span {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.cookie-settings-link:hover {
+    color: var(--orange);
+}
+
+.cookie-settings-link:hover span {
+    transform: translateX(1vw);
+}
+
+.cookie-banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+
+    width: 100%;
+}
+
+.cookie-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 4vh;
+    padding: 1vw;
+
+    border: none;
+    border-radius: 0.7vw;
+
+    font-size: var(--text-sm);
+    font-weight: 600;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+
+.cookie-button:active {
+    transform: scale(0.96);
+}
+
+.cookie-button--dark {
+    flex: 1;
+
+    background: var(--navy);
+    color: var(--white);
+}
+
+.cookie-button--dark:hover {
+    background: var(--cookie-black);
+}
+
+.cookie-button--yellow {
+    flex: 1;
+
+    background: var(--orange);
+    color: var(--navy);
+}
+
+.cookie-button--yellow:hover {
+    background: var(--orange-hover);
+}
+
+.cookie-option {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+
+    color: var(--navy);
+    font-size: var(--text-sm);
+    font-weight: 400;
+
+    cursor: pointer;
+}
+
+.cookie-option input {
+    width: 1.5vw;
+    height: 1.5vw;
+    accent-color: var(--orange);
+    cursor: pointer;
+}
+
+.cookie-option input:disabled {
+    cursor: not-allowed;
+}
