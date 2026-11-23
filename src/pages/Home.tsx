@@ -316,10 +316,10 @@ function ServicesOverview() {
                     <img src={RightArrow} alt="" />
                   </button>
                 ) : (
-                  <a href="/development" className="service-card-more text-link">
+                  <Link to="/development" className="service-card-more text-link">
                     {service.link}
                     <img src={RightArrow} alt="" />
-                  </a>
+                  </Link>
                 )}
               </div>
             </article>
