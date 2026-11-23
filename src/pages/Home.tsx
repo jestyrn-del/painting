@@ -259,7 +259,7 @@ function Hero() {
             в Ростове-на-Дону
           </h2>
 
-          <Link to="/development" className="button button--orange hero-cta">
+          <Link to="/painting/about" className="button button--orange hero-cta">
             Узнать больше
             <img src={RightArrow} alt="" />
           </Link>
@@ -316,7 +316,7 @@ function ServicesOverview() {
                     <img src={RightArrow} alt="" />
                   </button>
                 ) : (
-                  <a href="/dev" className="service-card-more text-link">
+                  <a href="/painting/dev" className="service-card-more text-link">
                     {service.link}
                     <img src={RightArrow} alt="" />
                   </a>

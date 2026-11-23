@@ -77,7 +77,7 @@ const DropdownItems = ({
             ) : (
               <a
                 className="dropdown-link"
-                href={item.href ?? "/dev"}
+                href={item.href ?? "/painting/dev"}
                 onClick={onNavigate}
               >
                 {item.title}
@@ -94,7 +94,7 @@ const navigation = [
   {
     id: "services",
     title: "услуги",
-    href: "/dev",
+    href: "/painting/dev",
     children: [
       {
         id: "powder-painting",
@@ -104,121 +104,121 @@ const navigation = [
           {
             id: "radiators",
             title: "радиаторы",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "profile",
             title: "профиль",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "tube",
             title: "трубы",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "metal",
             title: "металлоконструкции",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "fences",
             title: "заборы и ограждения",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "doors",
             title: "двери",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "canopies",
             title: "настилы/навесы",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "tanks",
             title: "емкости",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "stairs",
             title: "лестницы",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "ads",
             title: "рекламные конструкции",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "clips",
             title: "крепеж/метизы",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "aluminium",
             title: "алюминий",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "steanless",
             title: "нержавейка",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "galvanizing",
             title: "оцинковка",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "large",
             title: "крупногабарит",
-            href: "/dev",
+            href: "/painting/dev",
           },
 
           // По материалу
           {
             id: "shagreen",
             title: "шагрень",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "moire",
             title: "муар",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "antique",
             title: "антик",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "leather",
             title: "кожа",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "velvet",
             title: "бархат",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "chrome",
             title: "хром",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "varnished",
             title: "лак",
-            href: "/dev",
+            href: "/painting/dev",
           },
         ],
       },
       {
         id: "sandblasting",
         title: "пескоструйная подготовка",
-        href: "/dev",
+        href: "/painting/dev",
       },
       {
         id: "metalworking",
@@ -227,164 +227,164 @@ const navigation = [
           {
             id: "manufacturing",
             title: "сварка, лазер, гибка, сборка",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "processing",
             title: "изготовление под ключ (по чертежу)",
-            href: "/dev",
+            href: "/painting/dev",
           },
         ],
       },
       {
         id: "prices",
         title: "цены",
-        href: "/dev",
+        href: "/painting/dev",
       },
       {
         id: "requirements",
         title: "требования к изделиям",
-        href: "/dev",
+        href: "/painting/dev",
       },
       {
         id: "ral-catalog",
         title: "каталог RAL",
-        href: "/dev",
+        href: "/painting/dev",
       },
     ],
   },
   {
     id: "equipment",
     title: "оборудование",
-    href: "/dev",
+    href: "/painting/dev",
     children: [
       {
         id: "scroll",
         title: "перечень",
-        href: "/dev",
+        href: "/painting/dev",
         children: [
           {
             id: "booths",
             title: "камеры порошковой окраски",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "ovens",
             title: "печи полимеризации",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "boxes",
             title: "камеры нанесения/окрасочные боксы",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "lines",
             title: "транспортные эстакады и конвейеры",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "aspiration",
             title: "аспирация и системы очистки",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "spray",
             title: "пистолеты, распылители, комплектующие",
-            href: "/dev",
+            href: "/painting/dev",
           },
         ],
       },
       {
         id: "lines",
         title: "линии «под ключ»",
-        href: "/dev",
+        href: "/painting/dev",
       },
       {
         id: "selection",
         title: "подбор по задаче",
-        href: "/dev",
+        href: "/painting/dev",
       },
       {
         id: "configuration",
         title: "комплектации и цены",
-        href: "/dev",
+        href: "/painting/dev",
       },
       {
         id: "assambly",
         title: "монтаж и пусконаладка",
-        href: "/dev",
+        href: "/painting/dev",
       },
       {
         id: "cases",
         title: "кейсы поставок",
-        href: "/dev",
+        href: "/painting/dev",
       },
     ],
   },
   {
     id: "products",
     title: "продукция",
-    href: "/dev",
+    href: "/painting/dev",
     children: [
       {
         id: "furniture",
         title: "мебель",
-        href: "/dev",
+        href: "/painting/dev",
         children: [
           {
             id: "furniture",
             title: "лофт",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "metals",
             title: "металлокаркасы",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "tables",
             title: "подстолья",
-            href: "/dev",
+            href: "/painting/dev",
           },
           {
             id: "ctm",
             title: "ОЕМ / производство под СТМ",
-            href: "/dev",
+            href: "/painting/dev",
           },
         ],
       },
       {
         id: "modules",
         title: "бытовки и модульные конструкции",
-        href: "/dev",
+        href: "/painting/dev",
       },
       {
         id: "works",
         title: "как мы работаем",
-        href: "/dev",
+        href: "/painting/dev",
       },
       {
         id: "logistics",
         title: "логистика и отгрузка",
-        href: "/dev",
+        href: "/painting/dev",
       },
     ],
   },
   {
     id: "projects",
     title: "проекты",
-    href: "/dev",
+    href: "/painting/dev",
   },
   {
     id: "production",
     title: "производство",
-    href: "/dev",
+    href: "/painting/dev",
   },
   {
     id: "about",
     title: "о компании",
-    href: "/dev",
+    href: "/painting/dev",
   },
   {
     id: "blog",
@@ -399,7 +399,7 @@ const navigation = [
   {
     id: "paint",
     title: "купить краску",
-    href: "/dev",
+    href: "/painting/dev",
   },
 ];
 
@@ -463,7 +463,7 @@ export function Header() {
   return (
     <header className="header">
       <div className="container header-inner">
-        <a className="header-logo" href="/">
+        <a className="header-logo" href="/painting">
           <img src={LogoVeteran} alt="В" />
         </a>
 
