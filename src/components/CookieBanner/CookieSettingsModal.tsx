@@ -7,6 +7,7 @@ import "../../pages/Home.css";
 import "../../index.css";
 
 import Arrow from '../../../public/Assets/Common-Right-Arrow.svg';
+import Close from '../../../public/Assets/Common-Close.svg';
 
 export type CookiePreferences = {
   necessary: boolean;
@@ -98,12 +99,14 @@ function CookieSettingsModal({
       }}
     >
       <div className="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+        <img className="cookie-modal-close" src={Close} alt="x" onClick={() => onClose()}/>
+        
         <div className="cookie-modal-header">
           <h2 id="cookie-modal-title">Настройка cookie</h2>
 
           <p>
-            Cookie, которые необходимы для корректной работы сайта,
-            включены автоматически. Остальные данные можно настроить
+            Cookie, которые необходимы для корректной работы сайта, включены<br/>
+            автоматически. Остальные данные можно настроить
           </p>
         </div>
 
@@ -214,7 +217,7 @@ function CookieSettingsModal({
         </div>
 
         <button type="button" className="cookie-modal-save" onClick={onSave}>
-          Сохранить
+          cохранить
         </button>
       </div>
     </div>,

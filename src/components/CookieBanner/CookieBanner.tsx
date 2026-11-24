@@ -104,7 +104,7 @@ function CookieBanner() {
             type="button"
             onClick={rejectAll}
           >
-            закрыть
+            принять необходимые
           </button>
 
           <button
