@@ -8,6 +8,8 @@ import DocumentAttached from '../../../public/Assets/document-attachment.svg';
 import CloseButton from '../../../public/Assets/Common-Close-Dark.svg';
 import AddButton from '../../../public/Assets/Common-Add.svg';
 
+import Close from '../../../public/Assets/Common-Close.svg';
+
 function formatPhone(value: string) {
   let digits = value.replace(/\D/g, "");
 
@@ -55,6 +57,7 @@ type ContactsInputProps = {
   phone: string;
   setPhone: (value: string) => void;
   showTitle?: boolean;
+  onClose?: () => void;
 };
 
 function ContactsInput({
@@ -65,6 +68,7 @@ function ContactsInput({
   phone,
   setPhone,
   showTitle = false,
+  onClose
 }: ContactsInputProps) {
   const [files, setFiles] = useState<File[]>([]);
   const [submitted, setSubmitted] = useState(false);
@@ -132,11 +136,15 @@ function ContactsInput({
   return (
     <>
       {showTitle && (
+        <>
+        <img className="contact-title-close" src={Close} alt="x" onClick={onClose}/>
         <h2 className="contact-title" style={{ marginBottom: "2.5vh" }}>
           {direction === "Покраска"
             ? "Пришлите чертёж или фото, и мы рассчитаем стоимость за 2 часа"
             : "Заполните данные и мы с вами свяжемся"}
         </h2>
+
+        </>
       )}
       
       <form
@@ -196,16 +204,7 @@ function ContactsInput({
             <span>телефон</span>
             <div className="phone-input-wrap">
               <span className="phone-flag" aria-hidden="true" />
-              <input
-                ref={phoneRef}
-                type="tel"
-                inputMode="numeric"
-                autoComplete="tel"
-                placeholder="+7 (999) 999 99 99"
-                value={phone}
-                onChange={handlePhoneChange}
-                required
-              />
+              <input ref={phoneRef} type="tel" inputMode="numeric" autoComplete="tel" placeholder="+7 (999) 999 99 99" value={phone} onChange={handlePhoneChange} required />
             </div>
           </label>
 
@@ -237,21 +236,13 @@ function ContactsInput({
                   <img src={Arrow} alt="" />
                 </span>
 
-                <input
-                  type="file"
-                  accept=".dwg,.pdf,.jpg,.jpeg,.png"
-                  multiple
-                  onChange={handleFilesChange}
-                />
+                <input type="file" accept=".dwg,.pdf,.jpg,.jpeg,.png" multiple onChange={handleFilesChange}/>
               </label>
             ) : (
               <>
                 <div className="contact-file-list">
                   {files.map((file, index) => (
-                    <div
-                      className="contact-file-item"
-                      key={`${file.name}-${file.lastModified}-${index}`}
-                    >
+                    <div className="contact-file-item" key={`${file.name}-${file.lastModified}-${index}`}>
                       <div className="contact-file-icon">
                         <img src={DocumentAttached} alt="" />
                       </div>
@@ -260,12 +251,7 @@ function ContactsInput({
                         {file.name}
                       </span>
 
-                      <button
-                        className="contact-file-remove"
-                        type="button"
-                        onClick={() => removeFile(index)}
-                        aria-label={`Удалить ${file.name}`}
-                      >
+                      <button className="contact-file-remove" type="button" onClick={() => removeFile(index)} aria-label={`Удалить ${file.name}`}>
                         <img src={CloseButton} alt="" />
                       </button>
                     </div>
@@ -274,13 +260,7 @@ function ContactsInput({
 
                 <label className="contact-file-add">
                   <img src={AddButton} alt="Добавить файл" />
-
-                  <input
-                    type="file"
-                    accept=".dwg,.pdf,.jpg,.jpeg,.png"
-                    multiple
-                    onChange={handleFilesChange}
-                  />
+                  <input type="file" accept=".dwg,.pdf,.jpg,.jpeg,.png" multiple onChange={handleFilesChange}/>
                 </label>
               </>
             )}

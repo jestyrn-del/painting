@@ -8,6 +8,7 @@ import LogoVeteran from "../../../public/Assets/Common-Logo-Veteran.svg";
 import DownArrow from '../../../public/Assets/Header-arrow-down.svg';
 
 import ContactModal from "../ContactModal/ContactModal";
+import RequestModal from "../RequestModal/RequestModal";
 import ContactsInput from "../ContactsInputPart/ContactsInputPart";
 
 type NavigationItem = {
@@ -76,7 +77,7 @@ const DropdownItems = ({
                 )}
               </>
             ) : (
-              <Link className="dropdown-link" to={item.href ?? "/development"}>
+              <Link className="dropdown-link" to={item.href ?? "/development"} onClick={onNavigate}>
                 {item.title}
               </Link>
             )}
@@ -412,6 +413,7 @@ export function Header() {
   const [equipmentType, setEquipmentType] = useState("");
   const [phone, setPhone] = useState("");
 
+  const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
 
   // Полностью закрыть меню
   const closeMenu = () => {
@@ -464,29 +466,21 @@ export function Header() {
           <img src={LogoVeteran} alt="В" />
         </Link>
 
-        <div
-          className="header-navigation-wrap"
-          ref={navigationRef}
-        >
-          <nav
-            className={`header-nav ${mobileMenuOpen ? "is-mobile-open" : ""}`}
-            id="main-navigation"
-          >
+        <div className="header-navigation-wrap" ref={navigationRef}>
+          {mobileMenuOpen && (
+            <button className="mobile-menu-close" type="button" aria-label="Закрыть меню" onClick={closeMenu}/>
+          )}
+
+          <nav className={`header-nav ${mobileMenuOpen ? "is-mobile-open" : ""}`} id="main-navigation">
             {navigation.map((item) => {
               const hasChildren = Boolean(item.children?.length);
               const isOpen = activeDropdown === item.id;
 
               return (
-                <div
-                  className={`header-nav-item ${isOpen ? "is-open" : ""}`}
-                  key={item.id}
-                >
+                <div className={`header-nav-item ${isOpen ? "is-open" : ""}`} key={item.id}>
                   {hasChildren ? (
                     <>
-                      <button
-                        className="header-nav-trigger"
-                        type="button"
-                        aria-expanded={isOpen}
+                      <button className="header-nav-trigger" type="button" aria-expanded={isOpen}
                         onClick={() => {
                           setActiveDropdown(isOpen ? null : item.id);
                           setOpenPath([]);
@@ -508,7 +502,11 @@ export function Header() {
                       )}
                     </>
                   ) : (
-                    <Link className="header-nav-link" to={item.href} onClick={closeMenu}>
+                    <Link
+                      className="header-nav-link"
+                      to={item.href ?? "/development"}
+                      onClick={closeMenu}
+                    >
                       {item.title}
                     </Link>
                   )}
@@ -516,6 +514,19 @@ export function Header() {
               );
             })}
           </nav>
+
+          {mobileMenuOpen && (
+            <button
+              className="mobile-menu-order"
+              type="button"
+              onClick={() => {
+                closeMenu();
+                setIsRequestModalOpen(true);
+              }}
+            >
+              заказать звонок
+            </button>
+          )}
         </div>
 
         <div className="header-contacts">
@@ -523,22 +534,11 @@ export function Header() {
           <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
         </div>
 
-        <a
-          className="button button--orange-bgr"
-          onClick={() => {
-            setDirection("Другое");
-            setIsModalOpen(true);
-          }}
-        >
+        <a className="button button--orange-bgr" onClick={() => setIsRequestModalOpen(true)}>
           заказать звонок
         </a>
 
-        <button
-          className={`mobile-menu-toggle ${mobileMenuOpen ? "is-open" : ""}`}
-          type="button"
-          aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
-          aria-expanded={mobileMenuOpen}
-          aria-controls="main-navigation"
+        <button className={`mobile-menu-toggle ${mobileMenuOpen ? "is-open" : ""}`} type="button" aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"} aria-expanded={mobileMenuOpen} aria-controls="main-navigation"
           onClick={() => {
             setMobileMenuOpen((prev) => {
               if (prev) {
@@ -554,10 +554,7 @@ export function Header() {
         </button>
       </div>
 
-      <ContactModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      >
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <ContactsInput
           direction={direction}
           setDirection={setDirection}
@@ -566,8 +563,17 @@ export function Header() {
           phone={phone}
           setPhone={setPhone}
           showTitle={true}
+          onClose={() => setIsModalOpen(false)}
         />
       </ContactModal>
+
+      <RequestModal
+        isOpen={isRequestModalOpen}
+        onClose={() => setIsRequestModalOpen(false)}
+        onSubmit={(data) => {
+          console.log(data);
+        }}
+      />
     </header>
   );
 }

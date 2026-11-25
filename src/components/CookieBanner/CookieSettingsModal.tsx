@@ -79,14 +79,7 @@ function CookieSettingsModal({
     disabled?: boolean;
     onClick?: () => void;
   }) => (
-    <button
-      type="button"
-      className={`cookie-switch ${checked ? "cookie-switch--on" : ""}`}
-      role="switch"
-      aria-checked={checked}
-      disabled={disabled}
-      onClick={onClick}
-    >
+    <button type="button" className={`cookie-switch ${checked ? "cookie-switch--on" : ""}`} role="switch" aria-checked={checked} disabled={disabled} onClick={onClick}>
       <span className="cookie-switch-thumb" />
     </button>
   );

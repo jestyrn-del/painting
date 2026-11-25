@@ -6,6 +6,7 @@ import '../components/ContactsInputPart/ContactsInputPart.css';
 import { Header } from '../components/Header/Header';
 import ContactsInput from '../components/ContactsInputPart/ContactsInputPart';
 import ContactModal from '../components/ContactModal/ContactModal';
+import ProductionVisitModal from "../components/ProductionVisitModal/ProductionVisitModal";
 
 import { Link } from "react-router-dom";
 
@@ -238,7 +239,7 @@ function Hero() {
           </div>
 
           <div className="hero-somethings">
-            <span>Производим и запускаем линии<br/>окраски, лофт-мебель и бытовки<br/>под заказ. Работаем по договору,<br/>с НДС.</span>
+            <span>Производим и запускаем линии<br/>окраски, лофт-мебель и бытовки<br/>под заказ. Работаем по договору,<br/>с НДС</span>
             <span>Красим изделия<br/>длиной до 7,2 м за 2–3<br/>рабочих дня</span>
             <div className="messangers-logo">
               <img src={TelegramMessanger}/>
@@ -284,8 +285,12 @@ function ServicesOverview() {
       <div className="container">
         <div className="services-grid">
           {services.map((service, index) => (
-            <article className="service-card" id={service.id} key={service.title}>
-              <div>
+            <article
+              className="service-card"
+              id={service.id}
+              key={service.id}
+            >
+              <div className="service-card-content">
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
                 <small>{service.details}</small>
@@ -300,9 +305,10 @@ function ServicesOverview() {
 
               <div className="service-card-bottom">
                 <div className="service-card-price">
-                    <img src={CommonComponent} alt="" />
-                    {service.price}
+                  <img src={CommonComponent} alt="" />
+                  {service.price}
                 </div>
+
                 {typeof service.form === "string" ? (
                   <button
                     type="button"
@@ -316,7 +322,10 @@ function ServicesOverview() {
                     <img src={RightArrow} alt="" />
                   </button>
                 ) : (
-                  <Link to="/development" className="service-card-more text-link">
+                  <Link
+                    to="/development"
+                    className="service-card-more text-link"
+                  >
                     {service.link}
                     <img src={RightArrow} alt="" />
                   </Link>
@@ -325,7 +334,7 @@ function ServicesOverview() {
             </article>
           ))}
         </div>
-          
+
         <ContactModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
@@ -338,6 +347,7 @@ function ServicesOverview() {
             phone={phone}
             setPhone={setPhone}
             showTitle={true}
+            onClose={() => setIsModalOpen(false)}
           />
         </ContactModal>
       </div>
@@ -399,7 +409,7 @@ function CustomerSolutions() {
                 изделие, без минимального<br/>
                 объёма. Цвет подберём<br/>
                 по <span>каталогу RAL</span><br/>
-                или образцу.
+                или образцу
               </span>
 
               <span>
@@ -538,6 +548,7 @@ function CustomerSolutions() {
           phone={phone}
           setPhone={setPhone}
           showTitle={true}
+          onClose={() => setIsModalOpen(false)}
         />
       </ContactModal>
     </section>
@@ -623,6 +634,7 @@ function ServicesCatalog() {
           phone={phone}
           setPhone={setPhone}
           showTitle={true}
+          onClose={() => setIsModalOpen(false)}
         />
       </ContactModal>
     </section>
@@ -684,6 +696,8 @@ function Production() {
     { name: "Турбо Дон", src: assetUrl("Assets/logo-7.svg") },
   ];
 
+  const [isVisitModalOpen, setIsVisitModalOpen] = useState(false);
+
   return (
     <section className="section" id="production">
       <div className="container production-content">
@@ -723,9 +737,9 @@ function Production() {
             Смотреть видеотур
           </Link>
 
-          <Link to="/development" className="button button--orange-bgr">
+          <button className="button button--orange-bgr" onClick={() => setIsVisitModalOpen(true)}>
             Приехать на производство
-          </Link>
+          </button>
         </div>
 
         <div className="production-trust">
@@ -741,6 +755,13 @@ function Production() {
             ))}
           </div>
         </div>
+        <ProductionVisitModal
+          isOpen={isVisitModalOpen}
+          onClose={() => setIsVisitModalOpen(false)}
+          onSubmit={(data) => {
+            console.log(data);
+          }}
+        />
       </div>
     </section>
   );
@@ -807,8 +828,7 @@ function Projects() {
                 <div>
                   {project.stats.map((stat) => (
                     <span>
-                      {stat}
-                      <br/>
+                      {stat}<br/>
                     </span>
                   ))}
                 </div>
@@ -820,33 +840,30 @@ function Projects() {
                 aria-label={`Посмотреть видео: ${project.title}`}
                 onClick={() => setActiveVideo(project.video)}
               >
-                <img src={assetUrl('Assets/common-video-start.svg')}/>
+                <img src={assetUrl('Assets/common-video-start.svg')} alt="" />
               </button>
+
+              {activeVideo === project.video && (
+                <div
+                  className="video-modal"
+                  onClick={() => setActiveVideo(null)}
+                >
+                  <button
+                    className="video-modal-close"
+                    type="button"
+                    onClick={() => setActiveVideo(null)}
+                    aria-label="Закрыть видео"
+                  >
+                    ×
+                  </button>
+
+                  <HlsVideo src={activeVideo} autoPlay />
+                </div>
+              )}
             </article>
           ))}
         </div>
       </div>
-
-      {activeVideo && (
-        <div
-          className="video-modal"
-          onClick={() => setActiveVideo(null)}
-        >
-          <button
-            className="video-modal-close"
-            type="button"
-            onClick={() => setActiveVideo(null)}
-            aria-label="Закрыть видео"
-          >
-            ×
-          </button>
-
-          <HlsVideo
-            src={activeVideo}
-            autoPlay
-          />
-        </div>
-      )}
     </section>
   );
 }
@@ -1136,9 +1153,8 @@ function Footer() {
                   src="https://yandex.com/map-widget/v1/?ll=39.603370%2C47.208037&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNDg4MTc3MjQ3EmbQoNC-0YHRgdC40Y8sINCg0L7RgdGC0L7Qsi3QvdCwLdCU0L7QvdGDLCDQnNCw0YjQuNC90L7RgdGC0YDQvtC40YLQtdC70YzQvdGL0Lkg0L_QtdGA0LXRg9C70L7QuiwgNy8xMTAiCg3aaR5CFQjVPEI%2C&z=17.23"
                   width="100%"
                   height="100%"
-                  frameBorder="1"
                   allowFullScreen
-                  style={{ position: "relative", borderRadius : "0.4vw"}}
+                  style={{ position: "relative", borderRadius : "0.4vw", borderColor : "transparent", border : "none"}}
                   title="Карта - Машиностроительный переулок, 7/110"
                 />
               </div>
@@ -1200,7 +1216,7 @@ function Footer() {
 
               <div className="footer-column-contacts">
                 <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
-                <a href="tel:+79282896222">8 928 289 62 22</a>
+                <a href="tel:+79381758777">8 938 17 587 77</a>
               </div>
 
               <div className="messangers-logo">
