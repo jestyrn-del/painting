@@ -530,7 +530,7 @@ export function Header() {
         </div>
 
         <div className="header-contacts">
-          <a href="tel:+79282896222">8 928 289 62 22</a>
+          <a href="tel:+79381758777">8 938 175 87 77</a>
           <a href="mailto:si@gk-veteran.ru">si@gk-veteran.ru</a>
         </div>
 

@@ -17,7 +17,6 @@ import '../../public/Assets/Fonts/Onest/Onest-use.css';
 import LogoVeteran from "../../public/Assets/Common-Logo-Veteran.svg";
 import RightArrow from '../../public/Assets/Common-Right-Arrow.svg';
 import RightArrowDark from '../../public/Assets/Common-Right-Arrow-Dark.svg';
-import CommonComponent from '../../public/Assets/Common-Icon.svg';
 
 import MaxMessanger from '../../public/Assets/Common-max.svg';
 import TelegramMessanger from '../../public/Assets/Common-telegram.svg';
@@ -305,7 +304,6 @@ function ServicesOverview() {
 
               <div className="service-card-bottom">
                 <div className="service-card-price">
-                  <img src={CommonComponent} alt="" />
                   {service.price}
                 </div>
 
@@ -515,7 +513,6 @@ function CustomerSolutions() {
         <div className="solutions">
           <div className="solutions-image" key={`solution-image-${activeTab}`}>
             <img src={selectedTab.image} alt={selectedTab.tab} />
-            <img src={CommonComponent} alt='' />
           </div>
 
           <div className="solutions-content" key={`solution-content-${activeTab}`}>
@@ -1066,8 +1063,6 @@ function ContactForm() {
               : "Заполните данные и мы с вами свяжемся"
             }
           </h2>
-
-          <img src={CommonComponent}/>
         </div>
 
         <div className="contact-right-block">
