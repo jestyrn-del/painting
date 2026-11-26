@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import "../Home.css";
 import '../../index.css';
 
@@ -14,6 +16,8 @@ import Arrow from '../../../public/Assets/Common-Right-Arrow.svg';
 
 
 function DevelopmentPage() {
+  const navigate = useNavigate();
+
   return (
     <main className="development-page" id="top">
       <Header /> 
@@ -35,7 +39,7 @@ function DevelopmentPage() {
             </p>
           </div>
 
-          <a className="dev-back-link" href="/">
+          <a className="dev-back-link" onClick={() => navigate(-1)}>
             <img className="dev-back-arrow" src={Arrow}/>
             <span>Назад</span>
           </a>

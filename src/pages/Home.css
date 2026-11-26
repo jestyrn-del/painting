@@ -152,7 +152,7 @@
     left: 0;
     width: 40vw;
     margin: 0;
-    color: #030308;
+    color: var(--dev-black);
     background: transparent;
     font-size: 2.8vw;
     font-weight: 600;
@@ -210,8 +210,8 @@
     display: none;
 }
 
-/* Services overview */
 
+/* Services overview */
 #services {
     padding-top: 8.33vh;
     padding-bottom: 8vh;
@@ -230,7 +230,6 @@
 }
 
 /* Text */
-
 .service-card h3 {
     margin: 0 0 1.4vh;
     background: transparent;
@@ -256,7 +255,6 @@
 }
 
 /* Image */
-
 .service-card {
     display: grid;
     min-width: 0;
@@ -289,7 +287,6 @@
 }
 
 /* Bottom */
-
 .service-card-bottom {
     display: flex;
     flex-direction: column;
@@ -311,13 +308,6 @@
     text-transform: uppercase;
 }
 
-.service-card-price img {
-    width: 1.875vw;
-    height: 2.78vh;
-    flex: 0 0 auto;
-    margin-right: 0.78vw;
-}
-
 .service-card-more {
     display: flex;
     align-items: center;
@@ -327,6 +317,7 @@
 }
 
 
+/* About */
 #about {
     padding-top: 6.67vh;
     padding-bottom: 8.33vh;
@@ -351,7 +342,7 @@
     color: var(--ink);
     background: transparent;
     font-size: 3.9vw;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.05;
     text-transform: uppercase;
 }
@@ -412,6 +403,7 @@
 
     object-fit: cover;
 }
+
 
 /* Customer solutions */
 .tabs {
@@ -516,6 +508,7 @@
     align-self: flex-end;
     margin-top: auto;
 }
+
 
 /* Service catalog */
 .services-catalog {
@@ -724,6 +717,7 @@
     outline-offset: 0.55vh;
 }
 
+
 /* Production */
 .production-content {
     display: flex;
@@ -923,7 +917,6 @@
 }
 
 
-
 /* Projects */
 .projects-grid {
     display: grid;
@@ -949,7 +942,6 @@
 }
 
 /* Затемнение видео-превью */
-
 .project-card::before {
     content: "";
     position: absolute;
@@ -958,7 +950,6 @@
 }
 
 /* Текст поверх изображения */
-
 .project-card-copy {
     position: relative;
     z-index: 1;
@@ -987,7 +978,6 @@
 }
 
 /* Кнопка воспроизведения */
-
 .project-video-button {
     position: absolute;
     right: 2vw;
@@ -1042,7 +1032,6 @@
     font-size: 2rem;
     cursor: pointer;
 }
-
 
 
 /* FAQ */
@@ -1148,6 +1137,7 @@
     font-size: var(--text-xs);
     font-weight: 600;
 }
+
 
 /* Blog */
 .blog-section {
@@ -1334,7 +1324,6 @@
     text-align: center;
 }
 
-
 .contact-manager {
     display: flex;
     min-width: 0;
@@ -1424,7 +1413,7 @@
 
 .footer-navigation {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 1.56vw;
     background: transparent;
 }
@@ -1581,6 +1570,7 @@
     gap: 2vh;
 }
 
+
 @keyframes solution-image-enter {
     from {
         opacity: 0.55;
@@ -1617,8 +1607,9 @@
     }
 }
 
+
 /* =========================
-   MOBILE — HERO
+   MOBILE - HERO
 ========================= */
 @media (max-width: 767px) {
     .container {
@@ -1627,7 +1618,7 @@
     }
 
     .section {
-        padding: 50px 0;
+        padding: 60px 0;
     }
 
     /* Hero */
@@ -1649,115 +1640,88 @@
         top: 0;
     }
 
-    /* Главный заголовок */
     .hero-inner h1 {
         position: absolute;
-        top: 129px;
-        left: 0;
+        top: 14vh;
         width: 100%;
-        font-size: 5vw;
-        font-weight: 600;
-        line-height: 1.14;
+        font-size: 2.2vh;
     }
 
-    /* Второй заголовок */
     .hero-inner h2 {
         position: absolute;
+        color: var(--dev-black);
         top: 24vh;
         left: 0;
         width: 100%;
-        color: #000;
-        font-size: 5vw;
-        font-weight: 600;
+        font-size: 2.2vh;
     }
 
     /* Дополнительная информация */
     .hero-somethings {
         position: absolute;
-        top: 330px;
+        top: 35vh;
         left: -3px;
         display: grid;
         grid-template-columns: 179px 128px;
-        gap: 14px 25px;
         width: 100%;
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 14px;
-    }
-
-    .hero-somethings > span {
-        width: 100%;
+        line-height: 1.14;
+        font-size: 1.1vh;
     }
 
     .messangers-logo {
-        grid-column: 1 / -1;
-        display: flex;
-        height: 24px;
-        gap: 10px;
-    }
-
-    .messangers-logo img {
-        width: 24px;
-        height: 24px;
-        object-fit: contain;
+        display: none;
     }
 
     /* Преимущества */
-
     .hero-advantages {
         position: absolute;
-        top: 653px;
+        top: 82vh;
         left: 2px;
         display: flex;
         flex-direction: column;
-        gap: 8px;
-        width: 150px;
+        gap: 1.5vh;
+        width: 35vw;
         color: var(--white);
-        font-size: 12px;
-        line-height: 14px;
+        font-size: 1.3vh;
+        line-height: 1.14;
     }
 
     .hero-advantages span {
         position: relative;
-        padding-left: 19px;
+        padding-left: 5vw;
     }
 
     .hero-advantages span::before {
         position: absolute;
         top: 3px;
         left: 0;
-        width: 9px;
-        height: 9px;
+        width: 2vw;
+        height: 2vw;
         margin: 0;
-        border-radius: 2px;
+        border-radius: 0.5vw;
     }
 
     /* Кнопка */
-
     .hero-content .hero-cta {
         position: absolute;
-        top: 751px;
+        top: 91vh;
         left: 2px;
-        display: inline-flex;
-        gap: 4px;
-        padding: 0;
-        font-size: 14px;
-        line-height: 17px;
+        gap: 1.5vw;
+        font-size: 1.5vh;
     }
 
     .hero-content .hero-cta img {
-        width: 23px;
-        height: 20px;
+        width: 3vh;
+        height: 2.3vh;
     }
 
     /* Фоновое изображение */
-
     .hero-visual {
         position: absolute;
-        top: 289px;
+        top: 45vh;
         left: 0;
         width: 100%;
-        height: 650px;
+        height: 523px;
         margin: 0;
     }
 
@@ -1766,5 +1730,269 @@
         height: 100%;
         object-fit: cover;
         object-position: center;
+    }
+}
+
+
+/* =========================
+   MOBILE - SEVICE
+========================= */
+@media (max-width: 767px) {
+    #services {
+        padding: 60px 0;
+    }
+
+    #services .container {
+        width: calc(100% - 50px);
+        margin: 0 auto;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2vh;
+        width: 100%;
+    }
+
+    /* Карточка */
+    .service-card {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 48vh;
+        padding: 2vh;
+        border: 1px solid var(--navy);
+        background: var(--white);
+    }
+
+    .service-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* Текст */
+    .service-card-content {
+        width: 100%;
+        min-width: 0;
+        padding: 0;
+    }
+
+    .service-card h3 {
+        margin: 0 0 1vh;
+        font-size: 2.2vh;
+    }
+
+    .service-card p {
+        margin: 0 0 1vh;
+        font-size: 1.7vh;
+        font-weight: 500;
+        line-height: 1.14;
+    }
+
+    .service-card small {
+        display: block;
+        font-size: 1.6vh;
+    }
+
+    /* Изображение */
+    .service-card-image {
+        position: absolute;
+        top: 18vh;
+        left: 1.8vh;
+        width: calc(100% - 36px);
+        height: 14vh;
+    }
+
+    /* Нижняя часть карточки */
+    .service-card-price {
+        position: absolute;
+        right: 2vh;
+        bottom: 7vh;
+        gap: 1vh;
+        min-height: 0;
+        max-width: calc(100% - 45px);
+        color: var(--navy);
+        font-size: 3vh;
+    }
+
+    .service-card-more {
+        position: absolute;
+        right: 2vh;
+        bottom: 3vh;
+        gap: 1vh;
+        font-size: 1.7vh;
+        font-weight: 600;
+    }
+
+    .service-card-more img {
+        width: 3vh;
+        height: 2.3vh;
+    }
+}
+
+
+/* =========================
+   MOBILE - STATS
+========================= */
+@media (max-width: 767px) {
+    #about {
+        padding: 0;
+    }
+    
+    #about .stats {
+        flex-direction: column;
+        
+        height: auto;
+        width: calc(100% - 50px);
+
+        margin: 0 auto;
+    }
+
+    /* Показатели */
+    .stats-list {
+        display: flex;
+        gap: 3.2vh;
+    }
+
+    .stats-item strong {
+        font-size: 5vh;
+    }
+
+    .stats-item span {
+        font-size: 2vh;
+        font-weight: 500;
+        line-height: 1.14;
+        text-transform: lowercase;
+    }
+
+    /* Видеоблок */
+    .stats-visual {
+        margin-top: 48px;
+        position: relative;
+        width: 100%;
+        height: 555px;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .stats-visual-rectangle {
+        width: 3.4vh;
+        height: 3.4vh;
+        align-self: flex-start;
+    }
+
+    .stats-visual-image {
+        flex: 0 0 56vh;
+    }
+
+    .stats-visual-image > span {
+        display: none;
+    }
+
+    .stats-video-preview {
+        height: 53vh;
+    }
+}
+
+
+/* =========================
+   MOBILE - SOLUTIONS
+========================= */
+@media (max-width: 767px) {
+    .section--gray {
+        padding: 50px 0;
+        background: #F6F6F6;
+    }
+
+    .section--gray .container {
+        width: calc(100% - 36px);
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .section--gray .section-title {
+        margin: 0 0 2vh;
+        font-size: 4.5vh;
+    }
+
+    .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5vh 6vw;
+        margin-bottom: 2vh;
+    }
+
+    .tabs-button {
+        font-size: 1.6vh;
+    }
+
+    .tabs-button:hover {
+        transform: none;
+    }
+
+    /* Внешняя карточка */
+    .solutions {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Область изображения */
+    .solutions-image {
+        min-height: 46vh;
+        overflow: hidden;
+    }
+
+    .solutions-image img {
+        position: absolute;
+        display: block;
+    }
+
+    /* Белая часть карточки */
+    .solutions-content {
+        padding: 2.5vh 2vh;
+    }
+
+    /* Заголовок */
+    .solutions-content h3 {
+        width: 100%;
+        color: var(--navy);
+        font-size: 2.3vh;
+        font-weight: 600;
+        line-height: 1.14;
+    }
+
+    /* Описание */
+    .solutions-description {
+        font-size: 1.56vh;
+    }
+
+    .solutions-description > div {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1vh;
+    }
+
+    .solutions-description > div > span {
+        display: block;
+        min-width: 0;
+        flex: 1 1 0;
+    }
+
+    .solutions-description > div > span > span {
+        color: var(--orange);
+    }
+
+    /* Кнопка */
+    .solutions-content .button {
+        min-height: 3vh;
+        margin-top: 2vh;
+        padding: 1vh;
+        border-radius: 1vw;
+        font-size: 1.2vh;
     }
 }

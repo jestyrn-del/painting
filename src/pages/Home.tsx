@@ -284,11 +284,7 @@ function ServicesOverview() {
       <div className="container">
         <div className="services-grid">
           {services.map((service, index) => (
-            <article
-              className="service-card"
-              id={service.id}
-              key={service.id}
-            >
+            <article className="service-card" id={service.id} key={service.id}>
               <div className="service-card-content">
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
@@ -426,12 +422,11 @@ function CustomerSolutions() {
         form: "Покраска",
         title: 
         <>
-          Красим металлоконструкции партиями<br/>
-          до 300 м² в смену. Работаем<br/>
-          по договору, с НДС, ЭДО<br/>
-          и закрывающими документами. Можем<br/>
-          встроиться в ваш производственный<br/>
-          график
+          Красим металлоконструкции <br/>
+          партиями до 300 м² в смену. <br/>
+          Работаем по договору, с НДС, <br/>
+          ЭДО и закрывающими документами. <br className="desktop-br"/>
+          Можем встроиться в ваш производственный график
         </>,
         description: 
           <>
@@ -446,11 +441,16 @@ function CustomerSolutions() {
         form: "Покраска",
         title: 
         <>
-          Принимаем ваши изделия на окраску<br/>
-          по акту и фиксируем их состояние<br/>
-          на фото до начала работ. Краска наша<br/>
-          или ваша. Отвечаем за изделие<br/>
-          с момента приёмки до отгрузки
+          Принимаем ваши изделия <br/>
+          на окраску по акту <br className="mobile-br"/>
+          и фиксируем <br className="desktop-br"/>
+          их состояние <br className="mobile-br"/>
+          на фото до начала <br className="desktop-br"/>
+          работ. <br className="mobile-br"/>
+          Краска наша или ваша. <br/>
+          Отвечаем за изделие <br className="mobile-br"/>
+          с момента <br className="desktop-br"/>
+          приёмки до отгрузки
         </>,
         description:
         <>
@@ -466,10 +466,13 @@ function CustomerSolutions() {
         form: "Продукция",
         title:
         <>
-          Производим лофт-мебель,<br/>
-          металлокаркасы и бытовки. Отгружаем<br/>
-          партиями от 1 шт. Красим в своём цехе,<br/>
-          поэтому цвет и сроки контролируем сами
+          Производим лофт-мебель, <br/>
+          металлокаркасы и бытовки. <br className="mobile-br"/>
+          Отгружаем <br className="desktop-br"/>
+          партиями от 1 шт. <br className="mobile-br"/>
+          Красим в своём цехе, <br className="desktop-br"/>
+          поэтому цвет и сроки <br className="mobile-br"/>
+          контролируем сами
         </>,
         description: 
         <>
@@ -1104,6 +1107,12 @@ function Footer() {
         <div className="footer-main">
             <div className="footer-links-block">
               <nav className="footer-navigation" aria-label="Навигация в подвале">
+                <div>
+                  <h3>Карта сайта</h3>
+                  <Link to="/">Домашняя страница</Link>
+                  <Link to="/development">Разработка</Link>
+                  <Link to="/about">О компании</Link>
+                </div>
                 <div>
                   <h3>Услуги</h3>
                   <Link to="/development">Порошковая окраска</Link>
