@@ -118,14 +118,14 @@ const serviceCategories = [
       {
         title: "Покраска радиаторов",
         description: "Чугунных, стальных, алюминиевых",
-        price: "от 4 000 ₽/компл.",
+        price: <>от 4 000 ₽/<br/>компл.</>,
         term: "от 2–3 дней",
         form: "Покраска",
       },
       {
         title: "Крупногабаритная окраска",
         description: "Изделия до 7,2 м × 1,4 × 2,5 м",
-        price: "от 10 000 ₽/компл.",
+        price: <>от 10 000 ₽/<br/>компл.</>,
         term: "от 3 дней",
         form: "Покраска",
       },
@@ -641,6 +641,107 @@ function ServicesCatalog() {
   );
 }
 
+
+const projects = [
+  {
+    title: "Линия порошковой окраски",
+    stats: 
+    [
+      <>
+        Печь полимеризации:<br/>
+        54 кВт<br/>
+        2,5 × 2,2 × 3,5 м
+      </>,
+
+      <>
+        Покрасочная камера:<br/>
+        2,5 × 3,0 × 3,5 м
+      </>,
+
+      <>
+        Транспортная эстакада:<br/>
+        11 усиленных направляющих
+      </>
+    ],
+    preview: assetUrl("Assets/projects-preview-1.svg"),
+    video: assetUrl("Assets/projects-video-1.mp4"),
+  },
+  {
+    title: "Линия порошковой окраски, Подмосковье",
+    stats: 
+    [
+      <>Печь полимеризации открытого типа:<br/>90 кВт</>,
+      <>2 камеры нанесения<br/>с фильтровальными модулями</>,
+      <>Эстакады</>,
+      <>Отстойник</>
+    ],
+    preview: assetUrl("Assets/projects-preview-2.svg"),
+    video: assetUrl("Assets/projects-video-2.mp4"),
+  },
+];
+
+function Projects() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
+  return (
+    <section className="section section--gray" id="projects">
+      <div className="container">
+        <h2 className="section-title">Проекты <br className="mobile-br"/>в цифрах</h2>
+
+        <div className="projects-grid">
+          {projects.map((project) => (
+            <article
+              className="project-card"
+              key={project.title}
+              style={{ backgroundImage: `url(${project.preview})` }}
+            >
+              <div className="project-card-copy">
+                <h3>{project.title}</h3>
+
+                <div>
+                  {project.stats.map((stat) => (
+                    <span>
+                      {stat}<br/>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <button
+                className="project-video-button"
+                type="button"
+                aria-label={`Посмотреть видео: ${project.title}`}
+                onClick={() => setActiveVideo(project.video)}
+              >
+                <img src={assetUrl('Assets/common-video-start.svg')} alt="" />
+              </button>
+
+              {activeVideo === project.video && (
+                <div
+                  className="video-modal"
+                  onClick={() => setActiveVideo(null)}
+                >
+                  <button
+                    className="video-modal-close"
+                    type="button"
+                    onClick={() => setActiveVideo(null)}
+                    aria-label="Закрыть видео"
+                  >
+                    ×
+                  </button>
+
+                  <HlsVideo src={activeVideo} autoPlay />
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function Production() {
   const productionFeatures = [
     {
@@ -648,7 +749,7 @@ function Production() {
       description:
       <>
         Толщиномер, тест на адгезию, протокол
-        <br/>к партии
+        <br className="desktop-br"/>к партии
       </>,
       icon: assetUrl("Assets/aio-icon-1.svg"),
     },
@@ -704,9 +805,15 @@ function Production() {
         <div className="production-intro">
           <h2 className="section-title">Все в одном цехе</h2>
           <p>
-            На площадке 600 м² в Ростове-на-Дону работают 2 окрасочные линии,<br/>
-            участок пескоструйной обработки, сварочное производство и цех сборки оборудования.<br/>
-            Красим, варим и собираем сами.
+            На площадке 600 м² <br className="mobile-br"/>
+            в Ростове-на-Дону работают <br className="mobile-br"/>
+            2 окрасочные линии, <br className="desktop-br"/>
+            участок <br className="mobile-br"/>
+            пескоструйной обработки, <br className="mobile-br"/>
+            сварочное производство и цех <br className="mobile-br"/>
+            сборки оборудования. <br className="desktop-br"/>
+            Красим, <br className="mobile-br"/>
+            варим и собираем сами.
           </p>
         </div>
 
@@ -766,109 +873,6 @@ function Production() {
     </section>
   );
 }
-
-
-
-const projects = [
-  {
-    title: "Линия порошковой окраски",
-    stats: 
-    [
-      <>
-        Печь полимеризации:<br/>
-        54 кВт<br/>
-        2,5 × 2,2 × 3,5 м
-      </>,
-
-      <>
-        Покрасочная камера:<br/>
-        2,5 × 3,0 × 3,5 м
-      </>,
-
-      <>
-        Транспортная эстакада:<br/>
-        11 усиленных направляющих
-      </>
-    ],
-    preview: assetUrl("Assets/projects-preview-1.svg"),
-    video: assetUrl("Assets/projects-video-1.mp4"),
-  },
-  {
-    title: "Линия порошковой окраски, Подмосковье",
-    stats: 
-    [
-      <>Печь полимеризации открытого типа:<br/>90 кВт</>,
-      <>2 камеры нанесения<br/>с фильтровальными модулями</>,
-      <>Эстакады</>,
-      <>Отстойник</>
-    ],
-    preview: assetUrl("Assets/projects-preview-2.svg"),
-    video: assetUrl("Assets/projects-video-2.mp4"),
-  },
-];
-
-function Projects() {
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
-
-  return (
-    <section className="section section--gray" id="projects">
-      <div className="container">
-        <h2 className="section-title">Проекты в цифрах</h2>
-
-        <div className="projects-grid">
-          {projects.map((project) => (
-            <article
-              className="project-card"
-              key={project.title}
-              style={{ backgroundImage: `url(${project.preview})` }}
-            >
-              <div className="project-card-copy">
-                <h3>{project.title}</h3>
-
-                <div>
-                  {project.stats.map((stat) => (
-                    <span>
-                      {stat}<br/>
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <button
-                className="project-video-button"
-                type="button"
-                aria-label={`Посмотреть видео: ${project.title}`}
-                onClick={() => setActiveVideo(project.video)}
-              >
-                <img src={assetUrl('Assets/common-video-start.svg')} alt="" />
-              </button>
-
-              {activeVideo === project.video && (
-                <div
-                  className="video-modal"
-                  onClick={() => setActiveVideo(null)}
-                >
-                  <button
-                    className="video-modal-close"
-                    type="button"
-                    onClick={() => setActiveVideo(null)}
-                    aria-label="Закрыть видео"
-                  >
-                    ×
-                  </button>
-
-                  <HlsVideo src={activeVideo} autoPlay />
-                </div>
-              )}
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-
 
 function FAQ() {
   const [openQuestion, setOpenQuestion] = useState<number | null>(null);
@@ -1108,12 +1112,6 @@ function Footer() {
             <div className="footer-links-block">
               <nav className="footer-navigation" aria-label="Навигация в подвале">
                 <div>
-                  <h3>Карта сайта</h3>
-                  <Link to="/">Домашняя страница</Link>
-                  <Link to="/development">Разработка</Link>
-                  <Link to="/about">О компании</Link>
-                </div>
-                <div>
                   <h3>Услуги</h3>
                   <Link to="/development">Порошковая окраска</Link>
                   <Link to="/development">Крупногабарит</Link>
@@ -1123,6 +1121,12 @@ function Footer() {
                   <Link to="/development">Металлообработка</Link>
                   <Link to="/development">Калькулятор</Link>
                   <Link to="/development">Цены</Link>
+                </div>
+                <div>
+                  <h3>Карта сайта</h3>
+                  <Link to="/">Домашняя страница</Link>
+                  <Link to="/development">Разработка</Link>
+                  <Link to="/about">О компании</Link>
                 </div>
                 <div>
                   <h3>Оборудование</h3>
@@ -1201,13 +1205,14 @@ function Footer() {
                 <Link to="/development">Согласие на обработку ПД</Link>
               </div>
             </div>
-            
+
             <div className="footer-brand">
               <div className="footer-column-info">
                 <p>
                   Адрес производства:<br/>
                   г. Ростов-на-Дону,<br/>
-                  Машиностроительный пер.,<br/>
+                  Машиностроительный <br className="mobile-br"/>
+                  пер., <br className="desktop-br"/>
                   7/110
                 </p>
 
