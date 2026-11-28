@@ -11,7 +11,6 @@ import { Header } from '../../components/Header/Header';
 import Background from '../../../public/Assets/Development-Page.svg';
 
 // Decorations
-import Decoration from '../../../public/Assets/Common-Icon.svg';
 import Arrow from '../../../public/Assets/Common-Right-Arrow.svg';
 
 
@@ -44,8 +43,6 @@ function DevelopmentPage() {
             <span>Назад</span>
           </a>
         </div>
-
-        <img className="dev-message-decoration" src={Decoration}/>
       </section>
     </main>
   );
