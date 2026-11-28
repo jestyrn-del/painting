@@ -1611,7 +1611,7 @@
 /* =========================
    MOBILE - HERO
 ========================= */
-@media (max-width: 767px) {
+@media (aspect-ratio < 2/1) {
     .hero-section .section--gray {
         padding: 0;
     }
@@ -1737,7 +1737,7 @@
 /* =========================
    MOBILE - SEVICE
 ========================= */
-@media (max-width: 767px) {
+@media (aspect-ratio < 2/1) {
     #services {
         padding: 60px 0;
     }
@@ -1835,7 +1835,7 @@
 /* =========================
    MOBILE - STATS
 ========================= */
-@media (max-width: 767px) {
+@media (aspect-ratio < 2/1) {
     #about {
         padding: 0;
     }
@@ -1901,7 +1901,7 @@
 /* =========================
    MOBILE - SOLUTIONS
 ========================= */
-@media (max-width: 767px) {
+@media (aspect-ratio < 2/1) {
     .section--gray {
         background: #F6F6F6;
     }
@@ -1994,7 +1994,7 @@
 /* =========================
    MOBILE - SERVICES CATALOG
 ========================= */
-@media (max-width: 767px) {
+@media (aspect-ratio < 2/1) {
     .services-catalog {
         padding: 50px 0;
         overflow: hidden;
@@ -2094,7 +2094,7 @@
 /* =========================
    MOBILE - PROJECTS
 ========================= */
-@media (max-width: 767px) {
+@media (aspect-ratio < 2/1) {
     #projects {
         padding: 50px 0;
     }
@@ -2136,7 +2136,7 @@
 /* =========================
    MOBILE - PRODUCTION
 ========================= */
-@media (max-width: 767px) {
+@media (aspect-ratio < 2/1) {
     #production {
         padding: 50px 0;
     }
@@ -2250,7 +2250,7 @@
 /* =========================
    MOBILE - FAQ
 ========================= */
-@media (max-width: 767px) {
+@media (aspect-ratio < 2/1) {
     .faq-layout {
         display: flex;
         flex-direction: column;
@@ -2307,7 +2307,7 @@
 /* =========================
    MOBILE - BLOG
 ========================= */
-@media (max-width: 767px) {
+@media (aspect-ratio < 2/1) {
     #blog .section-title {
         font-size: 4vh;
     }
@@ -2386,7 +2386,7 @@
 /* =========================
    MOBILE - CONTACTS
 ========================= */
-@media (max-width: 767px) {
+@media (aspect-ratio < 2/1) {
     .contact-section {
         padding: 0 2vh 7vh;
     }
@@ -2427,7 +2427,7 @@
 /* =========================
    MOBILE - FOOTER
 ========================= */
-@media (max-width: 767px) {
+@media (aspect-ratio < 2/1) {
     .footer {
         padding: 4vh 2vh 4vh;
     }

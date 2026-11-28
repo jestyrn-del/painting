@@ -346,7 +346,7 @@
 /* =========================
    MOBILE HEADER
 ========================= */
-@media (max-width: 900px) {
+@media (aspect-ratio < 2/1) {
   .header {
     top: 30px;
   }
